@@ -414,11 +414,37 @@
     font-size: 12px;
     letter-spacing: -0.13px;
   }
-  .move.od {
-    background: linear-gradient(180deg, rgba(94,106,210,0.10) 0%, rgba(94,106,210,0.04) 100%);
-    border-color: rgba(138,138,255,0.35);
+  /* Overdrives: same surface as specials, differentiated by a small
+     OVERDRIVE label above the input — no blue rectangle (AI-smell). */
+  .move.od { position: relative; }
+  .move.od .od-flag {
+    font-size: 10px;
+    font-weight: 590;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--char);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: -2px;
   }
-  .move.od .input { color: var(--accent); }
+  .move.od .od-flag::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--char-line) 0%, transparent 80%);
+  }
+  .move.od .od-cost {
+    color: var(--text-3);
+    font-weight: 510;
+    letter-spacing: 0.12em;
+  }
+
+  /* Arrow input: give arrow glyphs a bit of spacing so they read
+     as motion, and pull button letters tighter. */
+  .move .input .arrows { letter-spacing: 0.02em; margin-right: 6px; }
+  .move .input .btn { color: var(--text); font-weight: 590; }
+  .move .input .prefix { color: var(--text-3); font-weight: 510; margin-right: 4px; }
 
   /* === Footer === */
   footer {
@@ -579,32 +605,42 @@
     <details class="sect" open>
       <summary><h2>必殺技</h2><span class="count">7</span><span class="accent-bar"></span></summary>
       <div class="specials">
-        <div class="move"><span class="input">236P</span><span class="name">Gun Flame</span><span class="note">地上飛び道具</span></div>
-        <div class="move"><span class="input">623S / 623H</span><span class="name">Volcanic Viper</span><span class="note">対空昇龍 ／ H 高性能</span></div>
-        <div class="move"><span class="input">236K</span><span class="name">Bandit Revolver</span><span class="note">突進 ／ 空中可</span></div>
-        <div class="move"><span class="input">214K</span><span class="name">Bandit Bringer</span><span class="note">飛び込み中段</span></div>
-        <div class="move"><span class="input">623K</span><span class="name">Wild Throw</span><span class="note">コマンド投げ</span></div>
-        <div class="move"><span class="input">41236H</span><span class="name">Fafnir</span><span class="note">突進 ／ ガード有利</span></div>
-        <div class="move"><span class="input">j.214S</span><span class="name">Night Raid Vortex</span><span class="note">空中専用</span></div>
+        <div class="move"><span class="input"><span class="arrows">↓↘→</span><span class="btn">P</span></span><span class="name">Gun Flame</span><span class="note">地上飛び道具</span></div>
+        <div class="move"><span class="input"><span class="arrows">→↓↘</span><span class="btn">S / HS</span></span><span class="name">Volcanic Viper</span><span class="note">対空昇龍 ／ HS 高性能</span></div>
+        <div class="move"><span class="input"><span class="arrows">↓↘→</span><span class="btn">K</span></span><span class="name">Bandit Revolver</span><span class="note">突進 ／ 空中可</span></div>
+        <div class="move"><span class="input"><span class="arrows">↓↙←</span><span class="btn">K</span></span><span class="name">Bandit Bringer</span><span class="note">飛び込み中段</span></div>
+        <div class="move"><span class="input"><span class="arrows">→↓↘</span><span class="btn">K</span></span><span class="name">Wild Throw</span><span class="note">コマンド投げ</span></div>
+        <div class="move"><span class="input"><span class="arrows">←↙↓↘→</span><span class="btn">HS</span></span><span class="name">Fafnir</span><span class="note">突進 ／ ガード有利</span></div>
+        <div class="move"><span class="input"><span class="prefix">空中</span><span class="arrows">↓↙←</span><span class="btn">S</span></span><span class="name">Night Raid Vortex</span><span class="note">空中専用</span></div>
       </div>
     </details>
 
     <details class="sect" open>
       <summary><h2>覚醒必殺技</h2><span class="count">2</span><span class="accent-bar"></span></summary>
       <div class="specials">
-        <div class="move od"><span class="input">632146H</span><span class="name">Tyrant Rave</span><span class="note">乱舞 ／ テンション 50%</span></div>
-        <div class="move od"><span class="input">236236H</span><span class="name">Heavy Mob Cemetery</span><span class="note">飛び道具 ／ 50%</span></div>
+        <div class="move od">
+          <span class="od-flag">Overdrive <span class="od-cost">テンション 50%</span></span>
+          <span class="input"><span class="arrows">→↘↓↙←→</span><span class="btn">HS</span></span>
+          <span class="name">Tyrant Rave</span>
+          <span class="note">乱舞</span>
+        </div>
+        <div class="move od">
+          <span class="od-flag">Overdrive <span class="od-cost">テンション 50%</span></span>
+          <span class="input"><span class="arrows">↓↘→↓↘→</span><span class="btn">HS</span></span>
+          <span class="name">Heavy Mob Cemetery</span>
+          <span class="note">飛び道具</span>
+        </div>
       </div>
     </details>
 
     <details class="sect">
       <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
       <div class="specials">
-        <div class="move"><span class="input">4 / 6 + HS</span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
-        <div class="move"><span class="input">5D</span><span class="name">ダスト</span><span class="note">中段始動 ／ 全キャラ共通</span></div>
-        <div class="move"><span class="input">P + K</span><span class="name">フォルトレスディフェンス</span><span class="note">ガード中 ／ テンション消費</span></div>
-        <div class="move"><span class="input">P+K+S</span><span class="name">ロマンキャンセル</span><span class="note">攻撃中 ／ テンション 50%</span></div>
-        <div class="move"><span class="input">D 系入力</span><span class="name">サイクバースト</span><span class="note">被弾中 ／ 1ラウンド 1回</span></div>
+        <div class="move"><span class="input"><span class="arrows">←/→</span><span class="btn">+ HS</span></span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
+        <div class="move"><span class="input"><span class="btn">D</span></span><span class="name">ダスト</span><span class="note">中段始動 ／ 全キャラ共通</span></div>
+        <div class="move"><span class="input"><span class="btn">P + K</span></span><span class="name">フォルトレスディフェンス</span><span class="note">ガード中 ／ テンション消費</span></div>
+        <div class="move"><span class="input"><span class="btn">P + K + S</span></span><span class="name">ロマンキャンセル</span><span class="note">攻撃中 ／ テンション 50%</span></div>
+        <div class="move"><span class="input"><span class="prefix">被弾中</span><span class="btn">D 系入力</span></span><span class="name">サイクバースト</span><span class="note">1ラウンド 1回</span></div>
       </div>
     </details>
 
@@ -619,7 +655,7 @@
     <span class="sep">／</span>
     <span class="key high">上</span> 中段
   </span>
-  <span>入力はテンキー表記（<code>236</code> = ↓↘→）</span>
+  <span>方向: <code>↓↘→</code> = 下→右下→右（ゲーム内表記準拠）</span>
   <span>RC = ロマンキャンセル</span>
   <span class="credit">キャラクター素材・ロゴ: GUILTY GEAR -STRIVE- 公式ファンキット ／ © ARC SYSTEM WORKS</span>
 </footer>
