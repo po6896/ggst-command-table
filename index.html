@@ -38,25 +38,78 @@
     letter-spacing: -0.165px;
   }
 
+  /* Character roster — horizontal SD-chibi selector */
+  .roster {
+    display: flex;
+    gap: 2px;
+    overflow-x: auto;
+    padding: 6px 0 10px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle);
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-4) transparent;
+  }
+  .roster::-webkit-scrollbar { height: 6px; }
+  .roster::-webkit-scrollbar-track { background: transparent; }
+  .roster::-webkit-scrollbar-thumb { background: var(--text-4); border-radius: 3px; }
+  .roster a {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+    text-decoration: none;
+  }
+  .roster a:hover {
+    border-color: var(--text-3);
+    background: var(--surface-3);
+    transform: translateY(-1px);
+  }
+  .roster a.active {
+    border-color: var(--char);
+    background: rgba(255,122,61,0.12);
+    box-shadow: 0 0 0 1px rgba(255,122,61,0.30);
+  }
+  .roster a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    display: block;
+  }
+
   header {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border-subtle);
   }
   .avatar {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     flex: none;
     border-radius: 50%;
     background: rgba(255,122,61,0.10);
-    border: 1px solid rgba(255,122,61,0.45);
+    border: 1.5px solid rgba(255,122,61,0.55);
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .avatar svg { display: block; }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    display: block;
+  }
   .name-block { display: flex; flex-direction: column; gap: 4px; }
   h1 {
     font-size: 44px;
@@ -241,6 +294,7 @@
     flex-wrap: wrap;
   }
   footer .key { color: var(--text); font-weight: 590; }
+  footer .credit { color: var(--text-4); font-size: 11px; flex-basis: 100%; margin-top: 6px; }
 
   footer code {
     font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -267,24 +321,45 @@
 </head>
 <body>
 
+<nav class="roster" aria-label="キャラクター一覧">
+  <a href="#" class="active" title="Sol Badguy"><img src="assets/sd/01_chibi_sol.png" alt="Sol Badguy" loading="lazy"></a>
+  <a href="#" title="Ky Kiske"><img src="assets/sd/02_chibi_ky.png" alt="Ky Kiske" loading="lazy"></a>
+  <a href="#" title="May"><img src="assets/sd/03_chibi_may.png" alt="May" loading="lazy"></a>
+  <a href="#" title="Axl Low"><img src="assets/sd/04_chibi_axl.png" alt="Axl Low" loading="lazy"></a>
+  <a href="#" title="Chipp Zanuff"><img src="assets/sd/05_chibi_chp.png" alt="Chipp Zanuff" loading="lazy"></a>
+  <a href="#" title="Potemkin"><img src="assets/sd/06_chibi_pot.png" alt="Potemkin" loading="lazy"></a>
+  <a href="#" title="Faust"><img src="assets/sd/07_chibi_fau.png" alt="Faust" loading="lazy"></a>
+  <a href="#" title="Millia Rage"><img src="assets/sd/08_chibi_mll.png" alt="Millia Rage" loading="lazy"></a>
+  <a href="#" title="Zato-1"><img src="assets/sd/09_chibi_zat.png" alt="Zato-1" loading="lazy"></a>
+  <a href="#" title="Ramlethal Valentine"><img src="assets/sd/10_chibi_ram.png" alt="Ramlethal Valentine" loading="lazy"></a>
+  <a href="#" title="Leo Whitefang"><img src="assets/sd/11_chibi_leo.png" alt="Leo Whitefang" loading="lazy"></a>
+  <a href="#" title="名残雪 / Nagoriyuki"><img src="assets/sd/12_chibi_nag_a.png" alt="Nagoriyuki" loading="lazy"></a>
+  <a href="#" title="Giovanna"><img src="assets/sd/13_chibi_gio.png" alt="Giovanna" loading="lazy"></a>
+  <a href="#" title="闇慈 / Anji Mito"><img src="assets/sd/14_chibi_anj.png" alt="Anji Mito" loading="lazy"></a>
+  <a href="#" title="I-No"><img src="assets/sd/15_chibi_ino.png" alt="I-No" loading="lazy"></a>
+  <a href="#" title="Goldlewis Dickinson"><img src="assets/sd/16_chibi_gld.png" alt="Goldlewis Dickinson" loading="lazy"></a>
+  <a href="#" title="Jack-O'"><img src="assets/sd/17_chibi_jko_a.png" alt="Jack-O'" loading="lazy"></a>
+  <a href="#" title="Happy Chaos"><img src="assets/sd/18_chibi_cos.png" alt="Happy Chaos" loading="lazy"></a>
+  <a href="#" title="梅喧 / Baiken"><img src="assets/sd/19_chibi_bkn.png" alt="Baiken" loading="lazy"></a>
+  <a href="#" title="Testament"><img src="assets/sd/20_chibi_tst.png" alt="Testament" loading="lazy"></a>
+  <a href="#" title="Bridget"><img src="assets/sd/21_chibi_bgt.png" alt="Bridget" loading="lazy"></a>
+  <a href="#" title="Sin Kiske"><img src="assets/sd/22_chibi_sin.png" alt="Sin Kiske" loading="lazy"></a>
+  <a href="#" title="Bedman?"><img src="assets/sd/23_chibi_bed_a.png" alt="Bedman?" loading="lazy"></a>
+  <a href="#" title="Asuka R#"><img src="assets/sd/24_chibi_ask.png" alt="Asuka R#" loading="lazy"></a>
+  <a href="#" title="Johnny"><img src="assets/sd/25_chibi_jhn.png" alt="Johnny" loading="lazy"></a>
+  <a href="#" title="Elphelt Valentine"><img src="assets/sd/26_chibi_elp.png" alt="Elphelt Valentine" loading="lazy"></a>
+  <a href="#" title="A.B.A"><img src="assets/sd/27_chibi_aba.png" alt="A.B.A" loading="lazy"></a>
+  <a href="#" title="Slayer"><img src="assets/sd/28_chibi_sly.png" alt="Slayer" loading="lazy"></a>
+  <a href="#" title="Dizzy"><img src="assets/sd/29_chibi_dzy.png" alt="Dizzy" loading="lazy"></a>
+  <a href="#" title="Venom"><img src="assets/sd/30_chibi_ven.png" alt="Venom" loading="lazy"></a>
+  <a href="#" title="Unika"><img src="assets/sd/31_chibi_uni.png" alt="Unika" loading="lazy"></a>
+  <a href="#" title="Lucy"><img src="assets/sd/32_chibi_luc.png" alt="Lucy" loading="lazy"></a>
+  <a href="#" title="Queen Dizzy"><img src="assets/sd/33_chibi_jam.png" alt="33_jam" loading="lazy"></a>
+</nav>
+
 <header>
-  <div class="avatar" aria-hidden="true">
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-      <path d="M20 6
-               C 18 11, 14 13, 14 21
-               C 14 26, 17 30, 20 30
-               C 23 30, 26 26, 26 22
-               C 26 18, 24 16, 23 12
-               C 22 14, 21 15, 21 11
-               C 21 9, 20.5 7.5, 20 6 Z"
-            fill="var(--char)"/>
-      <path d="M20 16
-               C 19 18, 17.5 19, 17.5 22
-               C 17.5 24, 18.5 25.5, 20 25.5
-               C 21.5 25.5, 22.5 24, 22.5 22
-               C 22.5 20, 21 18.5, 20 16 Z"
-            fill="#ffd1ad" opacity="0.85"/>
-    </svg>
+  <div class="avatar">
+    <img src="assets/sd/01_chibi_sol.png" alt="Sol Badguy SD chibi">
   </div>
   <div class="name-block">
     <h1>Sol Badguy</h1>
@@ -370,6 +445,7 @@
   <span><span class="key">中</span> ガード可 ／ <span class="key">下</span> 下段 ／ <span class="key">上</span> 中段</span>
   <span>入力はテンキー表記（<code>236</code> = ↓↘→）</span>
   <span>RC = ロマンキャンセル</span>
+  <span class="credit">キャラクター素材: GUILTY GEAR -STRIVE- 公式ファンキット ／ © ARC SYSTEM WORKS</span>
 </footer>
 
 </body>

@@ -3,3 +3,6 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Original 1200px chibi PNGs from Fankit; we ship resized 256px versions in assets/sd/
+assets/sd-1200-original/
