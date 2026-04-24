@@ -2,213 +2,268 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>GGST コマンド表 — Sol Badguy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sol Badguy — GGST</title>
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 <style>
   :root {
-    --bg: #0f1115;
-    --panel: #171a21;
-    --line: #2a2f3a;
-    --text: #e6e8ec;
-    --sub: #9aa3b2;
-    --mid: #3b82f6;
-    --low: #10b981;
-    --high: #ef4444;
-    --throw: #a855f7;
-    --spec: #f59e0b;
-    --od: #fbbf24;
+    --bg: #08090a;
+    --panel: #0f1011;
+    --surface-1: rgba(255,255,255,0.02);
+    --surface-2: rgba(255,255,255,0.04);
+    --surface-3: rgba(255,255,255,0.05);
+    --border-subtle: rgba(255,255,255,0.05);
+    --border: rgba(255,255,255,0.08);
+    --text: #f7f8f8;
+    --text-2: #d0d6e0;
+    --text-3: #8a8f98;
+    --text-4: #62666d;
+    --accent: #7170ff;
+    --accent-bg: #5e6ad2;
   }
   * { box-sizing: border-box; }
+  html, body { background: var(--bg); }
   body {
     margin: 0;
-    padding: 16px 20px;
-    background: var(--bg);
+    padding: 32px 40px 48px;
     color: var(--text);
-    font-family: "Segoe UI", "Yu Gothic UI", system-ui, sans-serif;
-    font-size: 13px;
-    line-height: 1.35;
+    font-family: "Inter Variable", "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
+    font-feature-settings: "cv01", "ss03";
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: -0.165px;
   }
+
   header {
     display: flex;
     align-items: baseline;
-    gap: 12px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 6px;
+    gap: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-subtle);
   }
-  h1 { font-size: 18px; margin: 0; letter-spacing: 0.02em; }
-  header .sub { color: var(--sub); font-size: 12px; }
-  section { margin-top: 10px; }
-  h2 {
+  h1 {
+    font-size: 48px;
+    font-weight: 510;
+    line-height: 1.0;
+    letter-spacing: -1.056px;
+    margin: 0;
+    color: var(--text);
+  }
+  header .meta {
     font-size: 13px;
-    margin: 0 0 6px 0;
-    color: var(--sub);
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    color: var(--text-3);
+    font-weight: 400;
+    letter-spacing: -0.13px;
+  }
+  header .meta .dot { color: var(--text-4); margin: 0 8px; }
+
+  section { margin-top: 28px; }
+  h2 {
+    font-size: 11px;
+    margin: 0 0 12px 0;
+    color: var(--text-3);
+    font-weight: 510;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
   }
 
-  .grid-normals {
+  .normals {
     display: grid;
-    grid-template-columns: 44px repeat(6, 1fr);
-    gap: 4px;
+    grid-template-columns: 32px repeat(6, 1fr);
+    gap: 6px;
   }
-  .grid-normals .rowhead {
+  .normals .colhead,
+  .normals .rowhead {
+    color: var(--text-4);
+    font-size: 11px;
+    font-weight: 510;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--sub);
-    background: var(--panel);
-    border-radius: 4px;
-    font-size: 12px;
+    padding: 6px 0;
   }
   .cell {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--line);
-    border-radius: 4px;
-    padding: 6px 8px;
-    min-height: 52px;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    min-height: 64px;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    justify-content: space-between;
+    transition: background 120ms ease;
   }
-  .cell.empty { visibility: hidden; }
-  .cell .cmd { font-weight: 700; font-size: 13px; }
-  .cell .meta { color: var(--sub); font-size: 11px; }
-  .cell.mid   { border-left-color: var(--mid); }
-  .cell.low   { border-left-color: var(--low); }
-  .cell.high  { border-left-color: var(--high); }
-  .cell.throw { border-left-color: var(--throw); }
+  .cell:hover { background: var(--surface-2); }
+  .cell.empty {
+    background: transparent;
+    border: 1px dashed rgba(255,255,255,0.04);
+  }
+  .cell .top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .cell .cmd {
+    font-weight: 590;
+    font-size: 14px;
+    color: var(--text);
+    letter-spacing: -0.15px;
+  }
+  .cell .tag {
+    font-size: 10px;
+    font-weight: 510;
+    color: var(--text-4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .cell .meta {
+    color: var(--text-3);
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: -0.13px;
+  }
 
   .specials {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
+    gap: 6px;
   }
   .move {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--spec);
-    border-radius: 4px;
-    padding: 6px 8px;
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
+    transition: background 120ms ease;
   }
-  .move.od { border-left-color: var(--od); }
+  .move:hover { background: var(--surface-2); }
   .move .input {
-    font-family: "Consolas", "Courier New", monospace;
-    font-weight: 700;
+    font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 510;
     font-size: 13px;
-    color: #fde68a;
+    color: var(--accent);
+    letter-spacing: 0;
   }
-  .move .name { font-size: 12px; }
-  .move .note { color: var(--sub); font-size: 11px; }
+  .move .name {
+    font-size: 14px;
+    font-weight: 510;
+    color: var(--text);
+    letter-spacing: -0.15px;
+  }
+  .move .note {
+    color: var(--text-3);
+    font-size: 12px;
+    letter-spacing: -0.13px;
+  }
+  .move.od {
+    background: rgba(94,106,210,0.08);
+    border-color: rgba(113,112,255,0.25);
+  }
 
-  .legend {
+  footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-4);
+    font-size: 12px;
+    letter-spacing: -0.13px;
     display: flex;
+    gap: 18px;
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 6px 10px;
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 4px;
+  }
+  footer .key { color: var(--text-2); font-weight: 510; }
+  footer code {
+    font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    color: var(--text-2);
+    background: var(--surface-2);
+    padding: 1px 5px;
+    border-radius: 3px;
     font-size: 11px;
-    color: var(--sub);
   }
-  .legend span::before {
-    content: "";
-    display: inline-block;
-    width: 10px; height: 10px;
-    margin-right: 5px;
-    vertical-align: middle;
-    border-radius: 2px;
-  }
-  .lg-mid::before   { background: var(--mid); }
-  .lg-low::before   { background: var(--low); }
-  .lg-high::before  { background: var(--high); }
-  .lg-throw::before { background: var(--throw); }
-  .lg-spec::before  { background: var(--spec); }
-  .lg-od::before    { background: var(--od); }
 </style>
 </head>
 <body>
 
 <header>
   <h1>Sol Badguy</h1>
-  <span class="sub">GUILTY GEAR -STRIVE- / コマンド表（最小版）</span>
+  <span class="meta">
+    GUILTY GEAR -STRIVE-
+    <span class="dot">·</span>
+    Command reference
+  </span>
 </header>
 
 <section>
-  <h2>通常技 / NORMALS</h2>
-  <div class="grid-normals">
-    <div class="rowhead"></div>
-    <div class="rowhead">P</div>
-    <div class="rowhead">K</div>
-    <div class="rowhead">S(近)</div>
-    <div class="rowhead">S(遠)</div>
-    <div class="rowhead">H</div>
-    <div class="rowhead">D</div>
+  <h2>通常技</h2>
+  <div class="normals">
+    <div class="colhead"></div>
+    <div class="colhead">P</div>
+    <div class="colhead">K</div>
+    <div class="colhead">S 近</div>
+    <div class="colhead">S 遠</div>
+    <div class="colhead">H</div>
+    <div class="colhead">D</div>
 
     <div class="rowhead">立</div>
-    <div class="cell mid"><div class="cmd">5P</div><div class="meta">発生4 / 連打可</div></div>
-    <div class="cell mid"><div class="cmd">5K</div><div class="meta">発生7</div></div>
-    <div class="cell mid"><div class="cmd">c.S</div><div class="meta">発生7 / 主力</div></div>
-    <div class="cell mid"><div class="cmd">f.S</div><div class="meta">発生9 / 牽制</div></div>
-    <div class="cell mid"><div class="cmd">5H</div><div class="meta">発生11</div></div>
-    <div class="cell high"><div class="cmd">5D</div><div class="meta">ダスト / 中段</div></div>
+    <div class="cell"><div class="top"><span class="cmd">5P</span><span class="tag">中</span></div><div class="meta">発生 4 ／ 連打可</div></div>
+    <div class="cell"><div class="top"><span class="cmd">5K</span><span class="tag">中</span></div><div class="meta">発生 7</div></div>
+    <div class="cell"><div class="top"><span class="cmd">c.S</span><span class="tag">中</span></div><div class="meta">発生 7 ／ 主力</div></div>
+    <div class="cell"><div class="top"><span class="cmd">f.S</span><span class="tag">中</span></div><div class="meta">発生 9 ／ 牽制</div></div>
+    <div class="cell"><div class="top"><span class="cmd">5H</span><span class="tag">中</span></div><div class="meta">発生 11</div></div>
+    <div class="cell"><div class="top"><span class="cmd">5D</span><span class="tag">上</span></div><div class="meta">ダスト</div></div>
 
     <div class="rowhead">屈</div>
-    <div class="cell mid"><div class="cmd">2P</div><div class="meta">発生5</div></div>
-    <div class="cell low"><div class="cmd">2K</div><div class="meta">下段 / 発生6</div></div>
-    <div class="cell mid"><div class="cmd">2S</div><div class="meta">発生8</div></div>
+    <div class="cell"><div class="top"><span class="cmd">2P</span><span class="tag">中</span></div><div class="meta">発生 5</div></div>
+    <div class="cell"><div class="top"><span class="cmd">2K</span><span class="tag">下</span></div><div class="meta">発生 6</div></div>
+    <div class="cell"><div class="top"><span class="cmd">2S</span><span class="tag">中</span></div><div class="meta">発生 8</div></div>
     <div class="cell empty"></div>
-    <div class="cell mid"><div class="cmd">2H</div><div class="meta">対空</div></div>
-    <div class="cell low"><div class="cmd">2D</div><div class="meta">下段 / 足払い</div></div>
+    <div class="cell"><div class="top"><span class="cmd">2H</span><span class="tag">中</span></div><div class="meta">対空</div></div>
+    <div class="cell"><div class="top"><span class="cmd">2D</span><span class="tag">下</span></div><div class="meta">足払い</div></div>
 
     <div class="rowhead">空</div>
-    <div class="cell high"><div class="cmd">j.P</div><div class="meta">中段 / 刻み</div></div>
-    <div class="cell high"><div class="cmd">j.K</div><div class="meta">中段</div></div>
-    <div class="cell high"><div class="cmd">j.S</div><div class="meta">主力空中</div></div>
+    <div class="cell"><div class="top"><span class="cmd">j.P</span><span class="tag">上</span></div><div class="meta">刻み</div></div>
+    <div class="cell"><div class="top"><span class="cmd">j.K</span><span class="tag">上</span></div><div class="meta">空対空</div></div>
+    <div class="cell"><div class="top"><span class="cmd">j.S</span><span class="tag">上</span></div><div class="meta">主力</div></div>
     <div class="cell empty"></div>
-    <div class="cell high"><div class="cmd">j.H</div><div class="meta">めくり候補</div></div>
-    <div class="cell high"><div class="cmd">j.D</div><div class="meta">空中ダスト</div></div>
+    <div class="cell"><div class="top"><span class="cmd">j.H</span><span class="tag">上</span></div><div class="meta">めくり</div></div>
+    <div class="cell"><div class="top"><span class="cmd">j.D</span><span class="tag">上</span></div><div class="meta">空中ダスト</div></div>
   </div>
 </section>
 
 <section>
-  <h2>必殺技 / SPECIALS</h2>
+  <h2>必殺技</h2>
   <div class="specials">
-    <div class="move"><div class="input">236P</div><div class="name">Gun Flame</div><div class="note">地上飛び道具</div></div>
-    <div class="move"><div class="input">623S / 623H</div><div class="name">Volcanic Viper</div><div class="note">対空昇龍 / Hは高性能</div></div>
-    <div class="move"><div class="input">236K</div><div class="name">Bandit Revolver</div><div class="note">突進 / 空中可</div></div>
-    <div class="move"><div class="input">214K</div><div class="name">Bandit Bringer</div><div class="note">飛び込み中段</div></div>
-    <div class="move"><div class="input">623K</div><div class="name">Wild Throw</div><div class="note">コマンド投げ</div></div>
-    <div class="move"><div class="input">41236H</div><div class="name">Fafnir</div><div class="note">ダッシュパンチ / ガード有利</div></div>
-    <div class="move"><div class="input">j.214S</div><div class="name">Night Raid Vortex</div><div class="note">空中専用</div></div>
-    <div class="move"><div class="input">63214S</div><div class="name">Bringer (派生)</div><div class="note">※省略</div></div>
+    <div class="move"><span class="input">236P</span><span class="name">Gun Flame</span><span class="note">地上飛び道具</span></div>
+    <div class="move"><span class="input">623S / 623H</span><span class="name">Volcanic Viper</span><span class="note">対空昇龍 ／ H 高性能</span></div>
+    <div class="move"><span class="input">236K</span><span class="name">Bandit Revolver</span><span class="note">突進 ／ 空中可</span></div>
+    <div class="move"><span class="input">214K</span><span class="name">Bandit Bringer</span><span class="note">飛び込み中段</span></div>
+    <div class="move"><span class="input">623K</span><span class="name">Wild Throw</span><span class="note">コマンド投げ</span></div>
+    <div class="move"><span class="input">41236H</span><span class="name">Fafnir</span><span class="note">突進 ／ ガード有利</span></div>
+    <div class="move"><span class="input">j.214S</span><span class="name">Night Raid Vortex</span><span class="note">空中専用</span></div>
+    <div class="move"><span class="input">63214S</span><span class="name">Bringer 派生</span><span class="note">— 省略 —</span></div>
   </div>
 </section>
 
 <section>
-  <h2>覚醒必殺技 / OVERDRIVES</h2>
+  <h2>覚醒必殺技</h2>
   <div class="specials">
-    <div class="move od"><div class="input">632146H</div><div class="name">Tyrant Rave</div><div class="note">乱舞系 / 50%</div></div>
-    <div class="move od"><div class="input">236236H</div><div class="name">Heavy Mob Cemetery</div><div class="note">飛び道具 / 50%</div></div>
+    <div class="move od"><span class="input">632146H</span><span class="name">Tyrant Rave</span><span class="note">乱舞 ／ テンション 50%</span></div>
+    <div class="move od"><span class="input">236236H</span><span class="name">Heavy Mob Cemetery</span><span class="note">飛び道具 ／ 50%</span></div>
   </div>
 </section>
 
-<section>
-  <h2>凡例 / LEGEND</h2>
-  <div class="legend">
-    <span class="lg-mid">中段ガード可</span>
-    <span class="lg-low">下段</span>
-    <span class="lg-high">中段(上段)攻撃</span>
-    <span class="lg-throw">投げ</span>
-    <span class="lg-spec">必殺技</span>
-    <span class="lg-od">覚醒必殺技</span>
-    <span>RC=ロマキャン / 数字はテンキー表記(236=↓↘→)</span>
-  </div>
-</section>
+<footer>
+  <span><span class="key">中</span> ガード可 ／ <span class="key">下</span> 下段 ／ <span class="key">上</span> 中段</span>
+  <span>入力はテンキー表記（<code>236</code> = ↓↘→）</span>
+  <span>RC = ロマンキャンセル</span>
+</footer>
 
 </body>
 </html>

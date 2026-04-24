@@ -10,8 +10,9 @@ https://po6896.github.io/ggst-command-table/
 ## 構成
 
 - `index.html` — Sol Badguy 1キャラ分（最小版）
+- `DESIGN.md` — UI トークン（Linear 系。VoltAgent / awesome-design-md より）
 
-依存なし。HTMLを開くだけで動く。
+依存なし。HTMLを開くだけで動く（Inter Variable は rsms.me から CDN 読込）。
 
 ## 拡張予定
 
