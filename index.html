@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sol Badguy — GGST</title>
+<title>Sol Badguy — GGST Command List</title>
+<link rel="icon" type="image/png" href="assets/sd/01_chibi_sol.png">
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 <style>
@@ -15,20 +16,22 @@
     --surface-3: rgba(255,255,255,0.05);
     --border-subtle: rgba(255,255,255,0.05);
     --border: rgba(255,255,255,0.08);
-    --text: #f7f8f8;       /* 19.5:1  AAA */
-    --text-2: #d0d6e0;     /* 13.5:1  AAA */
-    --text-3: #a8aeb6;     /*  8.7:1  AAA — bumped from #8a8f98 (6.1:1) */
-    --text-4: #7d828a;     /*  5.0:1  AA  — bumped from #62666d (3.5:1) */
-    --accent: #8a8aff;     /*  6.0:1  AA  — bumped from #7170ff (5.2:1) */
-    --accent-bg: #5e6ad2;  /* used only as bg under white text */
-    --decor: rgba(255,255,255,0.10); /* non-text decorative (dots, dividers) */
-    --char: #ff7a3d;       /* per-character accent (Sol: flame orange) */
+    --text: #f7f8f8;
+    --text-2: #d0d6e0;
+    --text-3: #a8aeb6;
+    --text-4: #7d828a;
+    --accent: #8a8aff;
+    --decor: rgba(255,255,255,0.10);
+    --char: #ff7a3d;        /* Sol: flame orange */
+    --char-2: #ffb37a;      /* Sol: lighter ember */
+    --char-bg: rgba(255,122,61,0.10);
+    --char-line: rgba(255,122,61,0.45);
   }
   * { box-sizing: border-box; }
   html, body { background: var(--bg); }
   body {
     margin: 0;
-    padding: 32px 40px 48px;
+    padding: 24px 32px 40px;
     color: var(--text);
     font-family: "Inter Variable", "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
     font-feature-settings: "cv01", "ss03";
@@ -38,13 +41,52 @@
     letter-spacing: -0.165px;
   }
 
-  /* Character roster — horizontal SD-chibi selector */
+  /* === Top bar with official GGST logo === */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .topbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .topbar .brand-logo {
+    height: 38px;
+    width: auto;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  .topbar .pipe {
+    width: 1px;
+    height: 24px;
+    background: var(--border);
+  }
+  .topbar .title {
+    font-size: 12px;
+    font-weight: 590;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+  .topbar .right {
+    font-size: 11px;
+    color: var(--text-4);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* === Roster === */
   .roster {
     display: flex;
-    gap: 2px;
+    gap: 4px;
     overflow-x: auto;
-    padding: 6px 0 10px;
-    margin-bottom: 12px;
+    padding: 12px 0;
+    margin-bottom: 22px;
     border-bottom: 1px solid var(--border-subtle);
     scrollbar-width: thin;
     scrollbar-color: var(--text-4) transparent;
@@ -54,8 +96,8 @@
   .roster::-webkit-scrollbar-thumb { background: var(--text-4); border-radius: 3px; }
   .roster a {
     flex: none;
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     background: var(--surface-1);
     border: 1px solid var(--border-subtle);
@@ -63,18 +105,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+    transition: transform 120ms ease, border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
     text-decoration: none;
+    position: relative;
   }
   .roster a:hover {
-    border-color: var(--text-3);
+    border-color: var(--text-2);
     background: var(--surface-3);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
   .roster a.active {
     border-color: var(--char);
-    background: rgba(255,122,61,0.12);
-    box-shadow: 0 0 0 1px rgba(255,122,61,0.30);
+    background: var(--char-bg);
+    box-shadow: 0 0 0 2px rgba(255,122,61,0.20), 0 4px 14px rgba(255,122,61,0.25);
+    transform: translateY(-2px);
   }
   .roster a img {
     width: 100%;
@@ -84,64 +128,121 @@
     display: block;
   }
 
-  header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-subtle);
+  /* === Two-column layout === */
+  .layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 32px;
+    align-items: start;
   }
-  .avatar {
-    width: 64px;
-    height: 64px;
-    flex: none;
-    border-radius: 50%;
-    background: rgba(255,122,61,0.10);
-    border: 1.5px solid rgba(255,122,61,0.55);
+  @media (max-width: 1100px) {
+    .layout { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  /* === Hero (Sol full-art panel) === */
+  .hero {
+    position: relative;
+    padding: 0;
+    border: 1px solid var(--char-line);
+    border-radius: 10px;
+    background:
+      radial-gradient(120% 60% at 50% 0%, var(--char-bg) 0%, transparent 70%),
+      linear-gradient(180deg, rgba(15,16,17,0.0) 0%, var(--panel) 100%);
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
-  .avatar img {
+  .hero-art {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background:
+      radial-gradient(60% 50% at 50% 60%, rgba(255,122,61,0.18) 0%, transparent 70%),
+      var(--bg);
+  }
+  .hero-art img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 22%;
+    object-position: center 12%;
     display: block;
+    filter: drop-shadow(0 4px 18px rgba(0,0,0,0.6));
   }
-  .name-block { display: flex; flex-direction: column; gap: 4px; }
-  h1 {
-    font-size: 44px;
-    font-weight: 510;
+  .hero-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, var(--panel) 100%);
+    pointer-events: none;
+  }
+  .hero-body { padding: 16px 18px 18px; }
+  .hero-body .role {
+    font-size: 10px;
+    font-weight: 590;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--char);
+    margin-bottom: 6px;
+  }
+  .hero-body h1 {
+    font-size: 38px;
+    font-weight: 590;
     line-height: 1.0;
-    letter-spacing: -0.968px;
+    letter-spacing: -1.0px;
     margin: 0;
     color: var(--text);
+    text-transform: uppercase;
+    font-feature-settings: "cv01", "ss03";
   }
-  header .meta {
-    font-size: 13px;
+  .hero-body .jp {
+    display: block;
+    font-size: 15px;
     color: var(--text-3);
-    font-weight: 400;
-    letter-spacing: -0.13px;
+    letter-spacing: 0.05em;
+    margin-top: 6px;
+    font-weight: 510;
   }
-  header .meta .dot { color: var(--decor); margin: 0 8px; }
+  .hero-stats {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-subtle);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+  }
+  .hero-stats dt {
+    font-size: 10px;
+    color: var(--text-4);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 510;
+    grid-column: 1;
+  }
+  .hero-stats dd {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 590;
+    margin: 0;
+    grid-column: 2;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-stats dd .sub { color: var(--text-3); font-weight: 400; font-size: 12px; margin-left: 4px; }
 
-  /* Collapsible sections */
+  /* === Sections === */
   details.sect {
-    margin-top: 24px;
-    border: none;
+    margin-top: 0;
+    margin-bottom: 22px;
   }
+  details.sect:last-child { margin-bottom: 0; }
   details.sect > summary {
     list-style: none;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 4px 0 12px;
+    gap: 10px;
+    padding: 4px 0 14px;
     user-select: none;
-    border-radius: 4px;
-    outline-offset: 4px;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 12px;
   }
   details.sect > summary::-webkit-details-marker { display: none; }
   details.sect > summary::before {
@@ -154,33 +255,36 @@
     transition: transform 140ms ease;
     margin-right: 2px;
   }
-  details.sect[open] > summary::before {
-    transform: rotate(45deg);
+  details.sect[open] > summary::before { transform: rotate(45deg); }
+  details.sect > summary:hover::before { border-color: var(--char); }
+  details.sect > summary:focus-visible { outline: 2px solid var(--char); outline-offset: 4px; border-radius: 2px; }
+  details.sect > summary h2 {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 590;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
   }
-  details.sect > summary:hover::before { border-color: var(--text); }
-  details.sect > summary:focus-visible {
-    outline: 2px solid var(--accent);
-  }
-  details.sect > summary h2 { margin: 0; }
   details.sect > summary .count {
     color: var(--text-4);
     font-size: 11px;
     font-weight: 510;
     letter-spacing: 0.04em;
     margin-left: 4px;
+    font-variant-numeric: tabular-nums;
   }
-  h2 {
-    font-size: 11px;
-    margin: 0;
-    color: var(--text-3);
-    font-weight: 510;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+  details.sect > summary .accent-bar {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--char-line) 0%, transparent 60%);
+    margin-left: 4px;
   }
 
+  /* === Normals grid (5 cols, no empty cells) === */
   .normals {
     display: grid;
-    grid-template-columns: 32px repeat(6, 1fr);
+    grid-template-columns: 32px repeat(5, 1fr);
     gap: 6px;
   }
   .normals .colhead,
@@ -200,16 +304,15 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 10px 12px;
-    min-height: 64px;
+    min-height: 70px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: background 120ms ease;
+    transition: background 120ms ease, border-color 120ms ease;
   }
-  .cell:hover { background: var(--surface-2); }
-  .cell.empty {
-    background: transparent;
-    border: 1px dashed rgba(255,255,255,0.04);
+  .cell:hover {
+    background: var(--surface-2);
+    border-color: var(--char-line);
   }
   .cell .top {
     display: flex;
@@ -218,10 +321,11 @@
     gap: 8px;
   }
   .cell .cmd {
+    font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     font-weight: 590;
-    font-size: 14px;
-    color: var(--text);
-    letter-spacing: -0.15px;
+    font-size: 18px;
+    color: var(--char);
+    letter-spacing: 0;
   }
   .cell .tag {
     font-size: 11px;
@@ -234,41 +338,60 @@
     letter-spacing: 0.04em;
     flex: none;
   }
-  .cell .tag.low  { color: var(--text); border-color: rgba(255,255,255,0.18); }
+  .cell .tag.low,
   .cell .tag.high { color: var(--text); border-color: rgba(255,255,255,0.18); }
   .cell .meta {
     color: var(--text-3);
     font-size: 12px;
     line-height: 1.4;
     letter-spacing: -0.13px;
+    margin-top: 4px;
   }
 
+  /* Split cell (e.g. standing S = c.S / f.S in one column) */
+  .cell.stack { padding: 0; }
+  .cell.stack .sub {
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cell.stack .sub + .sub { border-top: 1px solid var(--border-subtle); }
+
+  /* === Specials / Overdrives === */
   .specials {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  @media (max-width: 1400px) {
+    .specials { grid-template-columns: repeat(2, 1fr); }
   }
   .move {
     background: var(--surface-1);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 12px 14px;
+    padding: 14px 16px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    transition: background 120ms ease;
+    gap: 6px;
+    transition: background 120ms ease, border-color 120ms ease;
   }
-  .move:hover { background: var(--surface-2); }
+  .move:hover {
+    background: var(--surface-2);
+    border-color: var(--char-line);
+  }
   .move .input {
     font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    font-weight: 510;
-    font-size: 13px;
-    color: var(--accent);
+    font-weight: 590;
+    font-size: 22px;
+    color: var(--char);
     letter-spacing: 0;
+    line-height: 1;
   }
   .move .name {
-    font-size: 14px;
-    font-weight: 510;
+    font-size: 15px;
+    font-weight: 590;
     color: var(--text);
     letter-spacing: -0.15px;
   }
@@ -278,10 +401,12 @@
     letter-spacing: -0.13px;
   }
   .move.od {
-    background: rgba(94,106,210,0.10);
-    border-color: rgba(138,138,255,0.30);
+    background: linear-gradient(180deg, rgba(94,106,210,0.10) 0%, rgba(94,106,210,0.04) 100%);
+    border-color: rgba(138,138,255,0.35);
   }
+  .move.od .input { color: var(--accent); }
 
+  /* === Footer === */
   footer {
     margin-top: 32px;
     padding-top: 16px;
@@ -294,19 +419,24 @@
     flex-wrap: wrap;
   }
   footer .key { color: var(--text); font-weight: 590; }
-  footer .credit { color: var(--text-4); font-size: 11px; flex-basis: 100%; margin-top: 6px; }
-
   footer code {
     font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     color: var(--text-2);
     background: var(--surface-2);
     padding: 1px 5px;
     border-radius: 3px;
+    font-size: 12px;
+  }
+  footer .credit {
+    color: var(--text-4);
     font-size: 11px;
+    flex-basis: 100%;
+    margin-top: 6px;
+    letter-spacing: 0.02em;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .cell, .move { transition: none; }
+    .cell, .move, .roster a { transition: none; }
     details.sect > summary::before { transition: none; }
   }
   @media (prefers-contrast: more) {
@@ -320,6 +450,15 @@
 </style>
 </head>
 <body>
+
+<header class="topbar">
+  <div class="brand">
+    <img class="brand-logo" src="assets/logo/logo_ggst_pos.png" alt="GUILTY GEAR -STRIVE-">
+    <span class="pipe"></span>
+    <span class="title">Command List</span>
+  </div>
+  <span class="right">For arcade reference</span>
+</header>
 
 <nav class="roster" aria-label="キャラクター一覧">
   <a href="#" class="active" title="Sol Badguy"><img src="assets/sd/01_chibi_sol.png" alt="Sol Badguy" loading="lazy"></a>
@@ -344,8 +483,8 @@
   <a href="#" title="Testament"><img src="assets/sd/20_chibi_tst.png" alt="Testament" loading="lazy"></a>
   <a href="#" title="Bridget"><img src="assets/sd/21_chibi_bgt.png" alt="Bridget" loading="lazy"></a>
   <a href="#" title="Sin Kiske"><img src="assets/sd/22_chibi_sin.png" alt="Sin Kiske" loading="lazy"></a>
-  <a href="#" title="Bedman?"><img src="assets/sd/23_chibi_bed_a.png" alt="Bedman?" loading="lazy"></a>
-  <a href="#" title="Asuka R#"><img src="assets/sd/24_chibi_ask.png" alt="Asuka R#" loading="lazy"></a>
+  <a href="#" title="ベッドマン? / Bedman?"><img src="assets/sd/23_chibi_bed_a.png" alt="Bedman?" loading="lazy"></a>
+  <a href="#" title="飛鳥R♯ / Asuka R#"><img src="assets/sd/24_chibi_ask.png" alt="Asuka R#" loading="lazy"></a>
   <a href="#" title="Johnny"><img src="assets/sd/25_chibi_jhn.png" alt="Johnny" loading="lazy"></a>
   <a href="#" title="Elphelt Valentine"><img src="assets/sd/26_chibi_elp.png" alt="Elphelt Valentine" loading="lazy"></a>
   <a href="#" title="A.B.A"><img src="assets/sd/27_chibi_aba.png" alt="A.B.A" loading="lazy"></a>
@@ -354,98 +493,106 @@
   <a href="#" title="Venom"><img src="assets/sd/30_chibi_ven.png" alt="Venom" loading="lazy"></a>
   <a href="#" title="Unika"><img src="assets/sd/31_chibi_uni.png" alt="Unika" loading="lazy"></a>
   <a href="#" title="Lucy"><img src="assets/sd/32_chibi_luc.png" alt="Lucy" loading="lazy"></a>
-  <a href="#" title="Queen Dizzy"><img src="assets/sd/33_chibi_jam.png" alt="33_jam" loading="lazy"></a>
+  <a href="#" title="Jam Kuradoberi"><img src="assets/sd/33_chibi_jam.png" alt="Jam Kuradoberi" loading="lazy"></a>
 </nav>
 
-<header>
-  <div class="avatar">
-    <img src="assets/sd/01_chibi_sol.png" alt="Sol Badguy SD chibi">
+<main class="layout">
+
+  <aside class="hero">
+    <div class="hero-art">
+      <img src="assets/full/chara01_sol.png" alt="Sol Badguy">
+    </div>
+    <div class="hero-body">
+      <div class="role">No. 01 / Power</div>
+      <h1>Sol Badguy</h1>
+      <span class="jp">ソル＝バッドガイ</span>
+      <dl class="hero-stats">
+        <dt>HP</dt>            <dd>420</dd>
+        <dt>体重</dt>           <dd>中</dd>
+        <dt>ダッシュ</dt>        <dd>ステップ</dd>
+        <dt>レンジ</dt>          <dd>近〜中<span class="sub">（鈍器系）</span></dd>
+      </dl>
+    </div>
+  </aside>
+
+  <div class="content">
+
+    <details class="sect" open>
+      <summary><h2>通常技</h2><span class="count">15</span><span class="accent-bar"></span></summary>
+      <div class="normals">
+        <div class="colhead"></div>
+        <div class="colhead">P</div>
+        <div class="colhead">K</div>
+        <div class="colhead">S</div>
+        <div class="colhead">H</div>
+        <div class="colhead">D</div>
+
+        <div class="rowhead">立</div>
+        <div class="cell"><div class="top"><span class="cmd">5P</span><span class="tag">中</span></div><div class="meta">発生 4 ／ 連打可</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5K</span><span class="tag">中</span></div><div class="meta">発生 7</div></div>
+        <div class="cell stack">
+          <div class="sub"><div class="top"><span class="cmd">c.S</span><span class="tag">中</span></div><div class="meta">発生 7 ／ 主力</div></div>
+          <div class="sub"><div class="top"><span class="cmd">f.S</span><span class="tag">中</span></div><div class="meta">発生 9 ／ 牽制</div></div>
+        </div>
+        <div class="cell"><div class="top"><span class="cmd">5H</span><span class="tag">中</span></div><div class="meta">発生 11</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5D</span><span class="tag high">上</span></div><div class="meta">ダスト</div></div>
+
+        <div class="rowhead">屈</div>
+        <div class="cell"><div class="top"><span class="cmd">2P</span><span class="tag">中</span></div><div class="meta">発生 5</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2K</span><span class="tag low">下</span></div><div class="meta">発生 6</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2S</span><span class="tag">中</span></div><div class="meta">発生 8</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2H</span><span class="tag">中</span></div><div class="meta">対空</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2D</span><span class="tag low">下</span></div><div class="meta">足払い</div></div>
+
+        <div class="rowhead">空</div>
+        <div class="cell"><div class="top"><span class="cmd">j.P</span><span class="tag high">上</span></div><div class="meta">刻み</div></div>
+        <div class="cell"><div class="top"><span class="cmd">j.K</span><span class="tag high">上</span></div><div class="meta">空対空</div></div>
+        <div class="cell"><div class="top"><span class="cmd">j.S</span><span class="tag high">上</span></div><div class="meta">主力</div></div>
+        <div class="cell"><div class="top"><span class="cmd">j.H</span><span class="tag high">上</span></div><div class="meta">めくり</div></div>
+        <div class="cell"><div class="top"><span class="cmd">j.D</span><span class="tag high">上</span></div><div class="meta">空中ダスト</div></div>
+      </div>
+    </details>
+
+    <details class="sect" open>
+      <summary><h2>必殺技</h2><span class="count">7</span><span class="accent-bar"></span></summary>
+      <div class="specials">
+        <div class="move"><span class="input">236P</span><span class="name">Gun Flame</span><span class="note">地上飛び道具</span></div>
+        <div class="move"><span class="input">623S / 623H</span><span class="name">Volcanic Viper</span><span class="note">対空昇龍 ／ H 高性能</span></div>
+        <div class="move"><span class="input">236K</span><span class="name">Bandit Revolver</span><span class="note">突進 ／ 空中可</span></div>
+        <div class="move"><span class="input">214K</span><span class="name">Bandit Bringer</span><span class="note">飛び込み中段</span></div>
+        <div class="move"><span class="input">623K</span><span class="name">Wild Throw</span><span class="note">コマンド投げ</span></div>
+        <div class="move"><span class="input">41236H</span><span class="name">Fafnir</span><span class="note">突進 ／ ガード有利</span></div>
+        <div class="move"><span class="input">j.214S</span><span class="name">Night Raid Vortex</span><span class="note">空中専用</span></div>
+      </div>
+    </details>
+
+    <details class="sect" open>
+      <summary><h2>覚醒必殺技</h2><span class="count">2</span><span class="accent-bar"></span></summary>
+      <div class="specials">
+        <div class="move od"><span class="input">632146H</span><span class="name">Tyrant Rave</span><span class="note">乱舞 ／ テンション 50%</span></div>
+        <div class="move od"><span class="input">236236H</span><span class="name">Heavy Mob Cemetery</span><span class="note">飛び道具 ／ 50%</span></div>
+      </div>
+    </details>
+
+    <details class="sect">
+      <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
+      <div class="specials">
+        <div class="move"><span class="input">4 / 6 + HS</span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
+        <div class="move"><span class="input">5D</span><span class="name">ダスト</span><span class="note">中段始動 ／ 全キャラ共通</span></div>
+        <div class="move"><span class="input">P + K</span><span class="name">フォルトレスディフェンス</span><span class="note">ガード中 ／ テンション消費</span></div>
+        <div class="move"><span class="input">P+K+S</span><span class="name">ロマンキャンセル</span><span class="note">攻撃中 ／ テンション 50%</span></div>
+        <div class="move"><span class="input">D 系入力</span><span class="name">サイクバースト</span><span class="note">被弾中 ／ 1ラウンド 1回</span></div>
+      </div>
+    </details>
+
   </div>
-  <div class="name-block">
-    <h1>Sol Badguy</h1>
-    <span class="meta">
-      GUILTY GEAR -STRIVE-
-      <span class="dot">·</span>
-      Command reference
-    </span>
-  </div>
-</header>
-
-<details class="sect" open>
-  <summary><h2>通常技</h2><span class="count">15</span></summary>
-  <div class="normals">
-    <div class="colhead"></div>
-    <div class="colhead">P</div>
-    <div class="colhead">K</div>
-    <div class="colhead">S 近</div>
-    <div class="colhead">S 遠</div>
-    <div class="colhead">H</div>
-    <div class="colhead">D</div>
-
-    <div class="rowhead">立</div>
-    <div class="cell"><div class="top"><span class="cmd">5P</span><span class="tag">中</span></div><div class="meta">発生 4 ／ 連打可</div></div>
-    <div class="cell"><div class="top"><span class="cmd">5K</span><span class="tag">中</span></div><div class="meta">発生 7</div></div>
-    <div class="cell"><div class="top"><span class="cmd">c.S</span><span class="tag">中</span></div><div class="meta">発生 7 ／ 主力</div></div>
-    <div class="cell"><div class="top"><span class="cmd">f.S</span><span class="tag">中</span></div><div class="meta">発生 9 ／ 牽制</div></div>
-    <div class="cell"><div class="top"><span class="cmd">5H</span><span class="tag">中</span></div><div class="meta">発生 11</div></div>
-    <div class="cell"><div class="top"><span class="cmd">5D</span><span class="tag high">上</span></div><div class="meta">ダスト</div></div>
-
-    <div class="rowhead">屈</div>
-    <div class="cell"><div class="top"><span class="cmd">2P</span><span class="tag">中</span></div><div class="meta">発生 5</div></div>
-    <div class="cell"><div class="top"><span class="cmd">2K</span><span class="tag low">下</span></div><div class="meta">発生 6</div></div>
-    <div class="cell"><div class="top"><span class="cmd">2S</span><span class="tag">中</span></div><div class="meta">発生 8</div></div>
-    <div class="cell empty"></div>
-    <div class="cell"><div class="top"><span class="cmd">2H</span><span class="tag">中</span></div><div class="meta">対空</div></div>
-    <div class="cell"><div class="top"><span class="cmd">2D</span><span class="tag low">下</span></div><div class="meta">足払い</div></div>
-
-    <div class="rowhead">空</div>
-    <div class="cell"><div class="top"><span class="cmd">j.P</span><span class="tag high">上</span></div><div class="meta">刻み</div></div>
-    <div class="cell"><div class="top"><span class="cmd">j.K</span><span class="tag high">上</span></div><div class="meta">空対空</div></div>
-    <div class="cell"><div class="top"><span class="cmd">j.S</span><span class="tag high">上</span></div><div class="meta">主力</div></div>
-    <div class="cell empty"></div>
-    <div class="cell"><div class="top"><span class="cmd">j.H</span><span class="tag high">上</span></div><div class="meta">めくり</div></div>
-    <div class="cell"><div class="top"><span class="cmd">j.D</span><span class="tag high">上</span></div><div class="meta">空中ダスト</div></div>
-  </div>
-</details>
-
-<details class="sect" open>
-  <summary><h2>必殺技</h2><span class="count">7</span></summary>
-  <div class="specials">
-    <div class="move"><span class="input">236P</span><span class="name">Gun Flame</span><span class="note">地上飛び道具</span></div>
-    <div class="move"><span class="input">623S / 623H</span><span class="name">Volcanic Viper</span><span class="note">対空昇龍 ／ H 高性能</span></div>
-    <div class="move"><span class="input">236K</span><span class="name">Bandit Revolver</span><span class="note">突進 ／ 空中可</span></div>
-    <div class="move"><span class="input">214K</span><span class="name">Bandit Bringer</span><span class="note">飛び込み中段</span></div>
-    <div class="move"><span class="input">623K</span><span class="name">Wild Throw</span><span class="note">コマンド投げ</span></div>
-    <div class="move"><span class="input">41236H</span><span class="name">Fafnir</span><span class="note">突進 ／ ガード有利</span></div>
-    <div class="move"><span class="input">j.214S</span><span class="name">Night Raid Vortex</span><span class="note">空中専用</span></div>
-    <div class="move"><span class="input">63214S</span><span class="name">Bringer 派生</span><span class="note">— 省略 —</span></div>
-  </div>
-</details>
-
-<details class="sect" open>
-  <summary><h2>覚醒必殺技</h2><span class="count">2</span></summary>
-  <div class="specials">
-    <div class="move od"><span class="input">632146H</span><span class="name">Tyrant Rave</span><span class="note">乱舞 ／ テンション 50%</span></div>
-    <div class="move od"><span class="input">236236H</span><span class="name">Heavy Mob Cemetery</span><span class="note">飛び道具 ／ 50%</span></div>
-  </div>
-</details>
-
-<details class="sect">
-  <summary><h2>システム共通</h2><span class="count">5</span></summary>
-  <div class="specials">
-    <div class="move"><span class="input">4 / 6 + HS</span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
-    <div class="move"><span class="input">5D</span><span class="name">ダスト</span><span class="note">中段始動 ／ 全キャラ共通</span></div>
-    <div class="move"><span class="input">P + K（ガード中）</span><span class="name">フォルトレスディフェンス</span><span class="note">完全ガード ／ テンション消費</span></div>
-    <div class="move"><span class="input">P + K + S（攻撃 / 被弾中）</span><span class="name">ロマンキャンセル</span><span class="note">テンション 50% ／ タイミングで色変化</span></div>
-    <div class="move"><span class="input">D 系入力（被弾中）</span><span class="name">サイクバースト</span><span class="note">1ラウンド 1回</span></div>
-  </div>
-</details>
+</main>
 
 <footer>
   <span><span class="key">中</span> ガード可 ／ <span class="key">下</span> 下段 ／ <span class="key">上</span> 中段</span>
   <span>入力はテンキー表記（<code>236</code> = ↓↘→）</span>
   <span>RC = ロマンキャンセル</span>
-  <span class="credit">キャラクター素材: GUILTY GEAR -STRIVE- 公式ファンキット ／ © ARC SYSTEM WORKS</span>
+  <span class="credit">キャラクター素材・ロゴ: GUILTY GEAR -STRIVE- 公式ファンキット ／ © ARC SYSTEM WORKS</span>
 </footer>
 
 </body>
