@@ -15,12 +15,13 @@
     --surface-3: rgba(255,255,255,0.05);
     --border-subtle: rgba(255,255,255,0.05);
     --border: rgba(255,255,255,0.08);
-    --text: #f7f8f8;
-    --text-2: #d0d6e0;
-    --text-3: #8a8f98;
-    --text-4: #62666d;
-    --accent: #7170ff;
-    --accent-bg: #5e6ad2;
+    --text: #f7f8f8;       /* 19.5:1  AAA */
+    --text-2: #d0d6e0;     /* 13.5:1  AAA */
+    --text-3: #a8aeb6;     /*  8.7:1  AAA — bumped from #8a8f98 (6.1:1) */
+    --text-4: #7d828a;     /*  5.0:1  AA  — bumped from #62666d (3.5:1) */
+    --accent: #8a8aff;     /*  6.0:1  AA  — bumped from #7170ff (5.2:1) */
+    --accent-bg: #5e6ad2;  /* used only as bg under white text */
+    --decor: rgba(255,255,255,0.10); /* non-text decorative (dots, dividers) */
   }
   * { box-sizing: border-box; }
   html, body { background: var(--bg); }
@@ -57,7 +58,7 @@
     font-weight: 400;
     letter-spacing: -0.13px;
   }
-  header .meta .dot { color: var(--text-4); margin: 0 8px; }
+  header .meta .dot { color: var(--decor); margin: 0 8px; }
 
   section { margin-top: 28px; }
   h2 {
@@ -76,9 +77,9 @@
   }
   .normals .colhead,
   .normals .rowhead {
-    color: var(--text-4);
-    font-size: 11px;
-    font-weight: 510;
+    color: var(--text-3);
+    font-size: 12px;
+    font-weight: 590;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     display: flex;
@@ -115,12 +116,18 @@
     letter-spacing: -0.15px;
   }
   .cell .tag {
-    font-size: 10px;
-    font-weight: 510;
-    color: var(--text-4);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 11px;
+    font-weight: 590;
+    color: var(--text-2);
+    background: var(--surface-3);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 6px;
+    letter-spacing: 0.04em;
+    flex: none;
   }
+  .cell .tag.low  { color: var(--text); border-color: rgba(255,255,255,0.18); }
+  .cell .tag.high { color: var(--text); border-color: rgba(255,255,255,0.18); }
   .cell .meta {
     color: var(--text-3);
     font-size: 12px;
@@ -163,22 +170,34 @@
     letter-spacing: -0.13px;
   }
   .move.od {
-    background: rgba(94,106,210,0.08);
-    border-color: rgba(113,112,255,0.25);
+    background: rgba(94,106,210,0.10);
+    border-color: rgba(138,138,255,0.30);
   }
 
   footer {
     margin-top: 32px;
     padding-top: 16px;
     border-top: 1px solid var(--border-subtle);
-    color: var(--text-4);
-    font-size: 12px;
+    color: var(--text-3);
+    font-size: 13px;
     letter-spacing: -0.13px;
     display: flex;
-    gap: 18px;
+    gap: 20px;
     flex-wrap: wrap;
   }
-  footer .key { color: var(--text-2); font-weight: 510; }
+  footer .key { color: var(--text); font-weight: 590; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cell, .move { transition: none; }
+  }
+  @media (prefers-contrast: more) {
+    :root {
+      --text-3: #c4c9d0;       /* push tertiary text closer to AAA */
+      --text-4: #a0a5ad;
+      --border: rgba(255,255,255,0.20);
+      --border-subtle: rgba(255,255,255,0.12);
+    }
+  }
   footer code {
     font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     color: var(--text-2);
@@ -217,23 +236,23 @@
     <div class="cell"><div class="top"><span class="cmd">c.S</span><span class="tag">中</span></div><div class="meta">発生 7 ／ 主力</div></div>
     <div class="cell"><div class="top"><span class="cmd">f.S</span><span class="tag">中</span></div><div class="meta">発生 9 ／ 牽制</div></div>
     <div class="cell"><div class="top"><span class="cmd">5H</span><span class="tag">中</span></div><div class="meta">発生 11</div></div>
-    <div class="cell"><div class="top"><span class="cmd">5D</span><span class="tag">上</span></div><div class="meta">ダスト</div></div>
+    <div class="cell"><div class="top"><span class="cmd">5D</span><span class="tag high">上</span></div><div class="meta">ダスト</div></div>
 
     <div class="rowhead">屈</div>
     <div class="cell"><div class="top"><span class="cmd">2P</span><span class="tag">中</span></div><div class="meta">発生 5</div></div>
-    <div class="cell"><div class="top"><span class="cmd">2K</span><span class="tag">下</span></div><div class="meta">発生 6</div></div>
+    <div class="cell"><div class="top"><span class="cmd">2K</span><span class="tag low">下</span></div><div class="meta">発生 6</div></div>
     <div class="cell"><div class="top"><span class="cmd">2S</span><span class="tag">中</span></div><div class="meta">発生 8</div></div>
     <div class="cell empty"></div>
     <div class="cell"><div class="top"><span class="cmd">2H</span><span class="tag">中</span></div><div class="meta">対空</div></div>
-    <div class="cell"><div class="top"><span class="cmd">2D</span><span class="tag">下</span></div><div class="meta">足払い</div></div>
+    <div class="cell"><div class="top"><span class="cmd">2D</span><span class="tag low">下</span></div><div class="meta">足払い</div></div>
 
     <div class="rowhead">空</div>
-    <div class="cell"><div class="top"><span class="cmd">j.P</span><span class="tag">上</span></div><div class="meta">刻み</div></div>
-    <div class="cell"><div class="top"><span class="cmd">j.K</span><span class="tag">上</span></div><div class="meta">空対空</div></div>
-    <div class="cell"><div class="top"><span class="cmd">j.S</span><span class="tag">上</span></div><div class="meta">主力</div></div>
+    <div class="cell"><div class="top"><span class="cmd">j.P</span><span class="tag high">上</span></div><div class="meta">刻み</div></div>
+    <div class="cell"><div class="top"><span class="cmd">j.K</span><span class="tag high">上</span></div><div class="meta">空対空</div></div>
+    <div class="cell"><div class="top"><span class="cmd">j.S</span><span class="tag high">上</span></div><div class="meta">主力</div></div>
     <div class="cell empty"></div>
-    <div class="cell"><div class="top"><span class="cmd">j.H</span><span class="tag">上</span></div><div class="meta">めくり</div></div>
-    <div class="cell"><div class="top"><span class="cmd">j.D</span><span class="tag">上</span></div><div class="meta">空中ダスト</div></div>
+    <div class="cell"><div class="top"><span class="cmd">j.H</span><span class="tag high">上</span></div><div class="meta">めくり</div></div>
+    <div class="cell"><div class="top"><span class="cmd">j.D</span><span class="tag high">上</span></div><div class="meta">空中ダスト</div></div>
   </div>
 </section>
 
