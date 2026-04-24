@@ -34,6 +34,13 @@
     --hit-mid:  #93c5fd;    /* blue   — mid  / blockable normal */
     --hit-low:  #86efac;    /* green  — low  / sweep */
     --hit-high: #fcd34d;    /* amber  — high / overhead */
+
+    /* GGST official button-color convention */
+    --btn-p: #f472b6;       /* Punch        — pink   */
+    --btn-k: #60a5fa;       /* Kick         — blue   */
+    --btn-s: #4ade80;       /* Slash        — green  */
+    --btn-h: #f87171;       /* Heavy Slash  — red    */
+    --btn-d: #fbbf24;       /* Dust         — amber  */
   }
   * { box-sizing: border-box; }
   html, body { background: var(--bg); }
@@ -341,6 +348,14 @@
     color: var(--char);
     letter-spacing: 0;
   }
+
+  /* Per-button color tokens. Used both inside .cell .cmd's
+     trailing letter and inside .move .input .btn. */
+  .key-p { color: var(--btn-p); }
+  .key-k { color: var(--btn-k); }
+  .key-s { color: var(--btn-s); }
+  .key-h { color: var(--btn-h); }
+  .key-d { color: var(--btn-d); }
   .cell .tag {
     font-size: 11px;
     font-weight: 590;
@@ -546,6 +561,24 @@
     margin-top: 6px;
     letter-spacing: 0.02em;
   }
+  footer .btn-legend {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-weight: 590;
+  }
+  footer .btn-legend > .key-p,
+  footer .btn-legend > .key-k,
+  footer .btn-legend > .key-s,
+  footer .btn-legend > .key-h,
+  footer .btn-legend > .key-d {
+    background: var(--surface-3);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 11px;
+  }
 
   @media (prefers-reduced-motion: reduce) {
     .cell, .move, .roster a { transition: none; }
@@ -571,6 +604,39 @@
       <circle cx="16" cy="16" r="14.5" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
       <circle cx="16" cy="16" r="1.4" fill="rgba(255,255,255,0.25)"/>
     </g>
+
+    <!-- Motion-trail gradients: fade IN from the start of the
+         lever path so the eye reads "starts faint, grows solid
+         toward the held direction". Each gradient axis follows
+         its symbol's start→end vector. -->
+    <linearGradient id="g-qcf"   gradientUnits="userSpaceOnUse" x1="16" y1="26" x2="26" y2="16">
+      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.10"/>
+      <stop offset="55%" stop-color="currentColor" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="g-qcb"   gradientUnits="userSpaceOnUse" x1="16" y1="26" x2="6" y2="16">
+      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.10"/>
+      <stop offset="55%" stop-color="currentColor" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="g-dp"    gradientUnits="userSpaceOnUse" x1="26" y1="16" x2="26" y2="26">
+      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.10"/>
+      <stop offset="55%" stop-color="currentColor" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="g-hcf"   gradientUnits="userSpaceOnUse" x1="4" y1="16" x2="26" y2="16">
+      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.10"/>
+      <stop offset="55%" stop-color="currentColor" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="g-hcb"   gradientUnits="userSpaceOnUse" x1="26" y1="16" x2="6" y2="16">
+      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0.65"/>
+    </linearGradient>
+    <linearGradient id="g-thrust" gradientUnits="userSpaceOnUse" x1="8" y1="16" x2="24" y2="16">
+      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+    </linearGradient>
   </defs>
 
   <!-- 8-direction layout (viewBox 32x32):
@@ -581,28 +647,28 @@
   <!-- 236 (QCF) — ends at 6 (forward), arrow points right -->
   <symbol id="m-qcf" viewBox="0 0 32 32">
     <use href="#stick-base"/>
-    <path d="M16,26 Q26,26 26,16" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16,26 Q26,26 26,16" fill="none" stroke="url(#g-qcf)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M22,11 L30,16 L22,21 Z" fill="currentColor"/>
   </symbol>
 
   <!-- 214 (QCB) — ends at 4 (back), arrow points left -->
   <symbol id="m-qcb" viewBox="0 0 32 32">
     <use href="#stick-base"/>
-    <path d="M16,26 Q6,26 6,16" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16,26 Q6,26 6,16" fill="none" stroke="url(#g-qcb)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M10,11 L2,16 L10,21 Z" fill="currentColor"/>
   </symbol>
 
   <!-- 623 (DP) — ends at 3 (down-forward), arrow points down-right -->
   <symbol id="m-dp" viewBox="0 0 32 32">
     <use href="#stick-base"/>
-    <path d="M26,16 L16,26 L26,26" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M26,16 L16,26 L26,26" fill="none" stroke="url(#g-dp)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M30,22 L30,30 L22,30 Z" fill="currentColor"/>
   </symbol>
 
   <!-- 41236 (HCF) — ends at 6 (forward), arrow points right -->
   <symbol id="m-hcf" viewBox="0 0 32 32">
     <use href="#stick-base"/>
-    <path d="M6,16 Q6,26 16,26 Q26,26 26,16" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6,16 Q6,26 16,26 Q26,26 26,16" fill="none" stroke="url(#g-hcf)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M22,11 L30,16 L22,21 Z" fill="currentColor"/>
   </symbol>
 
@@ -612,19 +678,18 @@
   <symbol id="m-hcb-f" viewBox="0 0 32 32">
     <use href="#stick-base"/>
     <!-- HCB arc: 6 → 3 → 2 → 1 → 4 (sweep flag 1 = clockwise = bottom) -->
-    <path d="M26,16 A10,10 0 0 1 6,16" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" opacity="0.75"/>
+    <path d="M26,16 A10,10 0 0 1 6,16" fill="none" stroke="url(#g-hcb)" stroke-width="3.2" stroke-linecap="round"/>
     <!-- Forward thrust 4 → 6 -->
-    <path d="M8,16 L24,16" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/>
+    <path d="M8,16 L24,16" fill="none" stroke="url(#g-thrust)" stroke-width="3.6" stroke-linecap="round"/>
     <!-- End arrowhead at 6 -->
     <path d="M22,11 L30,16 L22,21 Z" fill="currentColor"/>
   </symbol>
 
   <!-- 236236 — handled in markup as a single QCF icon plus an
-       external "×2" repeat token (much more legible than an
-       in-icon badge at 32px). Symbol kept as a clean QCF alias. -->
+       external "×2" repeat token. -->
   <symbol id="m-qcf2" viewBox="0 0 32 32">
     <use href="#stick-base"/>
-    <path d="M16,26 Q26,26 26,16" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16,26 Q26,26 26,16" fill="none" stroke="url(#g-qcf)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M22,11 L30,16 L22,21 Z" fill="currentColor"/>
   </symbol>
 
@@ -720,41 +785,41 @@
         <div class="colhead">D</div>
 
         <div class="rowhead">立</div>
-        <div class="cell"><div class="top"><span class="cmd">5P</span><span class="tag">中</span></div><div class="meta">発生 4 ／ 連打可</div></div>
-        <div class="cell"><div class="top"><span class="cmd">5K</span><span class="tag">中</span></div><div class="meta">発生 7</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-p">P</span></span><span class="tag">中</span></div><div class="meta">発生 4 ／ 連打可</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-k">K</span></span><span class="tag">中</span></div><div class="meta">発生 7</div></div>
         <div class="cell stack">
-          <div class="sub"><div class="top"><span class="cmd">c.S</span><span class="tag">中</span></div><div class="meta">発生 7 ／ 主力</div></div>
-          <div class="sub"><div class="top"><span class="cmd">f.S</span><span class="tag">中</span></div><div class="meta">発生 9 ／ 牽制</div></div>
+          <div class="sub"><div class="top"><span class="cmd">c.<span class="key-s">S</span></span><span class="tag">中</span></div><div class="meta">発生 7 ／ 主力</div></div>
+          <div class="sub"><div class="top"><span class="cmd">f.<span class="key-s">S</span></span><span class="tag">中</span></div><div class="meta">発生 9 ／ 牽制</div></div>
         </div>
-        <div class="cell"><div class="top"><span class="cmd">5H</span><span class="tag">中</span></div><div class="meta">発生 11</div></div>
-        <div class="cell"><div class="top"><span class="cmd">5D</span><span class="tag high">上</span></div><div class="meta">ダスト</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-h">H</span></span><span class="tag">中</span></div><div class="meta">発生 11</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-d">D</span></span><span class="tag high">上</span></div><div class="meta">ダスト</div></div>
 
         <div class="rowhead">屈</div>
-        <div class="cell"><div class="top"><span class="cmd">2P</span><span class="tag">中</span></div><div class="meta">発生 5</div></div>
-        <div class="cell"><div class="top"><span class="cmd">2K</span><span class="tag low">下</span></div><div class="meta">発生 6</div></div>
-        <div class="cell"><div class="top"><span class="cmd">2S</span><span class="tag">中</span></div><div class="meta">発生 8</div></div>
-        <div class="cell"><div class="top"><span class="cmd">2H</span><span class="tag">中</span></div><div class="meta">対空</div></div>
-        <div class="cell"><div class="top"><span class="cmd">2D</span><span class="tag low">下</span></div><div class="meta">足払い</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-p">P</span></span><span class="tag">中</span></div><div class="meta">発生 5</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-k">K</span></span><span class="tag low">下</span></div><div class="meta">発生 6</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-s">S</span></span><span class="tag">中</span></div><div class="meta">発生 8</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-h">H</span></span><span class="tag">中</span></div><div class="meta">対空</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-d">D</span></span><span class="tag low">下</span></div><div class="meta">足払い</div></div>
 
         <div class="rowhead">空</div>
-        <div class="cell"><div class="top"><span class="cmd">j.P</span><span class="tag high">上</span></div><div class="meta">刻み</div></div>
-        <div class="cell"><div class="top"><span class="cmd">j.K</span><span class="tag high">上</span></div><div class="meta">空対空</div></div>
-        <div class="cell"><div class="top"><span class="cmd">j.S</span><span class="tag high">上</span></div><div class="meta">主力</div></div>
-        <div class="cell"><div class="top"><span class="cmd">j.H</span><span class="tag high">上</span></div><div class="meta">めくり</div></div>
-        <div class="cell"><div class="top"><span class="cmd">j.D</span><span class="tag high">上</span></div><div class="meta">空中ダスト</div></div>
+        <div class="cell"><div class="top"><span class="cmd">j.<span class="key-p">P</span></span><span class="tag high">上</span></div><div class="meta">刻み</div></div>
+        <div class="cell"><div class="top"><span class="cmd">j.<span class="key-k">K</span></span><span class="tag high">上</span></div><div class="meta">空対空</div></div>
+        <div class="cell"><div class="top"><span class="cmd">j.<span class="key-s">S</span></span><span class="tag high">上</span></div><div class="meta">主力</div></div>
+        <div class="cell"><div class="top"><span class="cmd">j.<span class="key-h">H</span></span><span class="tag high">上</span></div><div class="meta">めくり</div></div>
+        <div class="cell"><div class="top"><span class="cmd">j.<span class="key-d">D</span></span><span class="tag high">上</span></div><div class="meta">空中ダスト</div></div>
       </div>
     </details>
 
     <details class="sect" open>
       <summary><h2>必殺技</h2><span class="count">7</span><span class="accent-bar"></span></summary>
       <div class="specials">
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="btn">P</span></span><span class="name">Gun Flame</span><span class="note">地上飛び道具</span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dp"/></svg><span class="btn">S / HS</span></span><span class="name">Volcanic Viper</span><span class="note">対空昇龍 ／ HS 高性能</span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="btn">K</span></span><span class="name">Bandit Revolver</span><span class="note">突進 ／ 空中可</span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcb"/></svg><span class="btn">K</span></span><span class="name">Bandit Bringer</span><span class="note">飛び込み中段</span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dp"/></svg><span class="btn">K</span></span><span class="name">Wild Throw</span><span class="note">コマンド投げ</span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-hcf"/></svg><span class="btn">HS</span></span><span class="name">Fafnir</span><span class="note">突進 ／ ガード有利</span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcb"/></svg><span class="prefix">空中</span><span class="btn">S</span></span><span class="name">Night Raid Vortex</span><span class="note">空中専用</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="btn key-p">P</span></span><span class="name">Gun Flame</span><span class="note">地上飛び道具</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dp"/></svg><span class="btn"><span class="key-s">S</span> / <span class="key-h">HS</span></span></span><span class="name">Volcanic Viper</span><span class="note">対空昇龍 ／ HS 高性能</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="btn key-k">K</span></span><span class="name">Bandit Revolver</span><span class="note">突進 ／ 空中可</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcb"/></svg><span class="btn key-k">K</span></span><span class="name">Bandit Bringer</span><span class="note">飛び込み中段</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dp"/></svg><span class="btn key-k">K</span></span><span class="name">Wild Throw</span><span class="note">コマンド投げ</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-hcf"/></svg><span class="btn key-h">HS</span></span><span class="name">Fafnir</span><span class="note">突進 ／ ガード有利</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcb"/></svg><span class="prefix">空中</span><span class="btn key-s">S</span></span><span class="name">Night Raid Vortex</span><span class="note">空中専用</span></div>
       </div>
     </details>
 
@@ -763,13 +828,13 @@
       <div class="specials">
         <div class="move od">
           <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar"><span class="fill" style="width:50%"></span></span>50%</span></span>
-          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn">HS</span></span>
+          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn key-h">HS</span></span>
           <span class="name">Tyrant Rave</span>
           <span class="note">乱舞</span>
         </div>
         <div class="move od">
           <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar"><span class="fill" style="width:50%"></span></span>50%</span></span>
-          <span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="repeat">×2</span><span class="btn">HS</span></span>
+          <span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="repeat">×2</span><span class="btn key-h">HS</span></span>
           <span class="name">Heavy Mob Cemetery</span>
           <span class="note">飛び道具</span>
         </div>
@@ -779,11 +844,11 @@
     <details class="sect">
       <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
       <div class="specials">
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="btn">+ HS</span></span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn">D</span></span><span class="name">ダスト</span><span class="note">中段始動 ／ 全キャラ共通</span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn">P + K</span></span><span class="name">フォルトレスディフェンス</span><span class="note">ガード中 ／ テンション消費</span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn">P + K + S</span></span><span class="name">ロマンキャンセル</span><span class="note">攻撃中 ／ テンション 50%</span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="prefix">被弾中</span><span class="btn">D 系入力</span></span><span class="name">サイクバースト</span><span class="note">1ラウンド 1回</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="btn">+ <span class="key-h">HS</span></span></span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn key-d">D</span></span><span class="name">ダスト</span><span class="note">中段始動 ／ 全キャラ共通</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-p">P</span> + <span class="key-k">K</span></span></span><span class="name">フォルトレスディフェンス</span><span class="note">ガード中 ／ テンション消費</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-p">P</span> + <span class="key-k">K</span> + <span class="key-s">S</span></span></span><span class="name">ロマンキャンセル</span><span class="note">攻撃中 ／ テンション 50%</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="prefix">被弾中</span><span class="btn"><span class="key-d">D</span> 系入力</span></span><span class="name">サイクバースト</span><span class="note">1ラウンド 1回</span></div>
       </div>
     </details>
 
@@ -799,6 +864,14 @@
     <span class="key high">上</span> 中段
   </span>
   <span>アイコンはレバー軌跡 — 矢印が最終入力方向</span>
+  <span class="btn-legend">
+    ボタン:
+    <span class="key-p">P</span>
+    <span class="key-k">K</span>
+    <span class="key-s">S</span>
+    <span class="key-h">HS</span>
+    <span class="key-d">D</span>
+  </span>
   <span>RC = ロマンキャンセル</span>
   <span class="credit">キャラクター素材・ロゴ: GUILTY GEAR -STRIVE- 公式ファンキット ／ © ARC SYSTEM WORKS</span>
 </footer>
