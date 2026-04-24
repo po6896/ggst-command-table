@@ -26,6 +26,11 @@
     --char-2: #ffb37a;      /* Sol: lighter ember */
     --char-bg: rgba(255,122,61,0.10);
     --char-line: rgba(255,122,61,0.45);
+
+    /* Hit-level convention (GGST in-game frame display) */
+    --hit-mid:  #93c5fd;    /* blue   — mid  / blockable normal */
+    --hit-low:  #86efac;    /* green  — low  / sweep */
+    --hit-high: #fcd34d;    /* amber  — high / overhead */
   }
   * { box-sizing: border-box; }
   html, body { background: var(--bg); }
@@ -330,16 +335,25 @@
   .cell .tag {
     font-size: 11px;
     font-weight: 590;
-    color: var(--text-2);
-    background: var(--surface-3);
-    border: 1px solid var(--border);
+    letter-spacing: 0.04em;
     border-radius: 3px;
     padding: 1px 6px;
-    letter-spacing: 0.04em;
     flex: none;
+    /* default: mid (blue) */
+    color: var(--hit-mid);
+    background: rgba(147,197,253,0.10);
+    border: 1px solid rgba(147,197,253,0.30);
   }
-  .cell .tag.low,
-  .cell .tag.high { color: var(--text); border-color: rgba(255,255,255,0.18); }
+  .cell .tag.low {
+    color: var(--hit-low);
+    background: rgba(134,239,172,0.10);
+    border-color: rgba(134,239,172,0.30);
+  }
+  .cell .tag.high {
+    color: var(--hit-high);
+    background: rgba(252,211,77,0.10);
+    border-color: rgba(252,211,77,0.30);
+  }
   .cell .meta {
     color: var(--text-3);
     font-size: 12px;
@@ -361,12 +375,12 @@
   /* === Specials / Overdrives === */
   .specials {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 8px;
   }
-  @media (max-width: 1400px) {
-    .specials { grid-template-columns: repeat(2, 1fr); }
-  }
+  @media (max-width: 1500px) { .specials { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 1100px) { .specials { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .specials { grid-template-columns: 1fr; } }
   .move {
     background: var(--surface-1);
     border: 1px solid var(--border);
@@ -418,7 +432,17 @@
     gap: 20px;
     flex-wrap: wrap;
   }
-  footer .key { color: var(--text); font-weight: 590; }
+  footer .key {
+    font-weight: 590;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    border: 1px solid;
+  }
+  footer .key.mid  { color: var(--hit-mid);  background: rgba(147,197,253,0.10); border-color: rgba(147,197,253,0.30); }
+  footer .key.low  { color: var(--hit-low);  background: rgba(134,239,172,0.10); border-color: rgba(134,239,172,0.30); }
+  footer .key.high { color: var(--hit-high); background: rgba(252,211,77,0.10); border-color: rgba(252,211,77,0.30); }
+  footer .legend .sep { color: var(--text-4); margin: 0 6px; }
   footer code {
     font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     color: var(--text-2);
@@ -457,7 +481,6 @@
     <span class="pipe"></span>
     <span class="title">Command List</span>
   </div>
-  <span class="right">For arcade reference</span>
 </header>
 
 <nav class="roster" aria-label="キャラクター一覧">
@@ -589,7 +612,13 @@
 </main>
 
 <footer>
-  <span><span class="key">中</span> ガード可 ／ <span class="key">下</span> 下段 ／ <span class="key">上</span> 中段</span>
+  <span class="legend">
+    <span class="key mid">中</span> ガード可
+    <span class="sep">／</span>
+    <span class="key low">下</span> 下段
+    <span class="sep">／</span>
+    <span class="key high">上</span> 中段
+  </span>
   <span>入力はテンキー表記（<code>236</code> = ↓↘→）</span>
   <span>RC = ロマンキャンセル</span>
   <span class="credit">キャラクター素材・ロゴ: GUILTY GEAR -STRIVE- 公式ファンキット ／ © ARC SYSTEM WORKS</span>
