@@ -254,6 +254,58 @@
   .hero-stats dd .num { line-height: 1; }
   .hero-stats dd .sub { color: var(--text-3); font-weight: 400; font-size: 11px; }
 
+  /* Hero: basic combos panel below stats */
+  .hero-combos {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .hero-combos h3 {
+    font-size: 10px;
+    color: var(--text-4);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 510;
+    margin: 0 0 8px;
+  }
+  .hero-combos ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .hero-combos li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 5px 8px;
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  .hero-combos .tag {
+    flex: none;
+    font-size: 9px;
+    font-weight: 590;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--char);
+    padding: 1px 4px;
+    border: 1px solid var(--char-line);
+    border-radius: 2px;
+    line-height: 1.3;
+  }
+  .hero-combos .seq {
+    font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    color: var(--text-2);
+    font-weight: 510;
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+
   /* HP bar */
   .stat-bar {
     flex: 1;
@@ -380,8 +432,11 @@
   }
   .cell:hover {
     background: var(--surface-2);
-    border-color: var(--char-line);
+    border-color: var(--char);
+    box-shadow: 0 0 0 1px var(--char-line), 0 4px 12px rgba(255,122,61,0.15);
+    transform: translateY(-1px);
   }
+  .cell:active { transform: translateY(0); transition-duration: 50ms; }
   .cell .top {
     display: flex;
     align-items: baseline;
@@ -475,6 +530,10 @@
      システム共通 (5 cards). */
   .specials.cols-2 { grid-template-columns: repeat(2, 1fr); }
   .specials.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .specials.cols-7 { grid-template-columns: repeat(7, 1fr); }
+  @media (max-width: 1500px) {
+    .specials.cols-7 { grid-template-columns: repeat(4, 1fr); }
+  }
   @media (max-width: 1500px) { .specials { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 1100px) { .specials { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 640px)  { .specials { grid-template-columns: 1fr; } }
@@ -490,8 +549,11 @@
   }
   .move:hover {
     background: var(--surface-2);
-    border-color: var(--char-line);
+    border-color: var(--char);
+    box-shadow: 0 0 0 1px var(--char-line), 0 4px 14px rgba(255,122,61,0.18);
+    transform: translateY(-1px);
   }
+  .move:active { transform: translateY(0); transition-duration: 50ms; }
   .move .input {
     font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     font-weight: 590;
@@ -830,6 +892,15 @@
           <span class="num">近〜中</span>
         </dd>
       </dl>
+
+      <section class="hero-combos">
+        <h3>基本コンボ</h3>
+        <ol>
+          <li><span class="tag">中段始動</span><span class="seq">5K &gt; c.S &gt; 2H &gt; 236K</span></li>
+          <li><span class="tag">下段始動</span><span class="seq">2K &gt; 2D &gt; 236K</span></li>
+          <li><span class="tag">対空</span><span class="seq">6P &gt; 623HS</span></li>
+        </ol>
+      </section>
     </div>
   </aside>
 
@@ -873,7 +944,7 @@
 
     <details class="sect" open>
       <summary><h2>必殺技</h2><span class="count">7</span><span class="accent-bar"></span></summary>
-      <div class="specials">
+      <div class="specials cols-7">
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="btn key-p">P</span></span><span class="name">ガンフレイム</span><span class="note">地上飛び道具</span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dp"/></svg><span class="btn"><span class="key-s">S</span> / <span class="key-h">HS</span></span></span><span class="name">ヴォルカニックヴァイパー</span><span class="note">対空昇龍 ／ HS 高性能</span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="btn key-k">K</span></span><span class="name">バンディットリヴォルヴァー</span><span class="note">突進 ／ 空中可</span></div>
