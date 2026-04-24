@@ -46,7 +46,7 @@
   html, body { background: var(--bg); }
   body {
     margin: 0;
-    padding: 24px 32px 40px;
+    padding: 16px 28px 24px;
     color: var(--text);
     font-family: "Inter Variable", "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
     font-feature-settings: "cv01", "ss03";
@@ -62,16 +62,16 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding-bottom: 14px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--border-subtle);
   }
   .topbar .brand {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
   }
   .topbar .brand-logo {
-    height: 38px;
+    height: 28px;
     width: auto;
     display: block;
     image-rendering: -webkit-optimize-contrast;
@@ -98,10 +98,10 @@
   /* === Roster === */
   .roster {
     display: flex;
-    gap: 4px;
+    gap: 3px;
     overflow-x: auto;
-    padding: 12px 0;
-    margin-bottom: 22px;
+    padding: 8px 0;
+    margin-bottom: 14px;
     border-bottom: 1px solid var(--border-subtle);
     scrollbar-width: thin;
     scrollbar-color: var(--text-4) transparent;
@@ -111,8 +111,8 @@
   .roster::-webkit-scrollbar-thumb { background: var(--text-4); border-radius: 3px; }
   .roster a {
     flex: none;
-    width: 46px;
-    height: 46px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: var(--surface-1);
     border: 1px solid var(--border-subtle);
@@ -251,7 +251,7 @@
   /* === Sections === */
   details.sect {
     margin-top: 0;
-    margin-bottom: 22px;
+    margin-bottom: 12px;
   }
   details.sect:last-child { margin-bottom: 0; }
   details.sect > summary {
@@ -260,10 +260,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 4px 0 14px;
+    padding: 2px 0 8px;
     user-select: none;
     border-bottom: 1px solid var(--border-subtle);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   details.sect > summary::-webkit-details-marker { display: none; }
   details.sect > summary::before {
@@ -324,8 +324,8 @@
     background: var(--surface-1);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 10px 12px;
-    min-height: 70px;
+    padding: 7px 10px;
+    min-height: 56px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -429,10 +429,10 @@
     background: var(--surface-1);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 14px 16px;
+    padding: 10px 12px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     transition: background 120ms ease, border-color 120ms ease;
   }
   .move:hover {
@@ -545,8 +545,8 @@
 
   /* === Footer === */
   footer {
-    margin-top: 32px;
-    padding-top: 16px;
+    margin-top: 16px;
+    padding-top: 10px;
     border-top: 1px solid var(--border-subtle);
     color: var(--text-3);
     font-size: 13px;
@@ -862,7 +862,7 @@
       </div>
     </details>
 
-    <details class="sect">
+    <details class="sect" open>
       <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
       <div class="specials">
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="btn">+ <span class="key-h">HS</span></span></span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
