@@ -251,7 +251,7 @@
   /* === Sections === */
   details.sect {
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   details.sect:last-child { margin-bottom: 0; }
   details.sect > summary {
@@ -260,10 +260,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 2px 0 8px;
+    padding: 0 0 6px;
     user-select: none;
     border-bottom: 1px solid var(--border-subtle);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   details.sect > summary::-webkit-details-marker { display: none; }
   details.sect > summary::before {
@@ -305,27 +305,27 @@
   /* === Normals grid (5 cols, no empty cells) === */
   .normals {
     display: grid;
-    grid-template-columns: 32px repeat(5, 1fr);
-    gap: 6px;
+    grid-template-columns: 28px repeat(5, 1fr);
+    gap: 4px;
   }
   .normals .colhead,
   .normals .rowhead {
     color: var(--text-3);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 590;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 0;
+    padding: 2px 0;
   }
   .cell {
     background: var(--surface-1);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 7px 10px;
-    min-height: 56px;
+    padding: 5px 9px;
+    min-height: 44px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -344,9 +344,10 @@
   .cell .cmd {
     font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     font-weight: 590;
-    font-size: 18px;
+    font-size: 16px;
     color: var(--char);
     letter-spacing: 0;
+    line-height: 1.1;
   }
 
   /* Per-button color tokens. Used both inside .cell .cmd's
@@ -400,19 +401,19 @@
   }
   .cell .meta {
     color: var(--text-3);
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: 11px;
+    line-height: 1.3;
     letter-spacing: -0.13px;
-    margin-top: 4px;
+    margin-top: 2px;
   }
 
   /* Split cell (e.g. standing S = c.S / f.S in one column) */
   .cell.stack { padding: 0; }
   .cell.stack .sub {
-    padding: 8px 12px;
+    padding: 5px 9px;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 1px;
   }
   .cell.stack .sub + .sub { border-top: 1px solid var(--border-subtle); }
 
@@ -420,7 +421,7 @@
   .specials {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    gap: 6px;
   }
   @media (max-width: 1500px) { .specials { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 1100px) { .specials { grid-template-columns: repeat(2, 1fr); } }
@@ -429,10 +430,10 @@
     background: var(--surface-1);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 10px 12px;
+    padding: 7px 11px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     transition: background 120ms ease, border-color 120ms ease;
   }
   .move:hover {
@@ -442,21 +443,23 @@
   .move .input {
     font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     font-weight: 590;
-    font-size: 22px;
+    font-size: 18px;
     color: var(--char);
     letter-spacing: 0;
     line-height: 1;
   }
   .move .name {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 590;
     color: var(--text);
     letter-spacing: -0.15px;
+    line-height: 1.2;
   }
   .move .note {
     color: var(--text-3);
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: -0.13px;
+    line-height: 1.2;
   }
   /* Overdrives: same surface as specials, differentiated by a small
      OVERDRIVE label above the input — no blue rectangle (AI-smell). */
@@ -535,8 +538,8 @@
   /* Stick-motion icon — arcade-stick base with motion path.
      Symbols inherit Sol orange via currentColor. */
   .motion-icon {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     flex: none;
     display: block;
     color: var(--char);
