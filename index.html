@@ -478,7 +478,6 @@
     color: var(--char);
     filter: drop-shadow(0 0 5px rgba(255,122,61,0.45));
   }
-  .move.od .motion-icon { color: var(--char-2); }
 
   /* === Footer === */
   footer {
@@ -578,12 +577,13 @@
     <path d="M22,11 L30,16 L22,21 Z" fill="currentColor"/>
   </symbol>
 
-  <!-- 632146 (HCB → F) — half-circle back along bottom + solid
-       forward thrust ending in an arrowhead. -->
+  <!-- 632146 (HCB → F) — half-circle back along the BOTTOM
+       semicircle (lever sweeps through 3, 2, 1), then a forward
+       thrust back to 6 with an explicit arrowhead. -->
   <symbol id="m-hcb-f" viewBox="0 0 32 32">
     <use href="#stick-base"/>
-    <!-- HCB arc: 6 → 3 → 2 → 1 → 4 along the bottom semicircle -->
-    <path d="M26,16 A10,10 0 0 0 6,16" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" opacity="0.75"/>
+    <!-- HCB arc: 6 → 3 → 2 → 1 → 4 (sweep flag 1 = clockwise = bottom) -->
+    <path d="M26,16 A10,10 0 0 1 6,16" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" opacity="0.75"/>
     <!-- Forward thrust 4 → 6 -->
     <path d="M8,16 L24,16" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/>
     <!-- End arrowhead at 6 -->
