@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>GGST コマンド表 — Sol Badguy</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --line: #2a2f3a;
+    --text: #e6e8ec;
+    --sub: #9aa3b2;
+    --mid: #3b82f6;
+    --low: #10b981;
+    --high: #ef4444;
+    --throw: #a855f7;
+    --spec: #f59e0b;
+    --od: #fbbf24;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 16px 20px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", "Yu Gothic UI", system-ui, sans-serif;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 6px;
+  }
+  h1 { font-size: 18px; margin: 0; letter-spacing: 0.02em; }
+  header .sub { color: var(--sub); font-size: 12px; }
+  section { margin-top: 10px; }
+  h2 {
+    font-size: 13px;
+    margin: 0 0 6px 0;
+    color: var(--sub);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  .grid-normals {
+    display: grid;
+    grid-template-columns: 44px repeat(6, 1fr);
+    gap: 4px;
+  }
+  .grid-normals .rowhead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sub);
+    background: var(--panel);
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  .cell {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--line);
+    border-radius: 4px;
+    padding: 6px 8px;
+    min-height: 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cell.empty { visibility: hidden; }
+  .cell .cmd { font-weight: 700; font-size: 13px; }
+  .cell .meta { color: var(--sub); font-size: 11px; }
+  .cell.mid   { border-left-color: var(--mid); }
+  .cell.low   { border-left-color: var(--low); }
+  .cell.high  { border-left-color: var(--high); }
+  .cell.throw { border-left-color: var(--throw); }
+
+  .specials {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+  .move {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--spec);
+    border-radius: 4px;
+    padding: 6px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .move.od { border-left-color: var(--od); }
+  .move .input {
+    font-family: "Consolas", "Courier New", monospace;
+    font-weight: 700;
+    font-size: 13px;
+    color: #fde68a;
+  }
+  .move .name { font-size: 12px; }
+  .move .note { color: var(--sub); font-size: 11px; }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 6px 10px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-size: 11px;
+    color: var(--sub);
+  }
+  .legend span::before {
+    content: "";
+    display: inline-block;
+    width: 10px; height: 10px;
+    margin-right: 5px;
+    vertical-align: middle;
+    border-radius: 2px;
+  }
+  .lg-mid::before   { background: var(--mid); }
+  .lg-low::before   { background: var(--low); }
+  .lg-high::before  { background: var(--high); }
+  .lg-throw::before { background: var(--throw); }
+  .lg-spec::before  { background: var(--spec); }
+  .lg-od::before    { background: var(--od); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Sol Badguy</h1>
+  <span class="sub">GUILTY GEAR -STRIVE- / コマンド表（最小版）</span>
+</header>
+
+<section>
+  <h2>通常技 / NORMALS</h2>
+  <div class="grid-normals">
+    <div class="rowhead"></div>
+    <div class="rowhead">P</div>
+    <div class="rowhead">K</div>
+    <div class="rowhead">S(近)</div>
+    <div class="rowhead">S(遠)</div>
+    <div class="rowhead">H</div>
+    <div class="rowhead">D</div>
+
+    <div class="rowhead">立</div>
+    <div class="cell mid"><div class="cmd">5P</div><div class="meta">発生4 / 連打可</div></div>
+    <div class="cell mid"><div class="cmd">5K</div><div class="meta">発生7</div></div>
+    <div class="cell mid"><div class="cmd">c.S</div><div class="meta">発生7 / 主力</div></div>
+    <div class="cell mid"><div class="cmd">f.S</div><div class="meta">発生9 / 牽制</div></div>
+    <div class="cell mid"><div class="cmd">5H</div><div class="meta">発生11</div></div>
+    <div class="cell high"><div class="cmd">5D</div><div class="meta">ダスト / 中段</div></div>
+
+    <div class="rowhead">屈</div>
+    <div class="cell mid"><div class="cmd">2P</div><div class="meta">発生5</div></div>
+    <div class="cell low"><div class="cmd">2K</div><div class="meta">下段 / 発生6</div></div>
+    <div class="cell mid"><div class="cmd">2S</div><div class="meta">発生8</div></div>
+    <div class="cell empty"></div>
+    <div class="cell mid"><div class="cmd">2H</div><div class="meta">対空</div></div>
+    <div class="cell low"><div class="cmd">2D</div><div class="meta">下段 / 足払い</div></div>
+
+    <div class="rowhead">空</div>
+    <div class="cell high"><div class="cmd">j.P</div><div class="meta">中段 / 刻み</div></div>
+    <div class="cell high"><div class="cmd">j.K</div><div class="meta">中段</div></div>
+    <div class="cell high"><div class="cmd">j.S</div><div class="meta">主力空中</div></div>
+    <div class="cell empty"></div>
+    <div class="cell high"><div class="cmd">j.H</div><div class="meta">めくり候補</div></div>
+    <div class="cell high"><div class="cmd">j.D</div><div class="meta">空中ダスト</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>必殺技 / SPECIALS</h2>
+  <div class="specials">
+    <div class="move"><div class="input">236P</div><div class="name">Gun Flame</div><div class="note">地上飛び道具</div></div>
+    <div class="move"><div class="input">623S / 623H</div><div class="name">Volcanic Viper</div><div class="note">対空昇龍 / Hは高性能</div></div>
+    <div class="move"><div class="input">236K</div><div class="name">Bandit Revolver</div><div class="note">突進 / 空中可</div></div>
+    <div class="move"><div class="input">214K</div><div class="name">Bandit Bringer</div><div class="note">飛び込み中段</div></div>
+    <div class="move"><div class="input">623K</div><div class="name">Wild Throw</div><div class="note">コマンド投げ</div></div>
+    <div class="move"><div class="input">41236H</div><div class="name">Fafnir</div><div class="note">ダッシュパンチ / ガード有利</div></div>
+    <div class="move"><div class="input">j.214S</div><div class="name">Night Raid Vortex</div><div class="note">空中専用</div></div>
+    <div class="move"><div class="input">63214S</div><div class="name">Bringer (派生)</div><div class="note">※省略</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>覚醒必殺技 / OVERDRIVES</h2>
+  <div class="specials">
+    <div class="move od"><div class="input">632146H</div><div class="name">Tyrant Rave</div><div class="note">乱舞系 / 50%</div></div>
+    <div class="move od"><div class="input">236236H</div><div class="name">Heavy Mob Cemetery</div><div class="note">飛び道具 / 50%</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>凡例 / LEGEND</h2>
+  <div class="legend">
+    <span class="lg-mid">中段ガード可</span>
+    <span class="lg-low">下段</span>
+    <span class="lg-high">中段(上段)攻撃</span>
+    <span class="lg-throw">投げ</span>
+    <span class="lg-spec">必殺技</span>
+    <span class="lg-od">覚醒必殺技</span>
+    <span>RC=ロマキャン / 数字はテンキー表記(236=↓↘→)</span>
+  </div>
+</section>
+
+</body>
+</html>
