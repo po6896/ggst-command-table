@@ -606,36 +606,37 @@
     </g>
 
     <!-- Motion-trail gradients: fade IN from the start of the
-         lever path so the eye reads "starts faint, grows solid
-         toward the held direction". Each gradient axis follows
-         its symbol's start→end vector. -->
+         lever path. stop-color uses var(--char) directly because
+         currentColor doesn't reliably cross the <use> shadow
+         boundary into <stop> elements in real browsers — the
+         CSS variable is the portable fix. -->
     <linearGradient id="g-qcf"   gradientUnits="userSpaceOnUse" x1="16" y1="26" x2="26" y2="16">
-      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.10"/>
-      <stop offset="55%" stop-color="currentColor" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+      <stop offset="0%"  stop-color="var(--char)" stop-opacity="0.10"/>
+      <stop offset="55%" stop-color="var(--char)" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="var(--char)" stop-opacity="1"/>
     </linearGradient>
     <linearGradient id="g-qcb"   gradientUnits="userSpaceOnUse" x1="16" y1="26" x2="6" y2="16">
-      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.10"/>
-      <stop offset="55%" stop-color="currentColor" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+      <stop offset="0%"  stop-color="var(--char)" stop-opacity="0.10"/>
+      <stop offset="55%" stop-color="var(--char)" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="var(--char)" stop-opacity="1"/>
     </linearGradient>
     <linearGradient id="g-dp"    gradientUnits="userSpaceOnUse" x1="26" y1="16" x2="26" y2="26">
-      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.10"/>
-      <stop offset="55%" stop-color="currentColor" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+      <stop offset="0%"  stop-color="var(--char)" stop-opacity="0.10"/>
+      <stop offset="55%" stop-color="var(--char)" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="var(--char)" stop-opacity="1"/>
     </linearGradient>
     <linearGradient id="g-hcf"   gradientUnits="userSpaceOnUse" x1="4" y1="16" x2="26" y2="16">
-      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.10"/>
-      <stop offset="55%" stop-color="currentColor" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+      <stop offset="0%"  stop-color="var(--char)" stop-opacity="0.10"/>
+      <stop offset="55%" stop-color="var(--char)" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="var(--char)" stop-opacity="1"/>
     </linearGradient>
     <linearGradient id="g-hcb"   gradientUnits="userSpaceOnUse" x1="26" y1="16" x2="6" y2="16">
-      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="currentColor" stop-opacity="0.65"/>
+      <stop offset="0%"  stop-color="var(--char)" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="var(--char)" stop-opacity="0.65"/>
     </linearGradient>
     <linearGradient id="g-thrust" gradientUnits="userSpaceOnUse" x1="8" y1="16" x2="24" y2="16">
-      <stop offset="0%"  stop-color="currentColor" stop-opacity="0.20"/>
-      <stop offset="100%" stop-color="currentColor" stop-opacity="1"/>
+      <stop offset="0%"  stop-color="var(--char)" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="var(--char)" stop-opacity="1"/>
     </linearGradient>
   </defs>
 
