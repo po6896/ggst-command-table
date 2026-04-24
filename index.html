@@ -131,6 +131,27 @@
     z-index: 5;
     position: relative;
   }
+  .roster a::after {
+    content: attr(title);
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.667);
+    transform-origin: top center;
+    background: var(--panel);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 510;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 1px solid var(--char-line);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 100ms ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+  .roster a:hover::after { opacity: 1; }
   .roster a.active {
     border-color: var(--char);
     background: var(--char-bg);
@@ -531,8 +552,11 @@
   .specials.cols-2 { grid-template-columns: repeat(2, 1fr); }
   .specials.cols-5 { grid-template-columns: repeat(5, 1fr); }
   .specials.cols-7 { grid-template-columns: repeat(7, 1fr); }
+  .specials.cols-7 .move .name { font-size: 13px; line-height: 1.15; word-break: break-all; }
+  .specials.cols-7 .move .note { font-size: 10px; }
   @media (max-width: 1500px) {
     .specials.cols-7 { grid-template-columns: repeat(4, 1fr); }
+    .specials.cols-7 .move .name { font-size: 14px; }
   }
   @media (max-width: 1500px) { .specials { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 1100px) { .specials { grid-template-columns: repeat(2, 1fr); } }
@@ -668,8 +692,14 @@
     font-size: 13px;
     letter-spacing: -0.13px;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 6px;
+  }
+  footer .row {
+    display: flex;
+    gap: 22px;
     flex-wrap: wrap;
+    align-items: center;
   }
   footer .key {
     font-weight: 590;
@@ -896,9 +926,9 @@
       <section class="hero-combos">
         <h3>基本コンボ</h3>
         <ol>
-          <li><span class="tag">中段始動</span><span class="seq">5K &gt; c.S &gt; 2H &gt; 236K</span></li>
-          <li><span class="tag">下段始動</span><span class="seq">2K &gt; 2D &gt; 236K</span></li>
-          <li><span class="tag">対空</span><span class="seq">6P &gt; 623HS</span></li>
+          <li><span class="tag">中段始動</span><span class="seq">5<span class="key-k">K</span> &gt; 近<span class="key-s">S</span> &gt; 2<span class="key-h">H</span> &gt; 236<span class="key-k">K</span></span></li>
+          <li><span class="tag">下段始動</span><span class="seq">2<span class="key-k">K</span> &gt; 2<span class="key-d">D</span> &gt; 236<span class="key-k">K</span></span></li>
+          <li><span class="tag">対空</span><span class="seq">6<span class="key-p">P</span> &gt; 623<span class="key-h">HS</span></span></li>
         </ol>
       </section>
     </div>
@@ -988,23 +1018,27 @@
 </main>
 
 <footer>
-  <span class="legend">
-    <span class="key mid">中</span> ガード可
-    <span class="sep">／</span>
-    <span class="key low">下</span> 下段
-    <span class="sep">／</span>
-    <span class="key high">上</span> 中段
-  </span>
-  <span>アイコンはレバー軌跡 — 矢印が最終入力方向</span>
-  <span class="btn-legend">
-    ボタン:
-    <span class="key-p">P</span>
-    <span class="key-k">K</span>
-    <span class="key-s">S</span>
-    <span class="key-h">HS</span>
-    <span class="key-d">D</span>
-  </span>
-  <span>RC = ロマンキャンセル</span>
+  <div class="row">
+    <span class="legend">
+      <span class="key mid">中</span> ガード可
+      <span class="sep">／</span>
+      <span class="key low">下</span> 下段
+      <span class="sep">／</span>
+      <span class="key high">上</span> 中段
+    </span>
+    <span class="btn-legend">
+      ボタン:
+      <span class="key-p">P</span>
+      <span class="key-k">K</span>
+      <span class="key-s">S</span>
+      <span class="key-h">HS</span>
+      <span class="key-d">D</span>
+    </span>
+  </div>
+  <div class="row">
+    <span>アイコンはレバー軌跡 — 矢印が最終入力方向</span>
+    <span>RC = ロマンキャンセル</span>
+  </div>
   <span class="credit">キャラクター素材・ロゴ: GUILTY GEAR -STRIVE- 公式ファンキット ／ © ARC SYSTEM WORKS</span>
 </footer>
 
