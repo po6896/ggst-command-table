@@ -442,9 +442,35 @@
 
   /* Arrow input: give arrow glyphs a bit of spacing so they read
      as motion, and pull button letters tighter. */
-  .move .input .arrows { letter-spacing: 0.02em; margin-right: 6px; }
+  .move .input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .move .input .arrows { letter-spacing: 0.02em; }
   .move .input .btn { color: var(--text); font-weight: 590; }
-  .move .input .prefix { color: var(--text-3); font-weight: 510; margin-right: 4px; }
+  .move .input .prefix {
+    color: var(--text-3);
+    font-weight: 510;
+    font-size: 12px;
+    padding: 1px 5px;
+    background: var(--surface-3);
+    border-radius: 3px;
+  }
+
+  /* Stick-motion icon (GGST training-mode style).
+     Symbols inherit color via currentColor; numpad dots are baked
+     into the symbol's <g> with a fixed subtle white. */
+  .motion-icon {
+    width: 32px;
+    height: 32px;
+    flex: none;
+    display: block;
+    color: var(--char);
+    filter: drop-shadow(0 0 4px rgba(255,122,61,0.30));
+  }
+  .move.od .motion-icon { color: var(--char-2); }
 
   /* === Footer === */
   footer {
@@ -500,6 +526,77 @@
 </style>
 </head>
 <body>
+
+<!-- Stick-motion symbol defs (used by .motion-icon below) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="numpad-bg" fill="rgba(255,255,255,0.12)">
+      <circle cx="4"  cy="4"  r="1"/>
+      <circle cx="12" cy="4"  r="1"/>
+      <circle cx="20" cy="4"  r="1"/>
+      <circle cx="4"  cy="12" r="1"/>
+      <circle cx="12" cy="12" r="1"/>
+      <circle cx="20" cy="12" r="1"/>
+      <circle cx="4"  cy="20" r="1"/>
+      <circle cx="12" cy="20" r="1"/>
+      <circle cx="20" cy="20" r="1"/>
+    </g>
+  </defs>
+
+  <symbol id="m-qcf" viewBox="0 0 24 24">
+    <use href="#numpad-bg"/>
+    <path d="M12,20 Q20,20 20,12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="12" cy="20" r="1.6" fill="rgba(255,255,255,0.4)"/>
+    <circle cx="20" cy="12" r="2.4" fill="currentColor"/>
+  </symbol>
+
+  <symbol id="m-qcb" viewBox="0 0 24 24">
+    <use href="#numpad-bg"/>
+    <path d="M12,20 Q4,20 4,12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="12" cy="20" r="1.6" fill="rgba(255,255,255,0.4)"/>
+    <circle cx="4" cy="12" r="2.4" fill="currentColor"/>
+  </symbol>
+
+  <symbol id="m-dp" viewBox="0 0 24 24">
+    <use href="#numpad-bg"/>
+    <path d="M20,12 L12,20 L20,20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="20" cy="12" r="1.6" fill="rgba(255,255,255,0.4)"/>
+    <circle cx="20" cy="20" r="2.4" fill="currentColor"/>
+  </symbol>
+
+  <symbol id="m-hcf" viewBox="0 0 24 24">
+    <use href="#numpad-bg"/>
+    <path d="M4,12 Q4,20 12,20 Q20,20 20,12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="4" cy="12" r="1.6" fill="rgba(255,255,255,0.4)"/>
+    <circle cx="20" cy="12" r="2.4" fill="currentColor"/>
+  </symbol>
+
+  <symbol id="m-hcb-f" viewBox="0 0 24 24">
+    <use href="#numpad-bg"/>
+    <path d="M20,12 Q20,20 12,20 Q4,20 4,12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M4,12 L20,12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="2 2" opacity="0.7"/>
+    <circle cx="20" cy="12" r="2.4" fill="currentColor"/>
+  </symbol>
+
+  <symbol id="m-qcf2" viewBox="0 0 24 24">
+    <use href="#numpad-bg"/>
+    <path d="M12,20 Q20,20 20,12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="20" cy="12" r="2.4" fill="currentColor"/>
+    <text x="2" y="9" font-size="6.5" font-weight="700" fill="currentColor" font-family="Berkeley Mono, ui-monospace, monospace">×2</text>
+  </symbol>
+
+  <symbol id="m-dir" viewBox="0 0 24 24">
+    <use href="#numpad-bg"/>
+    <path d="M4,12 L20,12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+    <circle cx="4" cy="12" r="2.4" fill="currentColor"/>
+    <circle cx="20" cy="12" r="2.4" fill="currentColor"/>
+  </symbol>
+
+  <symbol id="m-button" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+  </symbol>
+</svg>
 
 <header class="topbar">
   <div class="brand">
@@ -605,13 +702,13 @@
     <details class="sect" open>
       <summary><h2>必殺技</h2><span class="count">7</span><span class="accent-bar"></span></summary>
       <div class="specials">
-        <div class="move"><span class="input"><span class="arrows">↓↘→</span><span class="btn">P</span></span><span class="name">Gun Flame</span><span class="note">地上飛び道具</span></div>
-        <div class="move"><span class="input"><span class="arrows">→↓↘</span><span class="btn">S / HS</span></span><span class="name">Volcanic Viper</span><span class="note">対空昇龍 ／ HS 高性能</span></div>
-        <div class="move"><span class="input"><span class="arrows">↓↘→</span><span class="btn">K</span></span><span class="name">Bandit Revolver</span><span class="note">突進 ／ 空中可</span></div>
-        <div class="move"><span class="input"><span class="arrows">↓↙←</span><span class="btn">K</span></span><span class="name">Bandit Bringer</span><span class="note">飛び込み中段</span></div>
-        <div class="move"><span class="input"><span class="arrows">→↓↘</span><span class="btn">K</span></span><span class="name">Wild Throw</span><span class="note">コマンド投げ</span></div>
-        <div class="move"><span class="input"><span class="arrows">←↙↓↘→</span><span class="btn">HS</span></span><span class="name">Fafnir</span><span class="note">突進 ／ ガード有利</span></div>
-        <div class="move"><span class="input"><span class="prefix">空中</span><span class="arrows">↓↙←</span><span class="btn">S</span></span><span class="name">Night Raid Vortex</span><span class="note">空中専用</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="arrows">↓↘→</span><span class="btn">P</span></span><span class="name">Gun Flame</span><span class="note">地上飛び道具</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dp"/></svg><span class="arrows">→↓↘</span><span class="btn">S / HS</span></span><span class="name">Volcanic Viper</span><span class="note">対空昇龍 ／ HS 高性能</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="arrows">↓↘→</span><span class="btn">K</span></span><span class="name">Bandit Revolver</span><span class="note">突進 ／ 空中可</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcb"/></svg><span class="arrows">↓↙←</span><span class="btn">K</span></span><span class="name">Bandit Bringer</span><span class="note">飛び込み中段</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dp"/></svg><span class="arrows">→↓↘</span><span class="btn">K</span></span><span class="name">Wild Throw</span><span class="note">コマンド投げ</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-hcf"/></svg><span class="arrows">←↙↓↘→</span><span class="btn">HS</span></span><span class="name">Fafnir</span><span class="note">突進 ／ ガード有利</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcb"/></svg><span class="prefix">空中</span><span class="arrows">↓↙←</span><span class="btn">S</span></span><span class="name">Night Raid Vortex</span><span class="note">空中専用</span></div>
       </div>
     </details>
 
@@ -620,13 +717,13 @@
       <div class="specials">
         <div class="move od">
           <span class="od-flag">Overdrive <span class="od-cost">テンション 50%</span></span>
-          <span class="input"><span class="arrows">→↘↓↙←→</span><span class="btn">HS</span></span>
+          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="arrows">→↘↓↙←→</span><span class="btn">HS</span></span>
           <span class="name">Tyrant Rave</span>
           <span class="note">乱舞</span>
         </div>
         <div class="move od">
           <span class="od-flag">Overdrive <span class="od-cost">テンション 50%</span></span>
-          <span class="input"><span class="arrows">↓↘→↓↘→</span><span class="btn">HS</span></span>
+          <span class="input"><svg class="motion-icon"><use href="#m-qcf2"/></svg><span class="arrows">↓↘→↓↘→</span><span class="btn">HS</span></span>
           <span class="name">Heavy Mob Cemetery</span>
           <span class="note">飛び道具</span>
         </div>
@@ -636,11 +733,11 @@
     <details class="sect">
       <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
       <div class="specials">
-        <div class="move"><span class="input"><span class="arrows">←/→</span><span class="btn">+ HS</span></span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
-        <div class="move"><span class="input"><span class="btn">D</span></span><span class="name">ダスト</span><span class="note">中段始動 ／ 全キャラ共通</span></div>
-        <div class="move"><span class="input"><span class="btn">P + K</span></span><span class="name">フォルトレスディフェンス</span><span class="note">ガード中 ／ テンション消費</span></div>
-        <div class="move"><span class="input"><span class="btn">P + K + S</span></span><span class="name">ロマンキャンセル</span><span class="note">攻撃中 ／ テンション 50%</span></div>
-        <div class="move"><span class="input"><span class="prefix">被弾中</span><span class="btn">D 系入力</span></span><span class="name">サイクバースト</span><span class="note">1ラウンド 1回</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="arrows">←/→</span><span class="btn">+ HS</span></span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn">D</span></span><span class="name">ダスト</span><span class="note">中段始動 ／ 全キャラ共通</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn">P + K</span></span><span class="name">フォルトレスディフェンス</span><span class="note">ガード中 ／ テンション消費</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn">P + K + S</span></span><span class="name">ロマンキャンセル</span><span class="note">攻撃中 ／ テンション 50%</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="prefix">被弾中</span><span class="btn">D 系入力</span></span><span class="name">サイクバースト</span><span class="note">1ラウンド 1回</span></div>
       </div>
     </details>
 
