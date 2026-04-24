@@ -22,6 +22,7 @@
     --accent: #8a8aff;     /*  6.0:1  AA  — bumped from #7170ff (5.2:1) */
     --accent-bg: #5e6ad2;  /* used only as bg under white text */
     --decor: rgba(255,255,255,0.10); /* non-text decorative (dots, dividers) */
+    --char: #ff7a3d;       /* per-character accent (Sol: flame orange) */
   }
   * { box-sizing: border-box; }
   html, body { background: var(--bg); }
@@ -39,16 +40,29 @@
 
   header {
     display: flex;
-    align-items: baseline;
-    gap: 24px;
+    align-items: center;
+    gap: 18px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border-subtle);
   }
+  .avatar {
+    width: 56px;
+    height: 56px;
+    flex: none;
+    border-radius: 50%;
+    background: rgba(255,122,61,0.10);
+    border: 1px solid rgba(255,122,61,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .avatar svg { display: block; }
+  .name-block { display: flex; flex-direction: column; gap: 4px; }
   h1 {
-    font-size: 48px;
+    font-size: 44px;
     font-weight: 510;
     line-height: 1.0;
-    letter-spacing: -1.056px;
+    letter-spacing: -0.968px;
     margin: 0;
     color: var(--text);
   }
@@ -60,10 +74,51 @@
   }
   header .meta .dot { color: var(--decor); margin: 0 8px; }
 
-  section { margin-top: 28px; }
+  /* Collapsible sections */
+  details.sect {
+    margin-top: 24px;
+    border: none;
+  }
+  details.sect > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0 12px;
+    user-select: none;
+    border-radius: 4px;
+    outline-offset: 4px;
+  }
+  details.sect > summary::-webkit-details-marker { display: none; }
+  details.sect > summary::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid var(--text-3);
+    border-bottom: 1.5px solid var(--text-3);
+    transform: rotate(-45deg);
+    transition: transform 140ms ease;
+    margin-right: 2px;
+  }
+  details.sect[open] > summary::before {
+    transform: rotate(45deg);
+  }
+  details.sect > summary:hover::before { border-color: var(--text); }
+  details.sect > summary:focus-visible {
+    outline: 2px solid var(--accent);
+  }
+  details.sect > summary h2 { margin: 0; }
+  details.sect > summary .count {
+    color: var(--text-4);
+    font-size: 11px;
+    font-weight: 510;
+    letter-spacing: 0.04em;
+    margin-left: 4px;
+  }
   h2 {
     font-size: 11px;
-    margin: 0 0 12px 0;
+    margin: 0;
     color: var(--text-3);
     font-weight: 510;
     text-transform: uppercase;
@@ -187,17 +242,6 @@
   }
   footer .key { color: var(--text); font-weight: 590; }
 
-  @media (prefers-reduced-motion: reduce) {
-    .cell, .move { transition: none; }
-  }
-  @media (prefers-contrast: more) {
-    :root {
-      --text-3: #c4c9d0;       /* push tertiary text closer to AAA */
-      --text-4: #a0a5ad;
-      --border: rgba(255,255,255,0.20);
-      --border-subtle: rgba(255,255,255,0.12);
-    }
-  }
   footer code {
     font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     color: var(--text-2);
@@ -206,21 +250,54 @@
     border-radius: 3px;
     font-size: 11px;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cell, .move { transition: none; }
+    details.sect > summary::before { transition: none; }
+  }
+  @media (prefers-contrast: more) {
+    :root {
+      --text-3: #c4c9d0;
+      --text-4: #a0a5ad;
+      --border: rgba(255,255,255,0.20);
+      --border-subtle: rgba(255,255,255,0.12);
+    }
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Sol Badguy</h1>
-  <span class="meta">
-    GUILTY GEAR -STRIVE-
-    <span class="dot">·</span>
-    Command reference
-  </span>
+  <div class="avatar" aria-hidden="true">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <path d="M20 6
+               C 18 11, 14 13, 14 21
+               C 14 26, 17 30, 20 30
+               C 23 30, 26 26, 26 22
+               C 26 18, 24 16, 23 12
+               C 22 14, 21 15, 21 11
+               C 21 9, 20.5 7.5, 20 6 Z"
+            fill="var(--char)"/>
+      <path d="M20 16
+               C 19 18, 17.5 19, 17.5 22
+               C 17.5 24, 18.5 25.5, 20 25.5
+               C 21.5 25.5, 22.5 24, 22.5 22
+               C 22.5 20, 21 18.5, 20 16 Z"
+            fill="#ffd1ad" opacity="0.85"/>
+    </svg>
+  </div>
+  <div class="name-block">
+    <h1>Sol Badguy</h1>
+    <span class="meta">
+      GUILTY GEAR -STRIVE-
+      <span class="dot">·</span>
+      Command reference
+    </span>
+  </div>
 </header>
 
-<section>
-  <h2>通常技</h2>
+<details class="sect" open>
+  <summary><h2>通常技</h2><span class="count">15</span></summary>
   <div class="normals">
     <div class="colhead"></div>
     <div class="colhead">P</div>
@@ -254,10 +331,10 @@
     <div class="cell"><div class="top"><span class="cmd">j.H</span><span class="tag high">上</span></div><div class="meta">めくり</div></div>
     <div class="cell"><div class="top"><span class="cmd">j.D</span><span class="tag high">上</span></div><div class="meta">空中ダスト</div></div>
   </div>
-</section>
+</details>
 
-<section>
-  <h2>必殺技</h2>
+<details class="sect" open>
+  <summary><h2>必殺技</h2><span class="count">7</span></summary>
   <div class="specials">
     <div class="move"><span class="input">236P</span><span class="name">Gun Flame</span><span class="note">地上飛び道具</span></div>
     <div class="move"><span class="input">623S / 623H</span><span class="name">Volcanic Viper</span><span class="note">対空昇龍 ／ H 高性能</span></div>
@@ -268,15 +345,26 @@
     <div class="move"><span class="input">j.214S</span><span class="name">Night Raid Vortex</span><span class="note">空中専用</span></div>
     <div class="move"><span class="input">63214S</span><span class="name">Bringer 派生</span><span class="note">— 省略 —</span></div>
   </div>
-</section>
+</details>
 
-<section>
-  <h2>覚醒必殺技</h2>
+<details class="sect" open>
+  <summary><h2>覚醒必殺技</h2><span class="count">2</span></summary>
   <div class="specials">
     <div class="move od"><span class="input">632146H</span><span class="name">Tyrant Rave</span><span class="note">乱舞 ／ テンション 50%</span></div>
     <div class="move od"><span class="input">236236H</span><span class="name">Heavy Mob Cemetery</span><span class="note">飛び道具 ／ 50%</span></div>
   </div>
-</section>
+</details>
+
+<details class="sect">
+  <summary><h2>システム共通</h2><span class="count">5</span></summary>
+  <div class="specials">
+    <div class="move"><span class="input">4 / 6 + HS</span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
+    <div class="move"><span class="input">5D</span><span class="name">ダスト</span><span class="note">中段始動 ／ 全キャラ共通</span></div>
+    <div class="move"><span class="input">P + K（ガード中）</span><span class="name">フォルトレスディフェンス</span><span class="note">完全ガード ／ テンション消費</span></div>
+    <div class="move"><span class="input">P + K + S（攻撃 / 被弾中）</span><span class="name">ロマンキャンセル</span><span class="note">テンション 50% ／ タイミングで色変化</span></div>
+    <div class="move"><span class="input">D 系入力（被弾中）</span><span class="name">サイクバースト</span><span class="note">1ラウンド 1回</span></div>
+  </div>
+</details>
 
 <footer>
   <span><span class="key">中</span> ガード可 ／ <span class="key">下</span> 下段 ／ <span class="key">上</span> 中段</span>
