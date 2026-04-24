@@ -127,7 +127,9 @@
   .roster a:hover {
     border-color: var(--text-2);
     background: var(--surface-3);
-    transform: translateY(-2px);
+    transform: scale(1.5) translateY(-3px);
+    z-index: 5;
+    position: relative;
   }
   .roster a.active {
     border-color: var(--char);
@@ -222,12 +224,13 @@
     font-weight: 510;
   }
   .hero-stats {
-    margin-top: 14px;
-    padding-top: 14px;
+    margin-top: 12px;
+    padding-top: 12px;
     border-top: 1px solid var(--border-subtle);
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 14px;
+    grid-template-columns: 56px 1fr;
+    gap: 6px 10px;
+    align-items: center;
   }
   .hero-stats dt {
     font-size: 10px;
@@ -238,15 +241,59 @@
     grid-column: 1;
   }
   .hero-stats dd {
-    font-size: 14px;
-    color: var(--text);
-    font-weight: 590;
     margin: 0;
     grid-column: 2;
-    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 590;
     font-variant-numeric: tabular-nums;
   }
-  .hero-stats dd .sub { color: var(--text-3); font-weight: 400; font-size: 12px; margin-left: 4px; }
+  .hero-stats dd .num { line-height: 1; }
+  .hero-stats dd .sub { color: var(--text-3); font-weight: 400; font-size: 11px; }
+
+  /* HP bar */
+  .stat-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1px;
+    overflow: hidden;
+    position: relative;
+  }
+  .stat-bar .fill {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--char) 0%, var(--char-2) 100%);
+    box-shadow: 0 0 4px rgba(255,122,61,0.5);
+  }
+
+  /* Three-step indicator (weight, range) */
+  .stat-pips {
+    display: inline-flex;
+    gap: 3px;
+    align-items: center;
+  }
+  .stat-pips span {
+    width: 10px;
+    height: 6px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1px;
+  }
+  .stat-pips span.on { background: var(--char); border-color: var(--char-line); }
+
+  /* Dash icon */
+  .stat-icon {
+    color: var(--char);
+    font-family: "Berkeley Mono", ui-monospace, monospace;
+    font-weight: 700;
+    letter-spacing: -0.15em;
+    font-size: 14px;
+  }
 
   /* === Sections === */
   details.sect {
@@ -423,6 +470,11 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 6px;
   }
+  /* Per-section layout overrides — kills the trailing empty
+     cells the default 4-col grid leaves on OD (2 cards) and
+     システム共通 (5 cards). */
+  .specials.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .specials.cols-5 { grid-template-columns: repeat(5, 1fr); }
   @media (max-width: 1500px) { .specials { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 1100px) { .specials { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 640px)  { .specials { grid-template-columns: 1fr; } }
@@ -754,10 +806,29 @@
       <h1>Sol Badguy</h1>
       <span class="jp">ソル＝バッドガイ</span>
       <dl class="hero-stats">
-        <dt>HP</dt>            <dd>420</dd>
-        <dt>体重</dt>           <dd>中</dd>
-        <dt>ダッシュ</dt>        <dd>ステップ</dd>
-        <dt>レンジ</dt>          <dd>近〜中<span class="sub">（鈍器系）</span></dd>
+        <dt>HP</dt>
+        <dd>
+          <span class="stat-bar"><span class="fill" style="width:84%"></span></span>
+          <span class="num">420</span>
+        </dd>
+
+        <dt>体重</dt>
+        <dd>
+          <span class="stat-pips"><span class="on"></span><span class="on"></span><span></span></span>
+          <span class="num">中</span>
+        </dd>
+
+        <dt>ダッシュ</dt>
+        <dd>
+          <span class="stat-icon">&gt;&gt;</span>
+          <span class="num">ステップ</span>
+        </dd>
+
+        <dt>レンジ</dt>
+        <dd>
+          <span class="stat-pips"><span class="on"></span><span class="on"></span><span></span></span>
+          <span class="num">近〜中</span>
+        </dd>
       </dl>
     </div>
   </aside>
@@ -815,7 +886,7 @@
 
     <details class="sect" open>
       <summary><h2>覚醒必殺技</h2><span class="count">2</span><span class="accent-bar"></span></summary>
-      <div class="specials">
+      <div class="specials cols-2">
         <div class="move od">
           <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar"><span class="fill" style="width:50%"></span></span>50%</span></span>
           <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn key-h">HS</span></span>
@@ -833,7 +904,7 @@
 
     <details class="sect">
       <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
-      <div class="specials">
+      <div class="specials cols-5">
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="btn">+ <span class="key-h">HS</span></span></span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn key-d">D</span></span><span class="name">ダスト</span><span class="note">中段始動 ／ 全キャラ共通</span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-p">P</span> + <span class="key-k">K</span></span></span><span class="name">フォルトレスディフェンス</span><span class="note">ガード中 ／ テンション消費</span></div>
