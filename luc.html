@@ -357,7 +357,7 @@
     letter-spacing: -0.13px;
   }
 
-  /* HP bar */
+  /* Defense bar — low coefficient (堅い) = longer fill */
   .stat-bar {
     flex: 1;
     height: 6px;
@@ -374,14 +374,14 @@
     box-shadow: 0 0 4px rgba(255,122,61,0.5);
   }
 
-  /* Three-step indicator (weight, range) */
+  /* N-step indicator: guts (0..5) and range (0..3) */
   .stat-pips {
     display: inline-flex;
     gap: 3px;
     align-items: center;
   }
   .stat-pips span {
-    width: 10px;
+    width: 8px;
     height: 6px;
     background: rgba(255,255,255,0.10);
     border: 1px solid var(--border-subtle);
@@ -1044,16 +1044,16 @@
       <h1>Lucy</h1>
       <span class="jp">ルチア</span>
       <dl class="hero-stats">
-        <dt>HP</dt>
+        <dt>防御</dt>
         <dd>
-          <span class="stat-bar"><span class="fill" style="width:76%"></span></span>
-          <span class="num">380</span>
+          <span class="stat-bar"><span class="fill" style="width:26%"></span></span>
+          <span class="num">1.07</span>
         </dd>
 
-        <dt>体重</dt>
+        <dt>根性</dt>
         <dd>
-          <span class="stat-pips"><span class="on"></span><span class="on"></span><span class=""></span></span>
-          <span class="num">中</span>
+          <span class="stat-pips"><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span><span class=""></span></span>
+          <span class="num">2</span>
         </dd>
 
         <dt>ダッシュ</dt>

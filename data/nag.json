@@ -9,14 +9,15 @@
   "archetype": "Resource",
   "artPos": "6%",
   "stats": {
-    "hp": 450,
-    "hpPct": 90,
-    "weight": "重",
-    "weightLevel": 3,
+    "defense": 0.92,
+    "defensePct": 60,
+    "guts": 3,
+    "gutsLevel": 3,
     "dash": "走り",
     "dashIcon": ">>>",
     "range": "中〜遠",
-    "rangeLevel": 2
+    "rangeLevel": 2,
+    "defenseNote": "Blood Lv1基準 (Lv2:1.02 / Lv3:1.15)"
   },
   "normals": {
     "stand": [

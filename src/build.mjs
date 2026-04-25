@@ -173,16 +173,16 @@ function renderPage(char, allChars) {
   const heroBody = isStub
     ? ''
     : `      <dl class="hero-stats">
-        <dt>HP</dt>
+        <dt>防御</dt>
         <dd>
-          <span class="stat-bar"><span class="fill" style="width:${stats.hpPct ?? 80}%"></span></span>
-          <span class="num">${stats.hp ?? '?'}</span>
+          <span class="stat-bar"><span class="fill" style="width:${stats.defensePct ?? 50}%"></span></span>
+          <span class="num">${stats.defense != null ? stats.defense.toFixed(2) : '?'}</span>${stats.defenseNote ? `<span class="sub">${stats.defenseNote.replace(/基準.*$/, '基準')}</span>` : ''}
         </dd>
 
-        <dt>体重</dt>
+        <dt>根性</dt>
         <dd>
-          <span class="stat-pips">${pips(stats.weightLevel ?? 2)}</span>
-          <span class="num">${stats.weight ?? '?'}</span>
+          <span class="stat-pips">${pips(stats.gutsLevel ?? 0, 5)}</span>
+          <span class="num">${stats.guts ?? '?'}</span>
         </dd>
 
         <dt>ダッシュ</dt>
@@ -193,7 +193,7 @@ function renderPage(char, allChars) {
 
         <dt>レンジ</dt>
         <dd>
-          <span class="stat-pips">${pips(stats.rangeLevel ?? 2)}</span>
+          <span class="stat-pips">${pips(stats.rangeLevel ?? 2, 3)}</span>
           <span class="num">${stats.range ?? '?'}</span>
         </dd>
       </dl>
@@ -244,8 +244,9 @@ ${SYSTEM_COMMON.map(renderMove).join('\n')}
   });
 }
 
-function pips(level) {
-  return [1, 2, 3].map(i => `<span class="${i <= level ? 'on' : ''}"></span>`).join('');
+function pips(level, max = 3) {
+  return Array.from({ length: max }, (_, idx) => idx + 1)
+    .map(i => `<span class="${i <= level ? 'on' : ''}"></span>`).join('');
 }
 
 function normalCount(normals) {
