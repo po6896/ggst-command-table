@@ -228,6 +228,38 @@ ${items.map(renderOd).join('\n')}
       </div>`;
 }
 
+function renderMechanicDetail(detail) {
+  if (!detail || !Array.isArray(detail.sections) || detail.sections.length === 0) return '';
+  const total = detail.sections.length;
+  const blocks = detail.sections.map(s => {
+    const summary = s.summary ? `        <p class="mech-summary">${s.summary}</p>` : '';
+    const t = s.table;
+    let tbl = '';
+    if (t && Array.isArray(t.headers) && Array.isArray(t.rows)) {
+      const head = t.headers.map(h => `<th>${h}</th>`).join('');
+      const body = t.rows.map(row => `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`).join('\n          ');
+      tbl = `        <table class="mech-table">
+          <thead><tr>${head}</tr></thead>
+          <tbody>
+          ${body}
+          </tbody>
+        </table>`;
+    }
+    const foot = s.footnote ? `        <p class="mech-foot">${s.footnote}</p>` : '';
+    return `      <article class="mech-block">
+        <h3>${s.title}</h3>
+${[summary, tbl, foot].filter(Boolean).join('\n')}
+      </article>`;
+  }).join('\n');
+  const intro = detail.intro ? `      <p class="mech-intro">${detail.intro}</p>\n` : '';
+  return `    <details class="sect" open>
+      <summary><h2>固有システム詳細</h2><span class="count">${total}</span><span class="accent-bar"></span></summary>
+${intro}      <div class="mech-detail">
+${blocks}
+      </div>
+    </details>`;
+}
+
 const SYSTEM_COMMON = [
   { icon: 'dir',    btnHtml: '＋<span class="key-h">HS</span>',                                                                              name: '投げ',                       note: '前/後ろ投げ ／ 近距離' },
   { icon: 'button', btnHtml: '<span class="key-d">D</span>',                                                                                  name: 'ダスト',                     note: '中段始動 ／ 全キャラ共通' },
@@ -313,7 +345,9 @@ ${renderSpecials(char.specials, pickSpecialCols(char.specials.length))}
       <summary><h2>覚醒必殺技</h2><span class="count">${char.overdrives.length}</span><span class="accent-bar"></span></summary>
 ${renderOdSection(char.overdrives)}
     </details>
-
+${char.mechanicDetail ? `
+${renderMechanicDetail(char.mechanicDetail)}
+` : ''}
     <details class="sect" open>
       <summary><h2>システム共通</h2><span class="count">${SYSTEM_COMMON.length}</span><span class="accent-bar"></span></summary>
       <div class="specials cols-5">

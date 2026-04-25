@@ -934,6 +934,77 @@
   .stub-notice p { margin: 0 0 6px; color: var(--text-2); font-size: 13px; }
   .stub-notice p.muted { color: var(--text-4); font-size: 11px; }
 
+  /* 固有システム詳細 — character-unique mechanics drilldown.
+     Sits between OD and システム共通. Block-grid layout so multiple
+     subsystems (mana / deck / spells) read side-by-side on wide
+     viewports and stack cleanly below 1100px. */
+  .mech-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  @media (max-width: 1100px) { .mech-detail { grid-template-columns: 1fr; } }
+  .mech-intro {
+    margin: 0 0 8px;
+    color: var(--text-2);
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .mech-block {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 10px 12px 12px;
+  }
+  .mech-block h3 {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--char-2);
+    text-transform: uppercase;
+    font-weight: 590;
+    margin: 0 0 6px;
+  }
+  .mech-block .mech-summary {
+    margin: 0 0 8px;
+    color: var(--text-3);
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .mech-block .mech-foot {
+    margin: 8px 0 0;
+    color: var(--text-4);
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .mech-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    color: var(--text-2);
+  }
+  .mech-table thead th {
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 590;
+    color: var(--text-4);
+    padding: 4px 8px 4px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mech-table tbody td {
+    padding: 5px 8px 5px 0;
+    border-bottom: 1px dashed var(--border-subtle);
+    vertical-align: top;
+  }
+  .mech-table tbody tr:last-child td { border-bottom: none; }
+  .mech-table tbody td:first-child {
+    color: var(--text);
+    font-weight: 500;
+    white-space: nowrap;
+    width: 1%;
+  }
+
 </style>
 </head>
 <body style="--char:#6bbc7b;--char-2:#a3f4b3;--char-bg:rgba(107,188,123,0.1);--char-line:rgba(107,188,123,0.45);">
@@ -1163,7 +1234,7 @@
       <section class="hero-mechanic">
         <h3>固有システム</h3>
         <span class="mech-name">マナ + 詠唱書 + デッキ</span>
-        <p>236 / 214 で詠唱・ブックマーク。22S でマナ回復、22HS でデッキ切替。8 種の魔法を選択する独自システム。</p>
+        <p>236 / 214 で詠唱・ブックマーク。22S でマナ回復、22HS でデッキ切替。約 20 種の魔法を選択する独自システム。</p>
       </section>
     </div>
   </aside>
@@ -1231,6 +1302,79 @@
           <span class="name">ブックマーク（フルオーダー）</span>
           <span class="note">魔法多重保存</span>
         </div>
+      </div>
+    </details>
+
+    <details class="sect" open>
+      <summary><h2>固有システム詳細</h2><span class="count">5</span><span class="accent-bar"></span></summary>
+      <div class="mech-detail">
+      <article class="mech-block">
+        <h3>マナ管理</h3>
+        <p class="mech-summary">攻撃リソース兼バリア。0 でチャージ突入。</p>
+        <table class="mech-table">
+          <thead><tr><th>項目</th><th>値・効果</th></tr></thead>
+          <tbody>
+          <tr><td>最大値</td><td>100% (試合開始時)</td></tr>
+          <tr><td>減少</td><td>被弾・被ガード・魔法発動で消費</td></tr>
+          <tr><td>ペナルティ</td><td>0 で 7 秒間 (420F) チャージ → 魔法不可・防御低下</td></tr>
+          <tr><td>回復技</td><td>22S 即時 +24% / 「マナ回復(継続)」で 15 秒間 +8%/秒</td></tr>
+          <tr><td>防御係数</td><td>バリア有 0.75 (全キャラ最高) / 無 1.50 (全キャラ最低)</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>詠唱書 (ブックマーク) — 4 スロット</h3>
+        <p class="mech-summary">214+P/K/S/HS で対応スロットに保存・破棄。空欄に補充する魔法あり。</p>
+        <table class="mech-table">
+          <thead><tr><th>魔法</th><th>消費</th><th>効果</th></tr></thead>
+          <tbody>
+          <tr><td>フルインポート</td><td>4%</td><td>空きスロット全てに魔法セット</td></tr>
+          <tr><td>ランダムインポート</td><td>6%</td><td>全スロット破棄 → ランダム再セット</td></tr>
+          <tr><td>オートインポート</td><td>8%</td><td>10 秒間、詠唱後に自動セット</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>テストケース (デッキ切替) — 22HS</h3>
+        <p class="mech-summary">3 種のデッキを切替。配牌される魔法プールが変化。</p>
+        <table class="mech-table">
+          <thead><tr><th>TC</th><th>通称</th><th>傾向</th></tr></thead>
+          <tbody>
+          <tr><td>1</td><td>三日月 (黄)</td><td>射撃重視。ハウリングメトロン系 19 枚で基本構成</td></tr>
+          <tr><td>2</td><td>半月 (緑)</td><td>崩し重視。拘束系・中下段バリエーション豊富</td></tr>
+          <tr><td>3</td><td>満月 (青)</td><td>弾幕制圧。高火力 + 非攻撃 4 枚で事故リスク高</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>代表的な攻撃魔法 (236+P/K/S/HS)</h3>
+        <p class="mech-summary">TC とブックマーク内容で発動可能なものが変わる。抜粋。</p>
+        <table class="mech-table">
+          <thead><tr><th>魔法</th><th>消費</th><th>効果</th></tr></thead>
+          <tbody>
+          <tr><td>ハウリングメトロン</td><td>12%</td><td>直進キューブ ／ 基本飛び道具</td></tr>
+          <tr><td>MS プロセッシング</td><td>20%</td><td>上下散弾 ／ 制圧</td></tr>
+          <tr><td>メトロンアルペジオ</td><td>28%</td><td>10 発広範囲 ／ 弾幕</td></tr>
+          <tr><td>テラメトロン</td><td>20%</td><td>地割れ下段</td></tr>
+          <tr><td>アキピテルメトロン</td><td>20%</td><td>落下中段 ／ 崩し主軸</td></tr>
+          <tr><td>アクィラメトロン</td><td>20%</td><td>凍結付与 ／ 14F 無敵</td></tr>
+          <tr><td>ゴートゥマーカー</td><td>8%</td><td>8 方向転移 ／ 無敵付き</td></tr>
+          <tr><td>サンプラー404</td><td>4%</td><td>次の魔法消費なし</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>シンセサイズ (杖) — 22+P/K</h3>
+        <p class="mech-summary">マナ 10% で杖を設置 (5 秒・画面内 1 種類)。TC ごとに効果が変化。</p>
+        <table class="mech-table">
+          <thead><tr><th>TC</th><th>杖の効果</th></tr></thead>
+          <tbody>
+          <tr><td>1</td><td>弾速操作 (P 加速 / K 減速)</td></tr>
+          <tr><td>2</td><td>上下操作 (P 上昇 / K 下降)</td></tr>
+          <tr><td>3</td><td>引力操作 (P 引寄せ / K 斥力)</td></tr>
+          </tbody>
+        </table>
+      </article>
       </div>
     </details>
 

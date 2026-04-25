@@ -934,6 +934,77 @@
   .stub-notice p { margin: 0 0 6px; color: var(--text-2); font-size: 13px; }
   .stub-notice p.muted { color: var(--text-4); font-size: 11px; }
 
+  /* 固有システム詳細 — character-unique mechanics drilldown.
+     Sits between OD and システム共通. Block-grid layout so multiple
+     subsystems (mana / deck / spells) read side-by-side on wide
+     viewports and stack cleanly below 1100px. */
+  .mech-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  @media (max-width: 1100px) { .mech-detail { grid-template-columns: 1fr; } }
+  .mech-intro {
+    margin: 0 0 8px;
+    color: var(--text-2);
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .mech-block {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 10px 12px 12px;
+  }
+  .mech-block h3 {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--char-2);
+    text-transform: uppercase;
+    font-weight: 590;
+    margin: 0 0 6px;
+  }
+  .mech-block .mech-summary {
+    margin: 0 0 8px;
+    color: var(--text-3);
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .mech-block .mech-foot {
+    margin: 8px 0 0;
+    color: var(--text-4);
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .mech-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    color: var(--text-2);
+  }
+  .mech-table thead th {
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 590;
+    color: var(--text-4);
+    padding: 4px 8px 4px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mech-table tbody td {
+    padding: 5px 8px 5px 0;
+    border-bottom: 1px dashed var(--border-subtle);
+    vertical-align: top;
+  }
+  .mech-table tbody tr:last-child td { border-bottom: none; }
+  .mech-table tbody td:first-child {
+    color: var(--text);
+    font-weight: 500;
+    white-space: nowrap;
+    width: 1%;
+  }
+
 </style>
 </head>
 <body style="--char:#9b69c7;--char-2:#d3a1ff;--char-bg:rgba(155,105,199,0.1);--char-line:rgba(155,105,199,0.45);">
