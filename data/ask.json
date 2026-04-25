@@ -140,22 +140,22 @@
       "note": "魔法保存 ／ 空中可 ／ 全ボタン対応"
     },
     {
-      "icon": "button",
+      "icon": "down2",
       "btnHtml": "<span class=\"key-p\">P</span>",
       "name": "詠唱（シンセサイズ）",
-      "note": "即時詠唱 ／ 22入力"
+      "note": "即時詠唱"
     },
     {
-      "icon": "button",
+      "icon": "down2",
       "btnHtml": "<span class=\"key-s\">S</span>",
       "name": "マナ回復",
-      "note": "マナチャージ ／ 22入力 ／ 溜め可"
+      "note": "マナチャージ ／ 溜め可"
     },
     {
-      "icon": "button",
+      "icon": "down2",
       "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "テストケース変更",
-      "note": "デッキ切替 ／ 22HS"
+      "note": "デッキ切替"
     }
   ],
   "overdrives": [

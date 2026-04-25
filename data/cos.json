@@ -140,7 +140,7 @@
       "note": "両手構え ／ 移動制限"
     },
     {
-      "icon": "button",
+      "icon": "down2",
       "btnHtml": "<span class=\"key-p\">P</span>",
       "name": "リロード",
       "note": "弾丸補充"

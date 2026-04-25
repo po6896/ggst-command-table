@@ -152,10 +152,10 @@
       "note": "雷剣払い"
     },
     {
-      "icon": "button",
+      "icon": "down2",
       "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "光の翼",
-      "note": "追尾翼 ／ 22HS"
+      "note": "追尾翼 ／ ダメージゾーン"
     }
   ],
   "overdrives": [
