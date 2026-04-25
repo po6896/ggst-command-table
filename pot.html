@@ -607,12 +607,19 @@
      cells the default 4-col grid leaves on OD (2 cards) and
      システム共通 (5 cards). */
   .specials.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .specials.cols-3 { grid-template-columns: repeat(3, 1fr); }
   .specials.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .specials.cols-6 { grid-template-columns: repeat(6, 1fr); }
   .specials.cols-7 { grid-template-columns: repeat(7, 1fr); }
+  /* Tighten typography only when columns are densely packed (6+). */
+  .specials.cols-6 .move .name,
   .specials.cols-7 .move .name { font-size: 13px; line-height: 1.15; word-break: break-all; }
+  .specials.cols-6 .move .note,
   .specials.cols-7 .move .note { font-size: 10px; }
   @media (max-width: 1500px) {
+    .specials.cols-6,
     .specials.cols-7 { grid-template-columns: repeat(4, 1fr); }
+    .specials.cols-6 .move .name,
     .specials.cols-7 .move .name { font-size: 14px; }
   }
   @media (max-width: 1500px) { .specials { grid-template-columns: repeat(3, 1fr); } }
@@ -1153,7 +1160,7 @@
 
     <details class="sect" open>
       <summary><h2>必殺技</h2><span class="count">10</span><span class="accent-bar"></span></summary>
-      <div class="specials cols-7">
+      <div class="specials cols-5">
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-360"/></svg><span class="btn"><span class="key-p">P</span></span></span><span class="name">ポチョムキンバスター</span><span class="note">回転入力コマ投げ</span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcb"/></svg><span class="btn"><span class="key-p">P</span></span></span><span class="name">メガフィスト・前</span><span class="note">飛び込みパンチ</span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcb"/></svg><span class="btn"><span class="key-p">P</span></span></span><span class="name">メガフィスト・後</span><span class="note">後退パンチ</span></div>

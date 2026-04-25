@@ -135,6 +135,13 @@ function renderOd(m) {
         </div>`;
 }
 
+function pickSpecialCols(n) {
+  if (n <= 7) return Math.max(n, 2);  // 1 row, n columns (≥2)
+  if (n === 8) return 4;               // 2 rows × 4
+  if (n <= 10) return 5;               // 2 rows × 5 (covers 9–10)
+  return 4;                            // 11+ → 3 rows
+}
+
 function renderSpecials(items, cols) {
   const cls = `specials cols-${cols}`;
   return `      <div class="${cls}">
@@ -226,7 +233,7 @@ ${renderNormals(char.normals)}
 
     <details class="sect" open>
       <summary><h2>必殺技</h2><span class="count">${char.specials.length}</span><span class="accent-bar"></span></summary>
-${renderSpecials(char.specials, 7)}
+${renderSpecials(char.specials, pickSpecialCols(char.specials.length))}
     </details>
 
     <details class="sect" open>
