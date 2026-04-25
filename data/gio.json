@@ -130,31 +130,31 @@
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "セプルトゥーラ",
+      "name": "セパルトゥラ",
       "note": "長リーチ蹴り"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "トロヴァオン",
+      "name": "トロヴァォン",
       "note": "ドロップキック ／ 飛び道具消し"
     },
     {
       "icon": "dp",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ソウル・ナセンチ",
+      "name": "ソウ・ナセンテ",
       "note": "対空回し蹴り"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ソウル・ポエンチ",
+      "name": "ソウ・ポエンチ",
       "note": "空中蹴り ／ めくり"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "シャヴェ",
+      "name": "シャーヴィ",
       "note": "ステップ ／ キャンセル可"
     }
   ],
@@ -169,7 +169,7 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "テンペスタージ",
+      "name": "テンペスターヂ",
       "note": "空中急降下 ／ 空中可",
       "tension": 50
     }

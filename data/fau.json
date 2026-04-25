@@ -141,7 +141,7 @@
     },
     {
       "icon": "qcb",
-      "btnHtml": "<span class=\"key-p\">P</span>",
+      "btnHtml": "<span class=\"key-p\">P</span> / <span class=\"key-k\">K</span> / <span class=\"key-s\">S</span>",
       "name": "久延毘古",
       "note": "テレポート ／ 位置選択"
     },

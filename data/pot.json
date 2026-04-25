@@ -154,13 +154,13 @@
     {
       "icon": "charge46",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "ハンマーフォール",
+      "name": "ハンマフォール",
       "note": "4溜め6 ／ アーマー突進"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "ハンマーフォール・ブレーキ",
+      "name": "ハンマフォールブレーキ",
       "note": "HF中Pでキャンセル"
     },
     {
@@ -178,7 +178,7 @@
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "ガルーダ・インパクト",
+      "name": "ガルダインパクト",
       "note": "近距離牽制"
     },
     {
@@ -199,7 +199,7 @@
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "ガイガンター・カイ",
+      "name": "ガイガンター改",
       "note": "飛び道具壁",
       "tension": 50
     }

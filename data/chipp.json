@@ -154,13 +154,13 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "列衝",
+      "name": "冽掌",
       "note": "コマ投げ風"
     },
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "玄狼斬",
+      "name": "幻朧斬",
       "note": "突進斬撃"
     },
     {
@@ -181,7 +181,7 @@
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "残星狼牙",
+      "name": "斬星狼牙",
       "note": "突進乱舞 ／ 空中可",
       "tension": 50
     },

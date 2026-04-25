@@ -172,8 +172,7 @@
       "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span>",
       "name": "ナイトレイドヴォルテックス",
-      "note": "長押し可",
-      "prefix": "空中"
+      "note": "長押し可"
     }
   ],
   "overdrives": [
@@ -185,7 +184,7 @@
       "tension": 50
     },
     {
-      "icon": "qcf",
+      "icon": "qcb",
       "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "ヘヴィモブセメタリー",
       "note": "飛び道具",

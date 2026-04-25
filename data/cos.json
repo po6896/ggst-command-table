@@ -130,7 +130,7 @@
     {
       "icon": "button",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "ガンスタンス",
+      "name": "銃を構える",
       "note": "銃構え ／ 空中可"
     },
     {
@@ -154,7 +154,7 @@
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "ロール",
+      "name": "前転",
       "note": "前方ステップ ／ すり抜け"
     },
     {
@@ -181,7 +181,7 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "スーパーフォーカス",
+      "name": "超フォーカス",
       "note": "集中全回復 ／ バフ",
       "tension": 50,
       "repeat": "×2"

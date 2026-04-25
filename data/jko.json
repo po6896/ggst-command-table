@@ -130,7 +130,7 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "サーヴァントサモン",
+      "name": "サーヴァント召喚",
       "note": "従者召喚 ／ 溜め可"
     },
     {
@@ -142,19 +142,19 @@
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "リトリーブ",
+      "name": "回収",
       "note": "従者回収"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "アタックコマンド",
+      "name": "攻撃指示",
       "note": "従者攻撃指示"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ディフェンスコマンド",
+      "name": "防御指示",
       "note": "従者防御指示"
     },
     {
@@ -168,14 +168,14 @@
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "フォーエヴァー・エリュシオン・ドライバー",
+      "name": "フォーエヴァーエリシオンドライバー",
       "note": "突進乱舞",
       "tension": 50
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
-      "name": "エンカレッジ・サーヴァント",
+      "name": "サーヴァントを激励する",
       "note": "従者強化 ／ S無敵 / HS回復",
       "tension": 50,
       "repeat": "×2"

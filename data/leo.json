@@ -130,39 +130,32 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
-      "name": "グラヴィテート・フェルダムト",
+      "name": "グラヴィエットヴァーダ",
       "note": "多段飛び道具"
     },
     {
       "icon": "dp",
       "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
-      "name": "アイゼン・シュトゥルム",
+      "name": "アイゼンシュトルム",
       "note": "対空 ／ 始動無敵"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "エルスト・カルトス・ゲシュトゥーバー",
+      "name": "エアースト・カルタスゲシュトゥーバー",
       "note": "突進 ／ ダウン"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "ツヴァイト・カルトス・ゲシュトゥーバー",
+      "name": "ツヴァイト・カルタスゲシュトゥーバー",
       "note": "すり抜け ／ 裏スタンス"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "トゥールブレンツ",
+      "name": "トゥルブレンツ",
       "note": "前進中段 ／ 派生"
-    },
-    {
-      "icon": "qcf",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "グラオブリッツ",
-      "note": "裏スタンス専用突進",
-      "prefix": "裏"
     }
   ],
   "overdrives": [
@@ -176,7 +169,7 @@
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ライデンシュラフト・デリゲント",
+      "name": "ライデンシャフトディリガント",
       "note": "突進乱舞 ／ 始動無敵",
       "tension": 50
     }
