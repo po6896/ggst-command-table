@@ -6,7 +6,160 @@
   "color": "#e8d8d8",
   "sdIcon": "26_chibi_elp.png",
   "fullArt": "chara26_elp.png",
-  "archetype": "TBD",
-  "stub": true,
-  "artPos": "12%"
+  "archetype": "Rushdown",
+  "artPos": "12%",
+  "stats": {
+    "hp": 380,
+    "hpPct": 76,
+    "weight": "中",
+    "weightLevel": 2,
+    "dash": "走り",
+    "dashIcon": ">>>",
+    "range": "近",
+    "rangeLevel": 1
+  },
+  "normals": {
+    "stand": [
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 7"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 8"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 10"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 11"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
+    ],
+    "crouch": [
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 6"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 8"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "足払い"
+      }
+    ],
+    "air": [
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "めくり"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
+    ]
+  },
+  "specials": [
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "チェーン・ロリポップ",
+      "note": "連係攻撃 ／ ガード困難"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "ボンボン・ショコラ",
+      "note": "機動 ／ 空中可"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "Missシャルロット",
+      "note": "飛び道具系統"
+    }
+  ],
+  "overdrives": [
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "ジュガン・ダ・パルフェオ",
+      "note": "無敵覚醒 ／ 発生13F",
+      "tension": 50
+    }
+  ],
+  "combos": [
+    {
+      "tag": "基本",
+      "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 236<span class=\"key-s\">S</span>"
+    }
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

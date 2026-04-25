@@ -6,7 +6,185 @@
   "color": "#d4a45c",
   "sdIcon": "25_chibi_jhn.png",
   "fullArt": "chara25_jhn.png",
-  "archetype": "TBD",
-  "stub": true,
-  "artPos": "8%"
+  "archetype": "Trickster",
+  "artPos": "8%",
+  "stats": {
+    "hp": 380,
+    "hpPct": 76,
+    "weight": "中",
+    "weightLevel": 2,
+    "dash": "走り",
+    "dashIcon": ">>>",
+    "range": "中",
+    "rangeLevel": 2
+  },
+  "normals": {
+    "stand": [
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 7"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 8"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 10"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 11"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
+    ],
+    "crouch": [
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 6"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 8"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "足払い"
+      }
+    ],
+    "air": [
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "めくり"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
+    ]
+  },
+  "specials": [
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "ミストファイナー",
+      "note": "抜刀斬 ／ 空中可 ／ 方向別"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "ディール",
+      "note": "カード設置 ／ 単体ノーダメ"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "エアディール",
+      "note": "空中専用カード投擲",
+      "prefix": "空中"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ヴォルト",
+      "note": "前方跳躍 ／ 空中ディール派生"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "エンセンガ",
+      "note": "対空中段ジャンプ斬"
+    }
+  ],
+  "overdrives": [
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ザッツ・マイ・ネーム",
+      "note": "無敵対空乱舞",
+      "tension": 50
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "ジョーカートリック",
+      "note": "カード ／ テレポート ／ 飛び道具貫通",
+      "tension": 50,
+      "repeat": "×2"
+    }
+  ],
+  "combos": [
+    {
+      "tag": "基本",
+      "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 214<span class=\"key-s\">S</span>"
+    },
+    {
+      "tag": "カード設置",
+      "seqHtml": "236<span class=\"key-p\">P</span> &gt; 214<span class=\"key-s\">S</span> (カード対応)"
+    }
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

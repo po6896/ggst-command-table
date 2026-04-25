@@ -6,7 +6,175 @@
   "color": "#a83838",
   "sdIcon": "28_chibi_sly.png",
   "fullArt": "chara28_sly.png",
-  "archetype": "TBD",
-  "stub": true,
-  "artPos": "8%"
+  "archetype": "Power",
+  "artPos": "8%",
+  "stats": {
+    "hp": 420,
+    "hpPct": 84,
+    "weight": "中",
+    "weightLevel": 2,
+    "dash": "走り",
+    "dashIcon": ">>>",
+    "range": "近",
+    "rangeLevel": 1
+  },
+  "normals": {
+    "stand": [
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 7"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 8"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 10"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 11"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
+    ],
+    "crouch": [
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 6"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 8"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "足払い"
+      }
+    ],
+    "air": [
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "めくり"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
+    ]
+  },
+  "specials": [
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "マッパハンチ",
+      "note": "前方突進パンチ"
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "ダンディーステップ",
+      "note": "高速移動 ／ 4種派生"
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ブラッドサッキング・ユニバース",
+      "note": "吸血コマ投げ ／ UNIVERSE"
+    },
+    {
+      "icon": "button",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "ハンドオブドゥーム",
+      "note": "バックステップ中 ／ 反撃"
+    }
+  ],
+  "overdrives": [
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "スーパーマッパハンチ",
+      "note": "無敵突進",
+      "tension": 50,
+      "repeat": "×2"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ラストホライズン",
+      "note": "一撃必殺風 ／ 100%消費",
+      "tension": 100,
+      "repeat": "×2"
+    }
+  ],
+  "combos": [
+    {
+      "tag": "基本",
+      "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; ダンディステップ"
+    }
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

@@ -6,7 +6,192 @@
   "color": "#4ca87a",
   "sdIcon": "30_chibi_ven.png",
   "fullArt": "chara30_ven.png",
-  "archetype": "TBD",
-  "stub": true,
-  "artPos": "10%"
+  "archetype": "Setplay",
+  "artPos": "10%",
+  "stats": {
+    "hp": 380,
+    "hpPct": 76,
+    "weight": "中",
+    "weightLevel": 2,
+    "dash": "走り",
+    "dashIcon": ">>>",
+    "range": "中〜遠",
+    "rangeLevel": 3
+  },
+  "normals": {
+    "stand": [
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 7"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 8"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 10"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 11"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
+    ],
+    "crouch": [
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 6"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 8"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "足払い"
+      }
+    ],
+    "air": [
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "めくり"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
+    ]
+  },
+  "specials": [
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-p\">P</span>/<span class=\"key-k\">K</span>/<span class=\"key-s\">S</span>/<span class=\"key-h\">HS</span>",
+      "name": "ボール生成",
+      "note": "玉設置 ／ 全ボタン位置別"
+    },
+    {
+      "icon": "hcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "マッシヴボール",
+      "note": "玉一斉発射"
+    },
+    {
+      "icon": "dp",
+      "btnHtml": "<span class=\"key-p\">P</span>/<span class=\"key-k\">K</span>/<span class=\"key-s\">S</span>/<span class=\"key-h\">HS</span>",
+      "name": "QV",
+      "note": "突進斬 ／ 溜め可"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "スティンガーエイム",
+      "note": "4溜め6 ／ 飛び道具"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "カーカススライド",
+      "note": "2溜め8 ／ 上方飛び道具"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "空中カーカススライド",
+      "note": "空中専用 ／ 急降下",
+      "prefix": "空中"
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "トライアンバカ",
+      "note": "突進斬 ／ 派生"
+    }
+  ],
+  "overdrives": [
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "ダークエンジェル",
+      "note": "無敵突進",
+      "tension": 50
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ナヴァラトナ・ラナウト",
+      "note": "飛び道具乱舞",
+      "tension": 50
+    }
+  ],
+  "combos": [
+    {
+      "tag": "基本",
+      "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 玉発射"
+    }
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

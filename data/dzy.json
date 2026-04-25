@@ -6,7 +6,179 @@
   "color": "#d8e8f0",
   "sdIcon": "29_chibi_dzy.png",
   "fullArt": "chara29_dzy.png",
-  "archetype": "TBD",
-  "stub": true,
-  "artPos": "12%"
+  "archetype": "Setplay",
+  "artPos": "12%",
+  "stats": {
+    "hp": 380,
+    "hpPct": 76,
+    "weight": "中",
+    "weightLevel": 2,
+    "dash": "走り",
+    "dashIcon": ">>>",
+    "range": "中〜遠",
+    "rangeLevel": 3
+  },
+  "normals": {
+    "stand": [
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 7"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 8"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 10"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 11"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
+    ],
+    "crouch": [
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 6"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 8"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "足払い"
+      }
+    ],
+    "air": [
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "めくり"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
+    ]
+  },
+  "specials": [
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "魚を捕る時に使ってたんです",
+      "note": "氷柱召喚 ／ 凍結"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "焼き栗が欲しい時に使ってたんです",
+      "note": "上方飛び道具"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-p\">P</span> / <span class=\"key-k\">K</span>",
+      "name": "よく話し相手になってくれました",
+      "note": "追尾召喚物"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "ミカエルソード",
+      "note": "雷剣払い"
+    },
+    {
+      "icon": "button",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "光の翼",
+      "note": "追尾翼 ／ 22HS"
+    }
+  ],
+  "overdrives": [
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "インペリアルレイ",
+      "note": "広範囲ビーム",
+      "tension": 50
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ガンマレイ",
+      "note": "強化ビーム ／ 100%",
+      "tension": 100
+    }
+  ],
+  "combos": [
+    {
+      "tag": "基本",
+      "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 236<span class=\"key-s\">S</span>"
+    }
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

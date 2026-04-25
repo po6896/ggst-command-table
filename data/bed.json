@@ -6,7 +6,181 @@
   "color": "#6e8cd4",
   "sdIcon": "23_chibi_bed_a.png",
   "fullArt": "chara23_bed.png",
-  "archetype": "TBD",
-  "stub": true,
-  "artPos": "8%"
+  "archetype": "Setplay",
+  "artPos": "8%",
+  "stats": {
+    "hp": 380,
+    "hpPct": 76,
+    "weight": "中",
+    "weightLevel": 2,
+    "dash": "夢遊",
+    "dashIcon": ">>",
+    "range": "近〜中",
+    "rangeLevel": 2
+  },
+  "normals": {
+    "stand": [
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 7"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 8"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 10"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 11"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
+    ],
+    "crouch": [
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 6"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 8"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "足払い"
+      }
+    ],
+    "air": [
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "めくり"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
+    ]
+  },
+  "specials": [
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "call 4BA",
+      "note": "飛び道具 (Task)"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "call 4B3",
+      "note": "突進 (Task)"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "call 4B9",
+      "note": "爆発打撃 (Task)"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "call 0x$0.20",
+      "note": "エラー誘発"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "call 0x$1.00",
+      "note": "エラー強化"
+    }
+  ],
+  "overdrives": [
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "call 13C",
+      "note": "ダメージブースト ／ 6E強化",
+      "tension": 50,
+      "repeat": "×2"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "call 4CC",
+      "note": "広範囲衝撃波",
+      "tension": 50,
+      "repeat": "×2"
+    }
+  ],
+  "combos": [
+    {
+      "tag": "基本",
+      "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 214<span class=\"key-h\">HS</span>"
+    }
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

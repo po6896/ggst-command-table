@@ -915,19 +915,121 @@
       <img src="assets/full/chara21_bgt.png" alt="Bridget" style="object-position: center 14%;">
     </div>
     <div class="hero-body">
-      <div class="role">No. 21 / TBD</div>
+      <div class="role">No. 21 / Setplay</div>
       <h1>Bridget</h1>
       <span class="jp">ブリジット</span>
+      <dl class="hero-stats">
+        <dt>HP</dt>
+        <dd>
+          <span class="stat-bar"><span class="fill" style="width:76%"></span></span>
+          <span class="num">380</span>
+        </dd>
 
+        <dt>体重</dt>
+        <dd>
+          <span class="stat-pips"><span class="on"></span><span class="on"></span><span class=""></span></span>
+          <span class="num">中</span>
+        </dd>
+
+        <dt>ダッシュ</dt>
+        <dd>
+          <span class="stat-icon">>>></span>
+          <span class="num">走り</span>
+        </dd>
+
+        <dt>レンジ</dt>
+        <dd>
+          <span class="stat-pips"><span class="on"></span><span class="on"></span><span class=""></span></span>
+          <span class="num">近〜遠</span>
+        </dd>
+      </dl>
+
+      <section class="hero-combos">
+        <h3>基本コンボ</h3>
+        <ol>
+          <li><span class="tag">基本</span><span class="seq">近<span class="key-s">S</span> &gt; 5<span class="key-h">H</span> &gt; 236<span class="key-s">S</span></span></li>
+        </ol>
+      </section>
     </div>
   </aside>
 
   <div class="content">
-      <div class="stub-notice">
-        <h2>準備中</h2>
-        <p>このキャラクターの技データはまだ登録されていません。</p>
-        <p class="muted">data/{slug}.json を編集してビルドし直すとここが埋まります。</p>
+    <details class="sect" open>
+      <summary><h2>通常技</h2><span class="count">16</span><span class="accent-bar"></span></summary>
+      <div class="normals">
+        <div class="colhead"></div>
+        <div class="colhead">P</div>
+        <div class="colhead">K</div>
+        <div class="colhead">S</div>
+        <div class="colhead">H</div>
+        <div class="colhead">D</div>
+
+        <div class="rowhead">立</div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-p">P</span></span><span class="tag">中</span></div><div class="meta">発生 5</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-k">K</span></span><span class="tag">中</span></div><div class="meta">発生 7</div></div>
+        <div class="cell stack">
+          <div class="sub"><div class="top"><span class="cmd"><span class="mod">近</span><span class="key-s">S</span></span><span class="tag">中</span></div><div class="meta">発生 8</div></div>
+          <div class="sub"><div class="top"><span class="cmd"><span class="mod">遠</span><span class="key-s">S</span></span><span class="tag">中</span></div><div class="meta">発生 10</div></div>
+        </div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-h">H</span></span><span class="tag">中</span></div><div class="meta">発生 11</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-d">D</span></span><span class="tag high">上</span></div><div class="meta">ダスト</div></div>
+
+        <div class="rowhead">屈</div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-p">P</span></span><span class="tag">中</span></div><div class="meta">発生 5</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-k">K</span></span><span class="tag low">下</span></div><div class="meta">発生 6</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-s">S</span></span><span class="tag">中</span></div><div class="meta">発生 8</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-h">H</span></span><span class="tag">中</span></div><div class="meta">対空</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-d">D</span></span><span class="tag low">下</span></div><div class="meta">足払い</div></div>
+
+        <div class="rowhead">空</div>
+        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-p">P</span></span><span class="tag high">上</span></div><div class="meta">刻み</div></div>
+        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-k">K</span></span><span class="tag high">上</span></div><div class="meta">空対空</div></div>
+        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-s">S</span></span><span class="tag high">上</span></div><div class="meta">主力</div></div>
+        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-h">H</span></span><span class="tag high">上</span></div><div class="meta">めくり</div></div>
+        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-d">D</span></span><span class="tag high">上</span></div><div class="meta">空中ダスト</div></div>
       </div>
+    </details>
+
+    <details class="sect" open>
+      <summary><h2>必殺技</h2><span class="count">6</span><span class="accent-bar"></span></summary>
+      <div class="specials cols-7">
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="btn"><span class="key-s">S</span> / <span class="key-h">HS</span></span></span><span class="name">ストップ＆ダッシュ</span><span class="note">熊投げ ／ 設置 ／ 236 or 214</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcb"/></svg><span class="btn"><span class="key-k">K</span></span></span><span class="name">ローリング移動</span><span class="note">前転 ／ 空中可</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dp"/></svg><span class="btn"><span class="key-p">P</span></span></span><span class="name">スターシップ</span><span class="note">対空昇龍</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="btn"><span class="key-k">K</span></span></span><span class="name">キックスタート マイ ハート</span><span class="note">構え ／ 派生</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="prefix">空中</span><span class="btn"><span class="key-k">K</span></span></span><span class="name">ロジャーダイブ</span><span class="note">空中専用突進</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn"><span class="key-p">P</span></span></span><span class="name">ロック ザ ベイビー</span><span class="note">コマンド投げ ／ 空中可</span></div>
+      </div>
+    </details>
+
+    <details class="sect" open>
+      <summary><h2>覚醒必殺技</h2><span class="count">2</span><span class="accent-bar"></span></summary>
+      <div class="specials cols-2">
+        <div class="move od">
+          <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar"><span class="fill" style="width:50%"></span></span>50%</span></span>
+          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn"><span class="key-s">S</span></span></span>
+          <span class="name">ループ ザ ループ</span>
+          <span class="note">突進乱舞</span>
+        </div>
+        <div class="move od">
+          <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar"><span class="fill" style="width:50%"></span></span>50%</span></span>
+          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn"><span class="key-h">HS</span></span></span>
+          <span class="name">帰ってきたキルマシーン</span>
+          <span class="note">熊召喚 ／ 空中可</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="sect" open>
+      <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
+      <div class="specials cols-5">
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="btn">+ <span class="key-h">HS</span></span></span><span class="name">投げ</span><span class="note">前/後ろ投げ ／ 近距離</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-d">D</span></span></span><span class="name">ダスト</span><span class="note">中段始動 ／ 全キャラ共通</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-p">P</span> + <span class="key-k">K</span></span></span><span class="name">フォルトレスディフェンス</span><span class="note">ガード中 ／ テンション消費</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-p">P</span> + <span class="key-k">K</span> + <span class="key-s">S</span></span></span><span class="name">ロマンキャンセル</span><span class="note">攻撃中 ／ テンション 50%</span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="prefix">被弾中</span><span class="btn"><span class="key-d">D</span> 系入力</span></span><span class="name">サイクバースト</span><span class="note">1ラウンド 1回</span></div>
+      </div>
+    </details>
   </div>
 </main>
 

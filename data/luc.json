@@ -6,7 +6,185 @@
   "color": "#f08c4c",
   "sdIcon": "32_chibi_luc.png",
   "fullArt": "chara32_luc.png",
-  "archetype": "TBD",
-  "stub": true,
-  "artPos": "14%"
+  "archetype": "Rushdown",
+  "artPos": "14%",
+  "stats": {
+    "hp": 380,
+    "hpPct": 76,
+    "weight": "中",
+    "weightLevel": 2,
+    "dash": "走り",
+    "dashIcon": ">>>",
+    "range": "近〜中",
+    "rangeLevel": 2
+  },
+  "normals": {
+    "stand": [
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 7"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 8"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 10"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 11"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
+    ],
+    "crouch": [
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 6"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 8"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "足払い"
+      }
+    ],
+    "air": [
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "めくり"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
+    ]
+  },
+  "specials": [
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "モノフィラメント",
+      "note": "電線攻撃 ／ 溜め可"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "ユニティ",
+      "note": "突進 ／ 溜め可"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "スプリントアタック",
+      "note": "突進 ／ 派生有"
+    },
+    {
+      "icon": "button",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "スプリント・スイープ",
+      "note": "スプリント中 S 下段派生"
+    },
+    {
+      "icon": "button",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "スプリント・クロスアップ",
+      "note": "スプリント中 HS 中段派生"
+    },
+    {
+      "icon": "dp",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "モノフィラメント・ブレイクアウト",
+      "note": "対空打撃"
+    }
+  ],
+  "overdrives": [
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ライブワイヤー",
+      "note": "電撃乱舞 ／ ディープダイブ派生",
+      "tension": 50
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "クイックハック",
+      "note": "高速突進",
+      "tension": 50
+    }
+  ],
+  "combos": [
+    {
+      "tag": "基本",
+      "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 214<span class=\"key-k\">K</span>"
+    }
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }
