@@ -128,7 +128,7 @@
   },
   "specials": [
     {
-      "icon": "dp",
+      "icon": "360",
       "btnHtml": "<span class=\"key-p\">P</span>",
       "name": "ポチョムキンバスター",
       "note": "回転入力コマ投げ"
@@ -152,7 +152,7 @@
       "note": "全画面下段"
     },
     {
-      "icon": "hcf",
+      "icon": "charge46",
       "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "ハンマーフォール",
       "note": "4溜め6 ／ アーマー突進"
@@ -190,7 +190,7 @@
   ],
   "overdrives": [
     {
-      "icon": "hcb-f",
+      "icon": "360",
       "btnHtml": "<span class=\"key-s\">S</span>",
       "name": "ヘブンリィポチョムキンバスター",
       "note": "無敵コマ投げ",

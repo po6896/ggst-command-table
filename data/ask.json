@@ -129,19 +129,19 @@
   "specials": [
     {
       "icon": "qcf",
-      "btnHtml": "<span class=\"key-p\">P</span>",
+      "btnHtml": "<span class=\"key-p\">P</span> / <span class=\"key-k\">K</span> / <span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
       "name": "詠唱",
       "note": "魔法発動 ／ 空中可 ／ 全ボタン対応"
     },
     {
       "icon": "qcb",
-      "btnHtml": "<span class=\"key-p\">P</span>",
+      "btnHtml": "<span class=\"key-p\">P</span> / <span class=\"key-k\">K</span> / <span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
       "name": "ブックマーク",
       "note": "魔法保存 ／ 空中可 ／ 全ボタン対応"
     },
     {
       "icon": "down2",
-      "btnHtml": "<span class=\"key-p\">P</span>",
+      "btnHtml": "<span class=\"key-p\">P</span> / <span class=\"key-k\">K</span>",
       "name": "詠唱（シンセサイズ）",
       "note": "即時詠唱"
     },

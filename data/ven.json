@@ -146,13 +146,13 @@
       "note": "突進斬 ／ 溜め可"
     },
     {
-      "icon": "qcf",
+      "icon": "charge46",
       "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
       "name": "スティンガーエイム",
       "note": "4溜め6 ／ 飛び道具"
     },
     {
-      "icon": "qcf",
+      "icon": "charge28",
       "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
       "name": "カーカススライド",
       "note": "2溜め8 ／ 上方飛び道具"

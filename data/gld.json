@@ -128,7 +128,7 @@
   },
   "specials": [
     {
-      "icon": "hcb-f",
+      "icon": "8way",
       "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "ベヒーモスタイフーン",
       "note": "8方向対応 ／ 棺桶振り回し ／ 空中可"

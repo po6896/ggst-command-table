@@ -128,13 +128,13 @@
   },
   "specials": [
     {
-      "icon": "qcb",
+      "icon": "charge46",
       "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
       "name": "イルカさん・横",
       "note": "4溜め6 ／ 突進"
     },
     {
-      "icon": "qcb",
+      "icon": "charge28",
       "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
       "name": "イルカさん・縦",
       "note": "2溜め8 ／ 対空"
