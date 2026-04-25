@@ -789,6 +789,24 @@
     border-radius: 3px;
     font-size: 12px;
   }
+  footer .row.meta {
+    color: var(--text-4);
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 6px;
+    margin-top: 2px;
+  }
+  footer .row.meta strong {
+    color: var(--text-2);
+    font-weight: 590;
+  }
+  footer .row.meta a {
+    color: var(--text-3);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--border);
+  }
+  footer .row.meta a:hover { color: var(--char); border-color: var(--char-line); }
   footer .credit {
     color: var(--text-4);
     font-size: 11px;

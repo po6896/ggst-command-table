@@ -8,6 +8,14 @@ import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 const dataDir = path.join(root, 'data');
 
+// ---------- Meta (footer reference info) ----------
+// Update these when refreshing movelists against a new GGST patch.
+const META = {
+  patchVersion: 'Ver. 2.00',
+  patchDate: '2026-04-08',
+  updatedAt: '2026-04-25',
+};
+
 // ---------- Load characters ----------
 
 const chars = fs.readdirSync(dataDir)
@@ -340,6 +348,11 @@ ${content}
     <span>アイコンはレバー軌跡 — 矢印が最終入力方向</span>
     <span>通常技は H, 必殺技は HS 表記（同ボタン）</span>
     <span>RC = ロマンキャンセル</span>
+  </div>
+  <div class="row meta">
+    <span>参照: GGST <strong>${META.patchVersion}</strong> (${META.patchDate} 適用)</span>
+    <span>データ更新: ${META.updatedAt}</span>
+    <span>ソース: <a href="https://wikiwiki.jp/ggst-memo/" target="_blank" rel="noopener">wikiwiki.jp/ggst-memo</a></span>
   </div>
   <span class="credit">キャラクター素材・ロゴ: GUILTY GEAR -STRIVE- 公式ファンキット ／ © ARC SYSTEM WORKS</span>
 </footer>
