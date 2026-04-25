@@ -182,5 +182,9 @@
       "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 214<span class=\"key-h\">HS</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "error 6E (タスクシステム)",
+    "desc": "時間差で発動するカウンター技を「タスク」として配置。本体の攻撃と重ねた多重攻めが核。"
+  }
 }

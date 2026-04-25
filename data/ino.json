@@ -182,5 +182,9 @@
       "seqHtml": "5<span class=\"key-k\">K</span> &gt; 近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 236<span class=\"key-h\">HS</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "ホバー機動",
+    "desc": "空中に滞空して急降下や軌道変更。ダッシュも空中ホバー扱いで地上判定を避ける。"
+  }
 }

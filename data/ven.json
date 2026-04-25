@@ -193,5 +193,9 @@
       "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 玉発射"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "ボール (玉)",
+    "desc": "空間に玉を設置し、必殺技や通常技で殴って射出。位置と速度を制御するセットプレイの核。"
+  }
 }

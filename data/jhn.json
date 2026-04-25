@@ -186,5 +186,9 @@
       "seqHtml": "236<span class=\"key-p\">P</span> &gt; 214<span class=\"key-s\">S</span> (カード対応)"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "ミストファイナー + Turn Up",
+    "desc": "抜刀状態で派生攻撃。ディール (236P) で設置したカードに技を当てると「Turn Up」発動で追加ダメージ。"
+  }
 }

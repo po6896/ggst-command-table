@@ -203,5 +203,9 @@
       "seqHtml": "236<span class=\"key-p\">P</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "シャドウゲージ + エディ",
+    "desc": "エディ召喚中もゲージ消費、空でクールダウン。ドリフトでエディの位置を操作する独自リソース管理。"
+  }
 }

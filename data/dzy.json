@@ -180,5 +180,9 @@
       "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 236<span class=\"key-s\">S</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "召喚物のゲージ消費",
+    "desc": "光の翼や追尾召喚物の維持にテンションを継続消費する設置型キャラ。"
+  }
 }

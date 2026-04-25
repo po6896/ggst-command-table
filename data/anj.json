@@ -184,5 +184,9 @@
       "seqHtml": "236<span class=\"key-p\">P</span> &gt; <span class=\"key-h\">HS</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "風神スタンス + 派生",
+    "desc": "236HS で構えに入り P / K / S / HS で 4 種に派生 (針一式 / 一足飛び / 凪刃 / 臨)。"
+  }
 }

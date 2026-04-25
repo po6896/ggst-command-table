@@ -182,7 +182,13 @@ function renderPage(char, allChars) {
       <section class="hero-combos">
         <h3>基本コンボ</h3>
 ${char.combos ? renderCombos(char.combos) : '        <p class="muted" style="font-size:11px;color:var(--text-4);">未登録</p>'}
-      </section>`;
+      </section>${char.mechanic ? `
+
+      <section class="hero-mechanic">
+        <h3>固有システム</h3>
+        <span class="mech-name">${char.mechanic.name}</span>
+        <p>${char.mechanic.desc}</p>
+      </section>` : ''}`;
 
   const content = isStub
     ? renderStub()

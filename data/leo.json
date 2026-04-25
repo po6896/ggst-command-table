@@ -191,5 +191,9 @@
       "seqHtml": "裏c.<span class=\"key-s\">S</span> &gt; 裏214<span class=\"key-h\">HS</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "ブリュンヒルデスタンス",
+    "desc": "後方ガード姿勢に移行する裏スタンス。専用の必殺技と高判定通常技が解放される。"
+  }
 }

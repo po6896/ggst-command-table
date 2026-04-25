@@ -198,5 +198,9 @@
       "seqHtml": "236<span class=\"key-k\">K</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "何が出るかな？",
+    "desc": "236P でランダムアイテム召喚 (ハンマー / 栗 / 隕石 / 爆弾等)。引き運でラウンド展開が一変する。"
+  }
 }

@@ -192,5 +192,9 @@
       "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 623<span class=\"key-k\">K</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "朝凪の呼吸 (技強化)",
+    "desc": "22K / S / HS で対応する必殺技強化アイコンが点灯、龍刃 / 逆鱗 / 龍鎚 が大幅強化。"
+  }
 }

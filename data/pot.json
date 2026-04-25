@@ -214,5 +214,9 @@
       "seqHtml": "6<span class=\"key-h\">H</span> &gt; 632146<span class=\"key-p\">P</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "スライド / ブレイク",
+    "desc": "巨体ゆえ機動性が低い分、ハンマーフォール (4溜め6) でアーマー突進、Pで急停止して読み合い。"
+  }
 }

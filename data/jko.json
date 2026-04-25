@@ -187,5 +187,9 @@
       "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 236<span class=\"key-p\">P</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "サーヴァント (従者)",
+    "desc": "最大 3 体まで召喚し、攻撃 / 防御 / 命令で連携。設置型の追加攻撃源として機能する。"
+  }
 }

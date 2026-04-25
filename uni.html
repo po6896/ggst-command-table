@@ -327,6 +327,36 @@
     letter-spacing: 0;
   }
 
+  /* Hero: character-specific mechanic panel */
+  .hero-mechanic {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .hero-mechanic h3 {
+    font-size: 10px;
+    color: var(--text-4);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 510;
+    margin: 0 0 6px;
+  }
+  .hero-mechanic .mech-name {
+    display: inline-block;
+    font-weight: 590;
+    color: var(--char);
+    font-size: 12px;
+    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+  }
+  .hero-mechanic p {
+    margin: 0;
+    font-size: 11px;
+    color: var(--text-2);
+    line-height: 1.45;
+    letter-spacing: -0.13px;
+  }
+
   /* HP bar */
   .stat-bar {
     flex: 1;
@@ -1003,6 +1033,12 @@
         <ol>
           <li><span class="tag">基本</span><span class="seq">近<span class="key-s">S</span> &gt; 5<span class="key-h">H</span> &gt; 236<span class="key-h">HS</span></span></li>
         </ol>
+      </section>
+
+      <section class="hero-mechanic">
+        <h3>固有システム</h3>
+        <span class="mech-name">アーバレストモード</span>
+        <p>武器変形で必殺技がワンボタン入力に短縮。「ウェポンズ・フリー」で強化モード突入。</p>
       </section>
     </div>
   </aside>

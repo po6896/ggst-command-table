@@ -192,5 +192,9 @@
       "seqHtml": "6<span class=\"key-p\">P</span> &gt; 623<span class=\"key-s\">S</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "剣の有無",
+    "desc": "バヨネッタで剣を投げ、ダウロで取り戻す。所持本数で必殺技の性能と派生が変化。"
+  }
 }

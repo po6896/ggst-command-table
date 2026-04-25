@@ -187,5 +187,9 @@
       "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 236<span class=\"key-s\">S</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "ロジャー (熊)",
+    "desc": "設置型の熊と連動。ストップ＆ダッシュで投擲、キックスタートで起動するセットプレイ型。"
+  }
 }

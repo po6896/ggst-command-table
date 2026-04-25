@@ -190,5 +190,9 @@
       "seqHtml": "236<span class=\"key-p\">P</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "吸血ゲージ / ブラッドレイジ",
+    "desc": "必殺技や前歩きでゲージが上昇。MAX で「ブラッドレイジ」突入、技強化と引き換えに自動でダメージ。"
+  }
 }

@@ -193,5 +193,9 @@
       "seqHtml": "ガン構え &gt; 弾発射 &gt; リロード"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "集中ゲージ + 弾数",
+    "desc": "ガン構え中の射撃に集中ゲージと弾数 (最大 6) を消費。リロード (22P) と集中回復で維持。"
+  }
 }

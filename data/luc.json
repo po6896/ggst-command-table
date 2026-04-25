@@ -186,5 +186,9 @@
       "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 214<span class=\"key-k\">K</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "神経電化状態",
+    "desc": "モノフィラメント (電線) 系の攻撃で相手に付与、被弾で追撃確定する独自スタン状態。"
+  }
 }

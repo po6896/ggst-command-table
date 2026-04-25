@@ -176,5 +176,9 @@
       "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 236<span class=\"key-s\">S</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "ステイン (烙印)",
+    "desc": "相手にマーキング状態を付与し、追撃で発動。Ver 2.00 で 2 スタックまで蓄積可能。"
+  }
 }

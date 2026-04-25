@@ -192,5 +192,9 @@
       "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 214<span class=\"key-h\">HS</span>"
     }
   ],
-  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)",
+  "mechanic": {
+    "name": "嫉妬ゲージ + 憤嫉モード",
+    "desc": "攻撃で嫉妬ゲージが上昇、変転と感化で憤嫉モードへ。攻撃力大幅アップだが時間制限あり。"
+  }
 }
