@@ -130,14 +130,14 @@
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "モノフィラメント",
-      "note": "電線攻撃 ／ 溜め可"
+      "name": "モノワイヤー",
+      "note": "電線攻撃 ／ 溜め可 ／ 神経電化付与"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span>",
       "name": "ユニティ",
-      "note": "突進 ／ 溜め可"
+      "note": "射撃 ／ 最大 3 発 ／ 溜め可"
     },
     {
       "icon": "qcb",
@@ -160,8 +160,8 @@
     {
       "icon": "dp",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "モノフィラメント・ブレイクアウト",
-      "note": "対空打撃"
+      "name": "モノワイヤー・ブレイクアウト",
+      "note": "対空昇竜"
     }
   ],
   "overdrives": [
@@ -169,14 +169,14 @@
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "ライブワイヤー",
-      "note": "電撃乱舞 ／ ディープダイブ派生",
+      "note": "電撃乱舞 ／ ヒット時テンション 50% & 体力低下で「ディープダイブ」自動派生",
       "tension": 50
     },
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-s\">S</span>",
       "name": "クイックハック",
-      "note": "高速突進",
+      "note": "6 種派生 (汚染 ／ 吸上 ／ 動作不良 ／ グリッチ ／ 沈静化 ／ 阻害)",
       "tension": 50
     }
   ],
@@ -188,7 +188,7 @@
   ],
   "dataSource": "wikiwiki.jp/ggst-memo (verified)",
   "mechanic": {
-    "name": "神経電化状態",
-    "desc": "モノフィラメント (電線) 系の攻撃で相手に付与、被弾で追撃確定する独自スタン状態。"
+    "name": "神経電化 / ハック派生",
+    "desc": "モノワイヤー系で「神経電化」状態を付与、被弾で追撃確定。クイックハックは事前選択した 6 種の派生から発動 (汚染 / 吸上 / 動作不良 / グリッチ / 沈静化 / 阻害)。"
   }
 }
