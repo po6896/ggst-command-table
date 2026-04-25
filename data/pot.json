@@ -6,6 +6,183 @@
   "color": "#889ca8",
   "sdIcon": "06_chibi_pot.png",
   "fullArt": "chara06_pot.png",
-  "archetype": "TBD",
-  "stub": true
+  "archetype": "Grappler",
+  "artPos": "4%",
+  "stats": {
+    "hp": 500,
+    "hpPct": 100,
+    "weight": "重",
+    "weightLevel": 3,
+    "dash": "ガード移動",
+    "dashIcon": ">",
+    "range": "近",
+    "rangeLevel": 1
+  },
+  "normals": {
+    "stand": [
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 9"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 9"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 12 ／ 長リーチ"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 14 ／ 強判定"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
+    ],
+    "crouch": [
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 6"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 7"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 10 ／ 主力"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "足払い"
+      }
+    ],
+    "air": [
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "めくり"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
+    ]
+  },
+  "specials": [
+    {
+      "icon": "dp",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "ポチョムキンバスター",
+      "note": "コマンド投げ"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ヒートエクステンション",
+      "note": "突進パンチ"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "メガフィスト前",
+      "note": "飛び込みパンチ"
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "スライドヘッド",
+      "note": "地割れ ／ 全画面"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "F.D.B.",
+      "note": "反射ガード ／ 飛び道具相殺"
+    }
+  ],
+  "overdrives": [
+    {
+      "icon": "qcf2",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "repeat": "×2",
+      "name": "ヘブンリィポチョムキンバスター",
+      "note": "コマンド投げ",
+      "tension": 50
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ジャイアンティングサークル",
+      "note": "対空乱舞",
+      "tension": 50
+    }
+  ],
+  "combos": [
+    {
+      "tag": "基本",
+      "seqHtml": "近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 236<span class=\"key-h\">HS</span>"
+    },
+    {
+      "tag": "コマ投げ確定",
+      "seqHtml": "6<span class=\"key-h\">H</span> &gt; 632146<span class=\"key-p\">P</span>"
+    }
+  ]
 }

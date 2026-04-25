@@ -19,53 +19,220 @@
   },
   "normals": {
     "stand": [
-      { "btn": "p", "cmd": "5", "tag": "mid", "meta": "発生 4 ／ 連打可" },
-      { "btn": "k", "cmd": "5", "tag": "mid", "meta": "発生 7" },
-      { "stack": [
-        { "btn": "s", "mod": "近", "tag": "mid", "meta": "発生 7 ／ 主力" },
-        { "btn": "s", "mod": "遠", "tag": "mid", "meta": "発生 9 ／ 牽制" }
-      ]},
-      { "btn": "h", "cmd": "5", "tag": "mid", "meta": "発生 11" },
-      { "btn": "d", "cmd": "5", "tag": "high", "meta": "ダスト" }
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 4 ／ 連打可"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 7"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 7 ／ 主力"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 9 ／ 牽制"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 11"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
     ],
     "crouch": [
-      { "btn": "p", "cmd": "2", "tag": "mid", "meta": "発生 5" },
-      { "btn": "k", "cmd": "2", "tag": "low", "meta": "発生 6" },
-      { "btn": "s", "cmd": "2", "tag": "mid", "meta": "発生 8" },
-      { "btn": "h", "cmd": "2", "tag": "mid", "meta": "対空" },
-      { "btn": "d", "cmd": "2", "tag": "low", "meta": "足払い" }
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 6"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 8"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "足払い"
+      }
     ],
     "air": [
-      { "btn": "p", "mod": "空", "tag": "high", "meta": "刻み" },
-      { "btn": "k", "mod": "空", "tag": "high", "meta": "空対空" },
-      { "btn": "s", "mod": "空", "tag": "high", "meta": "主力" },
-      { "btn": "h", "mod": "空", "tag": "high", "meta": "めくり" },
-      { "btn": "d", "mod": "空", "tag": "high", "meta": "空中ダスト" }
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "めくり"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
     ]
   },
   "specials": [
-    { "icon": "qcf",   "btnHtml": "<span class=\"key-p\">P</span>",                                 "name": "ガンフレイム",             "note": "地上飛び道具" },
-    { "icon": "dp",    "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>", "name": "ヴォルカニックヴァイパー", "note": "対空昇龍 ／ HS 高性能" },
-    { "icon": "qcf",   "btnHtml": "<span class=\"key-k\">K</span>",                                 "name": "バンディットリヴォルヴァー", "note": "突進 ／ 空中可" },
-    { "icon": "qcb",   "btnHtml": "<span class=\"key-k\">K</span>",                                 "name": "バンディットブリンガー",   "note": "飛び込み中段" },
-    { "icon": "dp",    "btnHtml": "<span class=\"key-k\">K</span>",                                 "name": "ワイルドスロウ",           "note": "コマンド投げ" },
-    { "icon": "hcf",   "btnHtml": "<span class=\"key-h\">HS</span>",                                "name": "ファフニール",             "note": "突進 ／ ガード有利" },
-    { "icon": "qcb",   "btnHtml": "<span class=\"key-s\">S</span>", "prefix": "空中",                "name": "ナイトレイドヴォルテックス", "note": "空中専用" }
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "ガンフレイム",
+      "note": "地上飛び道具"
+    },
+    {
+      "icon": "dp",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "ヴォルカニックヴァイパー",
+      "note": "対空昇龍 ／ HS 高性能"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "バンディットリヴォルヴァー",
+      "note": "突進 ／ 空中可"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "バンディットブリンガー",
+      "note": "飛び込み中段"
+    },
+    {
+      "icon": "dp",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "ワイルドスロウ",
+      "note": "コマンド投げ"
+    },
+    {
+      "icon": "hcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ファフニール",
+      "note": "突進 ／ ガード有利"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "prefix": "空中",
+      "name": "ナイトレイドヴォルテックス",
+      "note": "空中専用"
+    }
   ],
   "overdrives": [
-    { "icon": "hcb-f", "btnHtml": "<span class=\"key-h\">HS</span>",                                "name": "タイラントレイヴ",         "note": "乱舞",     "tension": 50 },
-    { "icon": "qcf",   "btnHtml": "<span class=\"key-h\">HS</span>", "repeat": "×2",                  "name": "ヘヴィモブセメタリー",     "note": "飛び道具", "tension": 50 }
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "タイラントレイヴ",
+      "note": "乱舞",
+      "tension": 50
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "repeat": "×2",
+      "name": "ヘヴィモブセメタリー",
+      "note": "飛び道具",
+      "tension": 50
+    }
   ],
   "system": [
-    { "icon": "dir",    "btnHtml": "+ <span class=\"key-h\">HS</span>",                                                          "name": "投げ",                       "note": "前/後ろ投げ ／ 近距離" },
-    { "icon": "button", "btnHtml": "<span class=\"key-d\">D</span>",                                                              "name": "ダスト",                     "note": "中段始動 ／ 全キャラ共通" },
-    { "icon": "button", "btnHtml": "<span class=\"key-p\">P</span> + <span class=\"key-k\">K</span>",                              "name": "フォルトレスディフェンス",   "note": "ガード中 ／ テンション消費" },
-    { "icon": "button", "btnHtml": "<span class=\"key-p\">P</span> + <span class=\"key-k\">K</span> + <span class=\"key-s\">S</span>", "name": "ロマンキャンセル",        "note": "攻撃中 ／ テンション 50%" },
-    { "icon": "button", "btnHtml": "<span class=\"key-d\">D</span> 系入力", "prefix": "被弾中",                                    "name": "サイクバースト",             "note": "1ラウンド 1回" }
+    {
+      "icon": "dir",
+      "btnHtml": "+ <span class=\"key-h\">HS</span>",
+      "name": "投げ",
+      "note": "前/後ろ投げ ／ 近距離"
+    },
+    {
+      "icon": "button",
+      "btnHtml": "<span class=\"key-d\">D</span>",
+      "name": "ダスト",
+      "note": "中段始動 ／ 全キャラ共通"
+    },
+    {
+      "icon": "button",
+      "btnHtml": "<span class=\"key-p\">P</span> + <span class=\"key-k\">K</span>",
+      "name": "フォルトレスディフェンス",
+      "note": "ガード中 ／ テンション消費"
+    },
+    {
+      "icon": "button",
+      "btnHtml": "<span class=\"key-p\">P</span> + <span class=\"key-k\">K</span> + <span class=\"key-s\">S</span>",
+      "name": "ロマンキャンセル",
+      "note": "攻撃中 ／ テンション 50%"
+    },
+    {
+      "icon": "button",
+      "btnHtml": "<span class=\"key-d\">D</span> 系入力",
+      "prefix": "被弾中",
+      "name": "サイクバースト",
+      "note": "1ラウンド 1回"
+    }
   ],
   "combos": [
-    { "tag": "中段始動", "seqHtml": "5<span class=\"key-k\">K</span> &gt; 近<span class=\"key-s\">S</span> &gt; 2<span class=\"key-h\">H</span> &gt; 236<span class=\"key-k\">K</span>" },
-    { "tag": "下段始動", "seqHtml": "2<span class=\"key-k\">K</span> &gt; 2<span class=\"key-d\">D</span> &gt; 236<span class=\"key-k\">K</span>" },
-    { "tag": "対空",     "seqHtml": "6<span class=\"key-p\">P</span> &gt; 623<span class=\"key-h\">HS</span>" }
-  ]
+    {
+      "tag": "中段始動",
+      "seqHtml": "5<span class=\"key-k\">K</span> &gt; 近<span class=\"key-s\">S</span> &gt; 2<span class=\"key-h\">H</span> &gt; 236<span class=\"key-k\">K</span>"
+    },
+    {
+      "tag": "下段始動",
+      "seqHtml": "2<span class=\"key-k\">K</span> &gt; 2<span class=\"key-d\">D</span> &gt; 236<span class=\"key-k\">K</span>"
+    },
+    {
+      "tag": "対空",
+      "seqHtml": "6<span class=\"key-p\">P</span> &gt; 623<span class=\"key-h\">HS</span>"
+    }
+  ],
+  "artPos": "8%"
 }

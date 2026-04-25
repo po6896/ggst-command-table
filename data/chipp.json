@@ -6,6 +6,184 @@
   "color": "#4dbf6b",
   "sdIcon": "05_chibi_chp.png",
   "fullArt": "chara05_chipp.png",
-  "archetype": "TBD",
-  "stub": true
+  "archetype": "Speed",
+  "artPos": "8%",
+  "stats": {
+    "hp": 350,
+    "hpPct": 70,
+    "weight": "軽",
+    "weightLevel": 1,
+    "dash": "走り",
+    "dashIcon": ">>>",
+    "range": "近〜中",
+    "rangeLevel": 2
+  },
+  "normals": {
+    "stand": [
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 4 ／ 連打可"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 5 ／ 速い"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 7"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 9"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 10"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
+    ],
+    "crouch": [
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 4"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 7"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "足払い"
+      }
+    ],
+    "air": [
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "めくり"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
+    ]
+  },
+  "specials": [
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "阿修羅閃空",
+      "note": "飛び道具"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "足刀突き",
+      "note": "突進"
+    },
+    {
+      "icon": "dp",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "弧月斬",
+      "note": "対空昇龍"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "残像移動",
+      "note": "テレポート"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "prefix": "空中",
+      "name": "昇り疾駆",
+      "note": "空中突進"
+    }
+  ],
+  "overdrives": [
+    {
+      "icon": "qcf2",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "repeat": "×2",
+      "name": "蜂酔閃刃",
+      "note": "突進乱舞",
+      "tension": 50
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "禁忌奥義零式・忍法",
+      "note": "一撃必殺風",
+      "tension": 100
+    }
+  ],
+  "combos": [
+    {
+      "tag": "基本",
+      "seqHtml": "5<span class=\"key-p\">P</span> &gt; 5<span class=\"key-k\">K</span> &gt; 近<span class=\"key-s\">S</span> &gt; 236<span class=\"key-k\">K</span>"
+    },
+    {
+      "tag": "対空",
+      "seqHtml": "6<span class=\"key-p\">P</span> &gt; 623<span class=\"key-s\">S</span>"
+    }
+  ]
 }

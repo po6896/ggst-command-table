@@ -6,6 +6,188 @@
   "color": "#4d8eff",
   "sdIcon": "02_chibi_ky.png",
   "fullArt": "chara02_kyk.png",
-  "archetype": "TBD",
-  "stub": true
+  "archetype": "Balance",
+  "artPos": "10%",
+  "stats": {
+    "hp": 420,
+    "hpPct": 84,
+    "weight": "中",
+    "weightLevel": 2,
+    "dash": "走り",
+    "dashIcon": ">>>",
+    "range": "中〜遠",
+    "rangeLevel": 2
+  },
+  "normals": {
+    "stand": [
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 5 ／ 連打可"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 7"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 7 ／ 主力"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 10 ／ 牽制"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 11 ／ リーチ長"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
+    ],
+    "crouch": [
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 5"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 6"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 8"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "足払い"
+      }
+    ],
+    "air": [
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "崩し"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
+    ]
+  },
+  "specials": [
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "スタンエッジ",
+      "note": "飛び道具"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "スタンディッパー",
+      "note": "低姿勢突進"
+    },
+    {
+      "icon": "dp",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "ヴェイパースラスト",
+      "note": "対空昇龍"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "フードゥエルアロー",
+      "note": "空中飛び道具設置"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "prefix": "空中",
+      "name": "グリードセヴァー",
+      "note": "空中飛び道具"
+    }
+  ],
+  "overdrives": [
+    {
+      "icon": "qcf2",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "repeat": "×2",
+      "name": "リドエクスマキナ",
+      "note": "飛び道具乱舞",
+      "tension": 50
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "セイクリッドエッジ",
+      "note": "対空乱舞",
+      "tension": 50
+    }
+  ],
+  "combos": [
+    {
+      "tag": "基本",
+      "seqHtml": "5<span class=\"key-k\">K</span> &gt; 近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 236<span class=\"key-h\">HS</span>"
+    },
+    {
+      "tag": "下段始動",
+      "seqHtml": "2<span class=\"key-k\">K</span> &gt; 2<span class=\"key-d\">D</span> &gt; 236<span class=\"key-h\">HS</span>"
+    },
+    {
+      "tag": "対空",
+      "seqHtml": "6<span class=\"key-p\">P</span> &gt; 623<span class=\"key-s\">S</span>"
+    }
+  ]
 }

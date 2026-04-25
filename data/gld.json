@@ -7,5 +7,6 @@
   "sdIcon": "16_chibi_gld.png",
   "fullArt": "chara16_gld.png",
   "archetype": "TBD",
-  "stub": true
+  "stub": true,
+  "artPos": "6%"
 }

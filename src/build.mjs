@@ -277,7 +277,7 @@ ${rosterHtml}
 
   <aside class="hero">
     <div class="hero-art">
-      <img src="assets/full/${char.fullArt}" alt="${char.name}">
+      <img src="assets/full/${char.fullArt}" alt="${char.name}" style="object-position: center ${char.artPos ?? '12%'};">
     </div>
     <div class="hero-body">
       <div class="role">No. ${String(char.no).padStart(2, '0')} / ${archetype}</div>

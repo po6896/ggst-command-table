@@ -7,5 +7,6 @@
   "sdIcon": "23_chibi_bed_a.png",
   "fullArt": "chara23_bed.png",
   "archetype": "TBD",
-  "stub": true
+  "stub": true,
+  "artPos": "8%"
 }

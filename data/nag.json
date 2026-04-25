@@ -6,6 +6,183 @@
   "color": "#b8424b",
   "sdIcon": "12_chibi_nag_a.png",
   "fullArt": "chara12_nag.png",
-  "archetype": "TBD",
-  "stub": true
+  "archetype": "Resource",
+  "artPos": "6%",
+  "stats": {
+    "hp": 450,
+    "hpPct": 90,
+    "weight": "重",
+    "weightLevel": 3,
+    "dash": "走り",
+    "dashIcon": ">>>",
+    "range": "中〜遠",
+    "rangeLevel": 2
+  },
+  "normals": {
+    "stand": [
+      {
+        "btn": "p",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 6"
+      },
+      {
+        "btn": "k",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 8"
+      },
+      {
+        "stack": [
+          {
+            "btn": "s",
+            "mod": "近",
+            "tag": "mid",
+            "meta": "発生 9"
+          },
+          {
+            "btn": "s",
+            "mod": "遠",
+            "tag": "mid",
+            "meta": "発生 12 ／ 長リーチ"
+          }
+        ]
+      },
+      {
+        "btn": "h",
+        "cmd": "5",
+        "tag": "mid",
+        "meta": "発生 14"
+      },
+      {
+        "btn": "d",
+        "cmd": "5",
+        "tag": "high",
+        "meta": "ダスト"
+      }
+    ],
+    "crouch": [
+      {
+        "btn": "p",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 7"
+      },
+      {
+        "btn": "k",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "発生 7"
+      },
+      {
+        "btn": "s",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "発生 9"
+      },
+      {
+        "btn": "h",
+        "cmd": "2",
+        "tag": "mid",
+        "meta": "対空"
+      },
+      {
+        "btn": "d",
+        "cmd": "2",
+        "tag": "low",
+        "meta": "長リーチ足払い"
+      }
+    ],
+    "air": [
+      {
+        "btn": "p",
+        "mod": "空",
+        "tag": "high",
+        "meta": "刻み"
+      },
+      {
+        "btn": "k",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空対空"
+      },
+      {
+        "btn": "s",
+        "mod": "空",
+        "tag": "high",
+        "meta": "主力"
+      },
+      {
+        "btn": "h",
+        "mod": "空",
+        "tag": "high",
+        "meta": "崩し"
+      },
+      {
+        "btn": "d",
+        "mod": "空",
+        "tag": "high",
+        "meta": "空中ダスト"
+      }
+    ]
+  },
+  "specials": [
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "紅蓮",
+      "note": "吸血ゲージ消費"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "袈裟一刀",
+      "note": "中段斬撃"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "陣風白浪",
+      "note": "突進斬撃"
+    },
+    {
+      "icon": "dp",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "震脚",
+      "note": "コマンド投げ"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "居合一閃",
+      "note": "溜め斬撃"
+    }
+  ],
+  "overdrives": [
+    {
+      "icon": "qcf2",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "repeat": "×2",
+      "name": "カムリエ",
+      "note": "吸血回復",
+      "tension": 50
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "ジン・ザン",
+      "note": "吸血ゲージ消費突進",
+      "tension": 50
+    }
+  ],
+  "combos": [
+    {
+      "tag": "基本",
+      "seqHtml": "5<span class=\"key-k\">K</span> &gt; 近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 214<span class=\"key-h\">HS</span>"
+    },
+    {
+      "tag": "吸血回復",
+      "seqHtml": "236<span class=\"key-p\">P</span>"
+    }
+  ]
 }
