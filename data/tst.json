@@ -1,0 +1,11 @@
+{
+  "no": 20,
+  "slug": "tst",
+  "name": "Testament",
+  "nameJp": "テスタメント",
+  "color": "#5f4f8a",
+  "sdIcon": "20_chibi_tst.png",
+  "fullArt": "chara20_tst.png",
+  "archetype": "TBD",
+  "stub": true
+}

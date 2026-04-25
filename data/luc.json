@@ -1,0 +1,11 @@
+{
+  "no": 32,
+  "slug": "luc",
+  "name": "Lucy",
+  "nameJp": "ルチア",
+  "color": "#f08c4c",
+  "sdIcon": "32_chibi_luc.png",
+  "fullArt": "chara32_luc.png",
+  "archetype": "TBD",
+  "stub": true
+}

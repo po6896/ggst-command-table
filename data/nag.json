@@ -1,0 +1,11 @@
+{
+  "no": 12,
+  "slug": "nag",
+  "name": "Nagoriyuki",
+  "nameJp": "名残雪",
+  "color": "#b8424b",
+  "sdIcon": "12_chibi_nag_a.png",
+  "fullArt": "chara12_nag.png",
+  "archetype": "TBD",
+  "stub": true
+}

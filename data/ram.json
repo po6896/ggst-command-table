@@ -1,0 +1,11 @@
+{
+  "no": 10,
+  "slug": "ram",
+  "name": "Ramlethal Valentine",
+  "nameJp": "ラムレザル＝ヴァレンタイン",
+  "color": "#d8c878",
+  "sdIcon": "10_chibi_ram.png",
+  "fullArt": "chara10_ram.png",
+  "archetype": "TBD",
+  "stub": true
+}

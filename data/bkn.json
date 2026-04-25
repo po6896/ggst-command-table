@@ -1,0 +1,11 @@
+{
+  "no": 19,
+  "slug": "bkn",
+  "name": "Baiken",
+  "nameJp": "梅喧",
+  "color": "#c8323c",
+  "sdIcon": "19_chibi_bkn.png",
+  "fullArt": "chara19_bkn.png",
+  "archetype": "TBD",
+  "stub": true
+}

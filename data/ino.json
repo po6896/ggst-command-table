@@ -1,0 +1,11 @@
+{
+  "no": 15,
+  "slug": "ino",
+  "name": "I-No",
+  "nameJp": "イノ",
+  "color": "#d63d8c",
+  "sdIcon": "15_chibi_ino.png",
+  "fullArt": "chara15_ino.png",
+  "archetype": "TBD",
+  "stub": true
+}

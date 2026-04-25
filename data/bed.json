@@ -1,0 +1,11 @@
+{
+  "no": 23,
+  "slug": "bed",
+  "name": "Bedman?",
+  "nameJp": "ベッドマン？",
+  "color": "#6e8cd4",
+  "sdIcon": "23_chibi_bed_a.png",
+  "fullArt": "chara23_bed.png",
+  "archetype": "TBD",
+  "stub": true
+}

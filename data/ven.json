@@ -1,0 +1,11 @@
+{
+  "no": 30,
+  "slug": "ven",
+  "name": "Venom",
+  "nameJp": "ヴェノム",
+  "color": "#4ca87a",
+  "sdIcon": "30_chibi_ven.png",
+  "fullArt": "chara30_ven.png",
+  "archetype": "TBD",
+  "stub": true
+}

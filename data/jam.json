@@ -1,0 +1,11 @@
+{
+  "no": 33,
+  "slug": "jam",
+  "name": "Jam Kuradoberi",
+  "nameJp": "ジャム＝クラドベリー",
+  "color": "#e85040",
+  "sdIcon": "33_chibi_jam.png",
+  "fullArt": "chara33_jam.png",
+  "archetype": "TBD",
+  "stub": true
+}

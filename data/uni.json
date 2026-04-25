@@ -1,0 +1,11 @@
+{
+  "no": 31,
+  "slug": "uni",
+  "name": "Unika",
+  "nameJp": "ユニカ",
+  "color": "#9c5cd4",
+  "sdIcon": "31_chibi_uni.png",
+  "fullArt": "chara31_uni.png",
+  "archetype": "TBD",
+  "stub": true
+}

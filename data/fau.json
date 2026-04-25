@@ -1,0 +1,11 @@
+{
+  "no": 7,
+  "slug": "fau",
+  "name": "Faust",
+  "nameJp": "ファウスト",
+  "color": "#b86eff",
+  "sdIcon": "07_chibi_fau.png",
+  "fullArt": "chara07_fau.png",
+  "archetype": "TBD",
+  "stub": true
+}

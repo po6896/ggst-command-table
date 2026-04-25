@@ -1,0 +1,11 @@
+{
+  "no": 26,
+  "slug": "elp",
+  "name": "Elphelt Valentine",
+  "nameJp": "エルフェルト＝ヴァレンタイン",
+  "color": "#e8d8d8",
+  "sdIcon": "26_chibi_elp.png",
+  "fullArt": "chara26_elp.png",
+  "archetype": "TBD",
+  "stub": true
+}

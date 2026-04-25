@@ -1,35 +1,63 @@
 # GGST Command Table
 
-GUILTY GEAR -STRIVE- のコマンド表を1画面に収めるシンプルな静的HTML。
-SFV CFNコラム風のレイアウト（通常技グリッド + 必殺技帯 + 凡例）。
+GUILTY GEAR -STRIVE- 全 33 キャラのコマンド表。1080p 一画面に全セクション収まる静的ページ。
 
 ## 公開ページ
 
 https://po6896.github.io/ggst-command-table/
 
+## アーキテクチャ
+
+ビルド時に JSON → 静的 HTML を生成。各キャラが独立 URL を持つ。
+
+```
+data/
+  sol.json         ← Sol のフルデータ
+  ky.json, ...     ← 他 32 キャラの stub（hero + art のみ）
+src/
+  build.mjs        ← ビルダー (Node.js)
+  style.css        ← 共通スタイル (テンプレに埋め込み)
+  svg-defs.html    ← レバー軌跡 SVG defs
+  gen-stubs.mjs    ← stub JSON 一括生成 (一回だけ実行)
+assets/
+  sd/              ← SD チビ (256px)
+  full/            ← 立ち絵 (1600px)
+  logo/            ← GGST 公式ロゴ
+sol.html, ky.html, ...   ← ビルド出力
+index.html               ← Sol ページのコピー (ルートランディング)
+```
+
+## ローカル開発
+
+```bash
+node src/build.mjs   # data/*.json から *.html を再生成
+```
+
+ブラウザで `index.html` をダブルクリック (file:// 動作可)。
+
+## キャラを追加・更新
+
+`data/{slug}.json` を編集して `node src/build.mjs` 実行。
+GitHub に push すると Actions が自動でビルド & Pages にデプロイ。
+
 ## 構成
 
-- `index.html` — Sol Badguy 1キャラ分（最小版）
-- `DESIGN.md` — UI トークン（Linear 系。VoltAgent / awesome-design-md より）
-- `assets/sd/` — 全33キャラ SDチビ PNG（256px、ヘッダー＋ロスター用）
-- `assets/full/` — 全33キャラ立ち絵 PNG（1600px、特集ページ用予備）
-- `assets/logo/` — ロゴ
-
-依存なし。HTMLを開くだけで動く（Inter Variable は rsms.me から CDN 読込）。
+- 33 個の HTML ページ (1 キャラ 1 ページ)
+- 各ページにロスター → 別キャラへナビゲート
+- Sol だけフル movelist、他 32 は stub (movelist 準備中表示)
+- データ追加は JSON 1 ファイル
 
 ## 素材ライセンス
 
-キャラクターイラスト・ロゴ・SDチビは [GUILTY GEAR -STRIVE- 公式ファンキット](https://www.guiltygear.com/ggst/jp/fankit/) から取得。
-ファンキット利用規約に従い、**個人サイトでのゲーム紹介・攻略・レビュー目的の非営利利用**で公開しています。
+キャラ画像・ロゴは [GUILTY GEAR -STRIVE- 公式ファンキット](https://www.guiltygear.com/ggst/jp/fankit/) から。
 
 - © ARC SYSTEM WORKS
-- 改変は許諾範囲内のリサイズ（1200px → 256px）のみ
-- 商用利用・素材単体の再配布はしません
-
-本リポジトリの **画像ファイル**（`assets/` 配下）は ARC SYSTEM WORKS の権利物であり、Apache/MIT 等の OSS ライセンスは適用されません。HTML/CSS/Markdown 部分のみ自由に参考にしてください。
+- 個人サイトでのゲーム紹介・攻略・レビュー目的の非営利利用
+- 改変は許諾範囲内のリサイズ (1200px → 256px) のみ
+- `assets/` 配下の画像は ASW の権利物。HTML/CSS/JS のみ自由に参照可
 
 ## 拡張予定
 
-- 全33キャラ展開（データJSON分離 + テンプレ化）
-- フレーム数の正確化
-- RC派生・ガトリング表記
+- 残り 32 キャラの movelist 入力
+- フレーム表ホバーポップ
+- 主力技マーカー (パッチ追従式)

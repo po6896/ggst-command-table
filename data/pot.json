@@ -1,0 +1,11 @@
+{
+  "no": 6,
+  "slug": "pot",
+  "name": "Potemkin",
+  "nameJp": "ポチョムキン",
+  "color": "#889ca8",
+  "sdIcon": "06_chibi_pot.png",
+  "fullArt": "chara06_pot.png",
+  "archetype": "TBD",
+  "stub": true
+}
