@@ -4,32 +4,17 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import {
+  GAME,
+  META,
+  ARCHETYPE_JA,
+  ICON_LABEL,
+  OD_LABEL,
+  SYSTEM_COMMON,
+} from './game-config.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const dataDir = path.join(root, 'data');
-
-// ---------- Meta (footer reference info) ----------
-// Update these when refreshing movelists against a new GGST patch.
-const META = {
-  patchVersion: 'Ver. 2.00',
-  patchDate: '2026-04-08',
-  updatedAt: '2026-04-25',
-};
-
-// Archetype labels — keep stored data in English for grep/sort,
-// localize at render time so the panel reads as a JP fan tool.
-const ARCHETYPE_JA = {
-  Power:     'パワー型',
-  Balance:   'バランス型',
-  Speed:     'スピード型',
-  Rushdown:  'ラッシュ',
-  Zoner:     'ゾナー',
-  Grappler:  'グラップラー',
-  Setplay:   'セットプレイ',
-  Trickster: 'トリックスター',
-  Counter:   'カウンター',
-  Resource:  'リソース管理',
-};
 
 // ---------- Load characters ----------
 
@@ -179,14 +164,7 @@ function renderNote(note) {
 // readable without learning the SVG glyph. Standard QCF/QCB/DP/HCF
 // stay icon-only since their numeric notation (236/214/623/41236) is
 // already familiar to fighting-game players.
-const ICON_LABEL = {
-  'charge46': '4溜め6',
-  'charge28': '2溜め8',
-  'down2':    '22',
-  '360':      '1回転',
-  '8way':     '任意方向',
-  'hcb-f':    '63214→6',
-};
+// (ICON_LABEL is now in game-config.mjs)
 
 function renderMove(m) {
   const prefix = m.prefix ? `<span class="prefix">${m.prefix}</span>` : '';
@@ -201,7 +179,7 @@ function renderOd(m) {
   const cmdLabel = ICON_LABEL[m.icon] ? `<span class="cmd-label">${ICON_LABEL[m.icon]}</span>` : '';
   const fill = m.tension ?? 50;
   return `        <div class="move od">
-          <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar" data-tension="${fill}"><span class="fill" style="width:${fill}%"></span></span>${fill}%</span></span>
+          <span class="od-flag">${OD_LABEL} <span class="od-cost"><span class="tension-bar" data-tension="${fill}"><span class="fill" style="width:${fill}%"></span></span>${fill}%</span></span>
           <span class="input"><svg class="motion-icon"><use href="#m-${m.icon}"/></svg>${cmdLabel}${prefix}${repeat}<span class="btn">${m.btnHtml}</span></span>
           <span class="name">${m.name}</span>
           <span class="note">${renderNote(m.note)}</span>
@@ -282,13 +260,8 @@ ${blocks}
     </details>`;
 }
 
-const SYSTEM_COMMON = [
-  { icon: 'dir',    btnHtml: '＋<span class="key-h">HS</span>',                                                                              name: '投げ',                       note: '前/後ろ投げ ／ 近距離' },
-  { icon: 'button', btnHtml: '<span class="key-d">D</span>',                                                                                  name: 'ダスト',                     note: '中段始動 ／ 全キャラ共通' },
-  { icon: 'button', btnHtml: '<span class="key-p">P</span>＋<span class="key-k">K</span>',                                                   name: 'フォルトレスディフェンス',   note: 'ガード中 ／ テンション消費' },
-  { icon: 'button', btnHtml: '<span class="key-p">P</span>＋<span class="key-k">K</span>＋<span class="key-s">S</span>',                    name: 'ロマンキャンセル',           note: '攻撃中 ／ テンション 50%' },
-  { icon: 'button', btnHtml: '<span class="key-d">D</span> 系入力',                                                                            name: 'サイクバースト',             note: '被弾中 ／ 1ラウンド 1回' }
-];
+// (SYSTEM_COMMON is now in game-config.mjs — change there to retarget
+// to a different fighter's universal mechanics list.)
 
 function renderCombos(combos) {
   return `        <ol>
@@ -433,7 +406,7 @@ ${SVG_DEFS}
 
 <header class="topbar">
   <div class="brand">
-    <img class="brand-logo" src="assets/logo/logo_ggst_pos.png" alt="GUILTY GEAR -STRIVE-">
+    <img class="brand-logo" src="assets/logo/logo_${GAME.id}_pos.png" alt="${GAME.longName}">
     <span class="pipe"></span>
     <span class="title">コマンド表</span>
   </div>
@@ -485,11 +458,11 @@ ${content}
     <span>RC = ロマンキャンセル</span>
   </div>
   <div class="row meta">
-    <span>参照: GGST <strong>${META.patchVersion}</strong> (${META.patchDate} 適用)</span>
+    <span>参照: ${GAME.displayName} <strong>${META.patchVersion}</strong> (${META.patchDate} 適用)</span>
     <span>データ更新: ${META.updatedAt}</span>
-    <span>ソース: <a href="https://wikiwiki.jp/ggst-memo/" target="_blank" rel="noopener">wikiwiki.jp/ggst-memo</a></span>
+    <span>ソース: <a href="${GAME.sourceUrl}" target="_blank" rel="noopener">${GAME.sourceLabel}</a></span>
   </div>
-  <span class="credit">キャラクター素材・ロゴ: GUILTY GEAR -STRIVE- 公式ファンキット ／ © ARC SYSTEM WORKS</span>
+  <span class="credit">${GAME.copyright}</span>
 </footer>
 
 </body>
@@ -504,7 +477,7 @@ for (const char of chars) {
   const html = renderPage(char, chars);
   fs.writeFileSync(path.join(root, `${char.slug}.html`), html, 'utf-8');
   built++;
-  if (char.slug === 'sol') {
+  if (char.slug === GAME.defaultSlug) {
     fs.writeFileSync(path.join(root, 'index.html'), html, 'utf-8');
   }
 }

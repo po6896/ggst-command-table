@@ -395,7 +395,73 @@ Edit jhn
 
 ---
 
-## 9. 既知の地雷
+## 9. 他ゲームへの派生 (Lv1: config 抽出方式)
+
+`src/game-config.mjs` に GGST 固有の定数を切り出してある。
+スト6・KOF・鉄拳など別ゲームのコマンド表を作る時は、**このリポを fork
+してこのファイルを書き換えるだけ**で土台は流用できる。
+
+### 派生時の手順
+
+1. このリポを `git clone` または fork → 新リポ作成 (例: `sf6-command-table`)
+2. **`src/game-config.mjs` を書き換え** — 主に以下:
+   - `GAME.id` / `displayName` / `longName` / `defaultSlug` / `sourceUrl` / `sourceLabel` / `copyright`
+   - `META.patchVersion` / `patchDate` / `updatedAt`
+   - `OD_LABEL` (GGST = `Overdrive`、SF6 = `Super Art`、KOF = `超必殺技` など)
+   - `BUTTONS` 配列 (SF6 は `['lp','mp','hp','lk','mk','hk']`、KOF は `['a','b','c','d']` 等)
+   - `SYSTEM_COMMON` (ゲーム共通システム — ガード / バースト相当 / ドライブシステムなど **全面書き換え**)
+   - `ARCHETYPE_JA` (アーキタイプの分類が変わるなら追加)
+   - `ICON_LABEL` (1 回転やレバー溜めの表記、共通の motion icon 名前マップ)
+
+3. **`src/style.css` のボタン色トークンを書き換え**:
+```css
+:root {
+  --btn-p: ...;   /* SF6 なら --btn-lp / --btn-mp / --btn-hp / ... */
+  --btn-k: ...;
+  --btn-s: ...;
+  --btn-h: ...;
+  --btn-d: ...;
+}
+.key-p { color: var(--btn-p); }
+/* ...同パターン... */
+```
+ボタン数が変わる場合は `style.css` 内の `.key-X` クラスも増減する。
+
+4. **モーションアイコン (SVG) の調整**:
+   - `src/build.mjs` 内の `SVG_DEFS` 定数に `<symbol id="m-XXX">` で定義
+   - 既存の `qcf` / `qcb` / `dp` / `hcb-f` / `charge46` / `charge28` 等は格闘ゲー共通
+   - ゲーム固有の入力 (例: SF6 のインパクト同時押し) があれば追加
+
+5. **データ作成**: `data/{slug}.json` を新キャラ分作る (本ガイド section 4-1 のテンプレ参照)
+   - キャラ画像は `assets/full/` `assets/sd/` `assets/logo/` に配置
+   - logo ファイル名は `logo_{GAME.id}_pos.png` 命名規則
+
+6. **アセット差替**: ロゴ・チビ・全身絵を新ゲームのものに
+
+7. ビルド + push
+
+### Lv1 の限界
+
+- **ゲーム情報は一括ハードコード** — 1 リポ = 1 ゲーム
+- **複数ゲームを 1 リポで管理したくなったら Lv2 へ** (games/{game}/data 構造、`node src/build.mjs ggst` のような引数指定)
+- 今のところ Lv2 は YAGNI
+
+### 派生する時に再利用できる部分 / 書き換える部分
+
+| 部分 | 流用度 | 備考 |
+|------|--------|------|
+| `build.mjs` 本体 (テンプレ生成ロジック) | ✅ 100% | レンダリング部分はゲーム非依存 |
+| `style.css` レイアウト系 (.move / .specials / .normals / .mech-*) | ✅ 95% | ボタン色トークンだけ差替 |
+| motion icon SVG sprite | ✅ 90% | 共通入力は流用、ゲーム固有のみ追加 |
+| `mechanicDetail` schema | ✅ 100% | 完全汎用 |
+| `data/{slug}.json` キャラデータ | ❌ 0% | キャラごとに新規作成 |
+| `assets/` (ロゴ・キャラ画像) | ❌ 0% | 新規調達 |
+| `game-config.mjs` | ⚙️ 書き換え | この 1 ファイルでゲーム固有部分を集約 |
+| `MAINTENANCE.md` の wikiwiki URL マッピング | ❌ 0% | 各ゲームの wiki/ソースに合わせて作り直し |
+
+---
+
+## 10. 既知の地雷
 
 - **wikiwiki URL の日本語表記揺れ**: 同じキャラでもサブページが `/コマンド技` か `/必殺技` か違う。404 出たら hub から正規 URL を取り直す
 - **Dustloop 403**: WebFetch 直接禁止。代替必要時はユーザーに手動で送ってもらう
