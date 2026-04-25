@@ -130,50 +130,68 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "阿修羅閃空",
-      "note": "飛び道具"
+      "name": "アルファブレード・横",
+      "note": "突進 ／ 空中可"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "足刀突き",
-      "note": "突進"
+      "name": "アルファブレード・斜め",
+      "note": "突進中段 ／ 空中可"
     },
     {
       "icon": "dp",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "弧月斬",
-      "note": "対空昇龍"
-    },
-    {
-      "icon": "qcb",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "残像移動",
-      "note": "テレポート"
+      "name": "ベータブレード",
+      "note": "対空昇龍 ／ 空中可"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "prefix": "空中",
-      "name": "昇り疾駆",
-      "note": "空中突進"
+      "name": "ガンマブレード",
+      "note": "飛び道具"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "列衝",
+      "note": "コマ投げ風"
+    },
+    {
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "玄狼斬",
+      "note": "突進斬撃"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "手裏剣",
+      "note": "空中専用 ／ 飛び道具",
+      "prefix": "空中"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ロープテンション",
+      "note": "壁張り付き"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "repeat": "×2",
-      "name": "蜂酔閃刃",
-      "note": "突進乱舞",
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "残星狼牙",
+      "note": "突進乱舞 ／ 空中可",
       "tension": 50
     },
     {
-      "icon": "hcb-f",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "禁忌奥義零式・忍法",
-      "note": "一撃必殺風",
-      "tension": 100
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "万鬼滅砕",
+      "note": "一撃必殺風 ／ 大ダメージ",
+      "tension": 50,
+      "repeat": "×2"
     }
   ],
   "combos": [
@@ -185,5 +203,6 @@
       "tag": "対空",
       "seqHtml": "6<span class=\"key-p\">P</span> &gt; 623<span class=\"key-s\">S</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

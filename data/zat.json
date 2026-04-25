@@ -128,50 +128,68 @@
   },
   "specials": [
     {
-      "icon": "qcf",
-      "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "召喚",
-      "note": "エディ召喚"
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "飛行",
+      "note": "空中ダッシュ持続"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "ピアス",
-      "note": "飛び道具"
+      "name": "インヴァイトヘル",
+      "note": "ドリル設置"
     },
     {
-      "icon": "qcb",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "インヴァイト・ヘル",
-      "note": "中段移動"
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "エディ召喚",
+      "note": "シャドウ操作開始"
     },
     {
-      "icon": "dp",
+      "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ドランカー・シェイド",
-      "note": "反撃技"
+      "name": "突く",
+      "note": "エディ ／ 多段突き"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "影縛り",
-      "note": "エディ操作"
+      "name": "多い！",
+      "note": "エディ ／ 多段ドリル"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "跳ねる",
+      "note": "エディ ／ 上方カバー"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "ブレイク・ザ・ロウ",
+      "note": "影テレポート"
+    },
+    {
+      "icon": "dp",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "ドランカーシェイド",
+      "note": "反射構え"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
+      "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
       "name": "アモルファス",
-      "note": "エディ強化",
-      "tension": 50
+      "note": "影乱舞",
+      "tension": 50,
+      "repeat": "×2"
     },
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "サン・ヴワ・シ・ジュ・ヴェ",
-      "note": "対空乱舞",
+      "name": "サンヴォイド",
+      "note": "エディ強化飛び道具",
       "tension": 50
     }
   ],
@@ -184,5 +202,6 @@
       "tag": "エディ起動",
       "seqHtml": "236<span class=\"key-p\">P</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

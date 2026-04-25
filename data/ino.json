@@ -129,49 +129,50 @@
   "specials": [
     {
       "icon": "qcf",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "抗鬱音楽",
-      "note": "飛び道具"
-    },
-    {
-      "icon": "qcb",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "反撃音響",
-      "note": "反撃"
-    },
-    {
-      "icon": "dp",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "陣風メガロマニア",
-      "note": "対空"
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "抗鬱音階",
+      "note": "飛び道具 ／ 空中可"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "ストロークザビッグツリー",
-      "note": "中段"
+      "name": "ケミカル愛情",
+      "note": "飛び道具 ／ 空中可"
     },
     {
-      "icon": "qcb",
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "大木をさする手",
+      "note": "低姿勢突進"
+    },
+    {
+      "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "チェイスホバー",
-      "note": "高速ホバー移動"
+      "name": "狂愛アジタート",
+      "note": "ジャンプ攻撃 ／ 派生"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "狂言実行",
+      "note": "空中急降下 ／ 角度可変",
+      "prefix": "空中"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
+      "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
       "name": "メガロマニア",
-      "note": "飛び道具乱舞",
-      "tension": 50
+      "note": "コマンド投げ ／ 失敗時飛び道具",
+      "tension": 50,
+      "repeat": "×2"
     },
     {
-      "icon": "hcb-f",
+      "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ウルトラハッピーミサイル",
-      "note": "ホバー突進",
+      "name": "限界フォルテッシモ",
+      "note": "ホバー飛び道具 ／ 空中可",
       "tension": 50
     }
   ],
@@ -180,5 +181,6 @@
       "tag": "基本",
       "seqHtml": "5<span class=\"key-k\">K</span> &gt; 近<span class=\"key-s\">S</span> &gt; 5<span class=\"key-h\">H</span> &gt; 236<span class=\"key-h\">HS</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

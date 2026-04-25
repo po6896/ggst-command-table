@@ -130,43 +130,42 @@
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
-      "name": "横イルカ",
-      "note": "突進 ／ 距離可変"
+      "name": "イルカさん・横",
+      "note": "4溜め6 ／ 突進"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
-      "prefix": "溜め2",
-      "name": "縦イルカ",
-      "note": "対空ジャンプ攻撃"
-    },
-    {
-      "icon": "qcf",
-      "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "アプライドガールズ",
-      "note": "召喚飛び道具"
+      "name": "イルカさん・縦",
+      "note": "2溜め8 ／ 対空"
     },
     {
       "icon": "dp",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "おどおど",
-      "note": "空中ダッシュ"
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "オーバーヘッド・キッス",
+      "note": "中段 ／ 投げ判定"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-p\">P</span> / <span class=\"key-k\">K</span>",
+      "name": "有栖川スパークル",
+      "note": "召喚飛び道具"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
-      "name": "グレイトヤマダアタック",
-      "note": "空中専用 ／ 大ダメージ",
-      "tension": 50
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "グレート山田アタック",
+      "note": "巨大山田召喚",
+      "tension": 50,
+      "repeat": "×2"
     },
     {
-      "icon": "qcf",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "ザ・ウォンダフルラッシュ",
-      "note": "イルカ乱舞",
+      "name": "ワンダフル五所川原ダイナミック",
+      "note": "イルカ乱舞 ／ 空中可",
       "tension": 50
     }
   ],
@@ -179,5 +178,6 @@
       "tag": "対空",
       "seqHtml": "j.<span class=\"key-k\">K</span> &gt; j.<span class=\"key-s\">S</span> &gt; 214<span class=\"key-h\">HS</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

@@ -128,44 +128,49 @@
   },
   "specials": [
     {
-      "icon": "qcf",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "トロベイドル",
-      "note": "突進"
-    },
-    {
-      "icon": "qcf",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "センプロ・サン",
-      "note": "突進中段"
-    },
-    {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "チゼル",
-      "note": "空中突進"
+      "name": "セプルトゥーラ",
+      "note": "長リーチ蹴り"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "トロヴァオン",
+      "note": "ドロップキック ／ 飛び道具消し"
     },
     {
       "icon": "dp",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "サパテイア",
-      "note": "対空昇龍"
+      "name": "ソウル・ナセンチ",
+      "note": "対空回し蹴り"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "ソウル・ポエンチ",
+      "note": "空中蹴り ／ めくり"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "シャヴェ",
+      "note": "ステップ ／ キャンセル可"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
-      "name": "タンブィルゴリア",
-      "note": "突進乱舞",
+      "name": "ヴェンタニア",
+      "note": "突進乱舞 ／ 始動無敵",
       "tension": 50
     },
     {
-      "icon": "hcb-f",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ヴェントスニアロ",
-      "note": "対空乱舞",
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "テンペスタージ",
+      "note": "空中急降下 ／ 空中可",
       "tension": 50
     }
   ],
@@ -174,5 +179,6 @@
       "tag": "基本",
       "seqHtml": "5<span class=\"key-p\">P</span> &gt; 5<span class=\"key-k\">K</span> &gt; 近<span class=\"key-s\">S</span> &gt; 236<span class=\"key-s\">S</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

@@ -133,10 +133,16 @@
       "note": "地上飛び道具"
     },
     {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "ガンフレイムフェイント",
+      "note": "フェイント ／ ゲージ回収"
+    },
+    {
       "icon": "dp",
       "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
       "name": "ヴォルカニックヴァイパー",
-      "note": "対空昇龍 ／ HS 高性能"
+      "note": "対空昇龍 ／ 空中可"
     },
     {
       "icon": "qcf",
@@ -148,12 +154,12 @@
       "icon": "qcb",
       "btnHtml": "<span class=\"key-k\">K</span>",
       "name": "バンディットブリンガー",
-      "note": "飛び込み中段"
+      "note": "飛び込み中段 ／ 空中可"
     },
     {
       "icon": "dp",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "ワイルドスロウ",
+      "name": "ぶっきらぼうに投げる",
       "note": "コマンド投げ"
     },
     {
@@ -165,26 +171,26 @@
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "prefix": "空中",
       "name": "ナイトレイドヴォルテックス",
-      "note": "空中専用"
+      "note": "長押し可",
+      "prefix": "空中"
     }
   ],
   "overdrives": [
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "タイラントレイヴ",
+      "name": "タイランレイブ",
       "note": "乱舞",
       "tension": 50
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
       "name": "ヘヴィモブセメタリー",
       "note": "飛び道具",
-      "tension": 50
+      "tension": 100,
+      "repeat": "×2"
     }
   ],
   "system": [
@@ -234,5 +240,6 @@
       "seqHtml": "6<span class=\"key-p\">P</span> &gt; 623<span class=\"key-h\">HS</span>"
     }
   ],
-  "artPos": "8%"
+  "artPos": "8%",
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

@@ -129,51 +129,57 @@
   "specials": [
     {
       "icon": "qcf",
-      "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "モルテム・トランクト",
-      "note": "飛び道具設置"
-    },
-    {
-      "icon": "qcb",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "シルヴァ・ブロー",
-      "note": "突進"
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "バヨネッタ",
+      "note": "剣投げ ／ 飛び道具"
     },
     {
       "icon": "dp",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ダウルガ",
-      "note": "対空昇龍"
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "ダウロ",
+      "note": "対空打ち上げ"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "シルド・デトルオ",
+      "note": "空中中段 ／ 空中可"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "バジャクス",
-      "note": "中段"
+      "name": "サブロバルト",
+      "note": "オーバーヘッド斬"
     },
     {
       "icon": "qcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "オンド",
+      "note": "波動牽制"
+    },
+    {
+      "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "prefix": "空中",
-      "name": "サブロバトス",
-      "note": "空中急降下"
+      "name": "アグレッサオルドノ",
+      "note": "空中専用斬撃",
+      "prefix": "空中"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
-      "name": "モルテム・サンクトゥス",
-      "note": "広範囲乱舞",
+      "name": "カルバドス",
+      "note": "ビーム ／ 剣2本必要",
       "tension": 50
     },
     {
-      "icon": "hcb-f",
+      "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "カラドゥラ・ヘイサジン",
-      "note": "対空乱舞",
-      "tension": 50
+      "name": "モルトバルデ",
+      "note": "無敵地割れ",
+      "tension": 50,
+      "repeat": "×2"
     }
   ],
   "combos": [
@@ -185,5 +191,6 @@
       "tag": "対空",
       "seqHtml": "6<span class=\"key-p\">P</span> &gt; 623<span class=\"key-s\">S</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

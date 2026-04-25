@@ -130,49 +130,62 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "なんでも投げてみるテスト",
-      "note": "ランダムアイテム"
-    },
-    {
-      "icon": "qcf",
-      "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "突き刺し",
-      "note": "対空 ／ 中段"
-    },
-    {
-      "icon": "qcb",
-      "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "潜り込み",
-      "note": "低姿勢突進"
-    },
-    {
-      "icon": "dp",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "突き戻し",
-      "note": "対空"
+      "name": "何が出るかな？",
+      "note": "ランダムアイテム召喚"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "極性反転",
-      "note": "カウンター"
+      "name": "メッタ刈り",
+      "note": "投げ ／ アフロ状態化"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "久延毘古",
+      "note": "テレポート ／ 位置選択"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "涅和混練",
+      "note": "多段突き ／ 空中可"
+    },
+    {
+      "icon": "hcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "突きます。",
+      "note": "長距離突き ／ 派生有り"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ナイスショット。",
+      "note": "飛び道具設置"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "愛",
+      "note": "空中専用 ／ 落下飛び道具",
+      "prefix": "空中"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
-      "name": "W．スリリング",
-      "note": "ランダム乱舞",
+      "name": "エキサイティング骨折",
+      "note": "カウンター打撃",
       "tension": 50
     },
     {
-      "icon": "hcb-f",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "バリバリバリすぱあく",
-      "note": "飛び道具",
-      "tension": 50
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "な・な・な・なにがでるかな？",
+      "note": "大量アイテム ／ 50% or 100%",
+      "tension": 50,
+      "repeat": "×2"
     }
   ],
   "combos": [
@@ -184,5 +197,6 @@
       "tag": "崩し",
       "seqHtml": "236<span class=\"key-k\">K</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

@@ -130,42 +130,47 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "蜻蛉",
-      "note": "構え ／ 派生技"
+      "name": "疾",
+      "note": "前進斬り"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "水月のハコビ",
+      "note": "見切り構え ／ 派生「乱」"
     },
     {
       "icon": "qcb",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "不香花",
-      "note": "中段払い"
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "乱",
+      "note": "見切り成功時 ／ 反撃"
     },
     {
-      "icon": "qcb",
+      "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "颶風",
-      "note": "反撃技"
+      "name": "紅",
+      "note": "溜め可 ／ 飛び道具"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "撩乱",
-      "note": "飛び道具"
+      "name": "風神",
+      "note": "溜め可 ／ 派生4種"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
-      "name": "滅鬼螺旋脚",
-      "note": "空中強襲",
+      "name": "一誠奥義「彩」",
+      "note": "突進乱舞",
       "tension": 50
     },
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "一悶蓮",
-      "note": "カウンター乱舞",
+      "name": "花鳥風月 改",
+      "note": "広範囲飛び道具",
       "tension": 50
     }
   ],
@@ -178,5 +183,6 @@
       "tag": "蜻蛉派生",
       "seqHtml": "236<span class=\"key-p\">P</span> &gt; <span class=\"key-h\">HS</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

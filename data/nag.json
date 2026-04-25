@@ -129,49 +129,54 @@
   "specials": [
     {
       "icon": "qcf",
-      "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "紅蓮",
-      "note": "吸血ゲージ消費"
-    },
-    {
-      "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "袈裟一刀",
-      "note": "中段斬撃"
+      "name": "粒雪 (ざらめゆき)",
+      "note": "前進斬撃"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "陣風白浪",
-      "note": "突進斬撃"
+      "name": "冠雪 (かむりゆき)",
+      "note": "対空斬"
     },
     {
       "icon": "dp",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "震脚",
-      "note": "コマンド投げ"
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "垂雪 (しずりゆき)",
+      "note": "突進斬 ／ HSで派生"
+    },
+    {
+      "icon": "dp",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "Bloodsucking Universe",
+      "note": "吸血 ／ ゲージ回復"
     },
     {
       "icon": "qcf",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "居合一閃",
-      "note": "溜め斬撃"
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "不香 (ふきょう)",
+      "note": "中段斬り"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "雪催 (ゆきもよい)",
+      "note": "飛び道具"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
-      "name": "カムリエ",
-      "note": "吸血回復",
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "忘れ雪",
+      "note": "突進乱舞",
       "tension": 50
     },
     {
       "icon": "hcb-f",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ジン・ザン",
-      "note": "吸血ゲージ消費突進",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "残雪 (ざんせつ)",
+      "note": "ブラッドレイジ専用 ／ 一撃技",
       "tension": 50
     }
   ],
@@ -184,5 +189,6 @@
       "tag": "吸血回復",
       "seqHtml": "236<span class=\"key-p\">P</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

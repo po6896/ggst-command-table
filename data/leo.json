@@ -129,45 +129,55 @@
   "specials": [
     {
       "icon": "qcf",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "グラオプフェルテ",
-      "note": "飛び道具"
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "グラヴィテート・フェルダムト",
+      "note": "多段飛び道具"
+    },
+    {
+      "icon": "dp",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "アイゼン・シュトゥルム",
+      "note": "対空 ／ 始動無敵"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "prefix": "裏",
-      "name": "ハイルツィカム",
-      "note": "裏向きスタンス"
+      "name": "エルスト・カルトス・ゲシュトゥーバー",
+      "note": "突進 ／ ダウン"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "prefix": "裏",
-      "name": "ハイルゲシュッツ",
-      "note": "コマンド投げ"
+      "name": "ツヴァイト・カルトス・ゲシュトゥーバー",
+      "note": "すり抜け ／ 裏スタンス"
     },
     {
-      "icon": "dp",
-      "btnHtml": "<span class=\"key-s\">S</span>",
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "トゥールブレンツ",
+      "note": "前進中段 ／ 派生"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "グラオブリッツ",
-      "note": "対空昇龍"
+      "note": "裏スタンス専用突進",
+      "prefix": "裏"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
+      "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
-      "name": "シュトーレンエクスプロージョン",
-      "note": "突進乱舞",
+      "name": "シュティールフォルバイル",
+      "note": "裏スタンス専用 ／ 高速飛び道具",
       "tension": 50
     },
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ライトニンゲシュタペル",
-      "note": "対空乱舞",
+      "name": "ライデンシュラフト・デリゲント",
+      "note": "突進乱舞 ／ 始動無敵",
       "tension": 50
     }
   ],
@@ -180,5 +190,6 @@
       "tag": "裏スタンス始動",
       "seqHtml": "裏c.<span class=\"key-s\">S</span> &gt; 裏214<span class=\"key-h\">HS</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

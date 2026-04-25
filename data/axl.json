@@ -130,48 +130,55 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "シエヌテイ・上",
-      "note": "高位置牽制"
+      "name": "鎌閃撃 (れんせんげき)",
+      "note": "長距離鎖牽制"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "シエヌテイ・下",
-      "note": "低位置牽制"
+      "name": "冬蟷螂 (ふゆいもじり)",
+      "note": "4溜め1236 ／ 突進"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "蝸牛 (かたつむり)",
+      "note": "対空鎖 ／ 空中可"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ランボウ・上",
-      "note": "飛び道具"
+      "name": "潦 (にわたずみ)",
+      "note": "低姿勢牽制"
     },
     {
       "icon": "qcb",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "ランボウ・下",
-      "note": "低姿勢飛び道具"
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "虎落笛 (もがりぶえ)",
+      "note": "長押し可 ／ 中距離"
     },
     {
-      "icon": "dp",
+      "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "アクセルボンバー",
-      "note": "コマンド投げ"
+      "note": "空中専用 ／ 対空",
+      "prefix": "空中"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
+      "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
-      "name": "ハイエロパティロウ",
-      "note": "画面端固定遠距離技",
-      "tension": 50
+      "name": "百重鎌焼 (びゃくえれんしょう)",
+      "note": "広範囲乱舞",
+      "tension": 50,
+      "repeat": "×2"
     },
     {
       "icon": "hcb-f",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "一瞬千撃",
-      "note": "乱舞",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "ワンヴィジョン",
+      "note": "時止め ／ 空中可",
       "tension": 50
     }
   ],
@@ -184,5 +191,6 @@
       "tag": "遠距離牽制",
       "seqHtml": "遠<span class=\"key-s\">S</span> &gt; 214<span class=\"key-s\">S</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

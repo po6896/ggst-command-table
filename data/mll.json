@@ -129,51 +129,71 @@
   "specials": [
     {
       "icon": "qcf",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "タンデムトップ",
-      "note": "飛び道具"
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "バッドムーン",
+      "note": "空中突進中段 ／ 空中専用",
+      "prefix": "空中"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "ハイスピードフォール",
+      "note": "急降下 ／ 空中専用",
+      "prefix": "空中"
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "ロングフォルテ",
-      "note": "中距離"
+      "name": "カピエル",
+      "note": "空中飛び道具",
+      "prefix": "空中"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "タンデムトップ",
+      "note": "回転飛び道具"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "アイアンセイバー",
+      "note": "低姿勢スライド"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "バッドムーン",
-      "note": "空中突進中段"
-    },
-    {
-      "icon": "dp",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "カピエル",
-      "note": "対空"
+      "name": "ミラージュ",
+      "note": "すり抜け前進"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "prefix": "空中",
-      "name": "シルヴァブレード",
-      "note": "空中飛び道具"
+      "name": "ラストシェイカー",
+      "note": "多段中距離"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "アルテミス",
+      "note": "後退攻撃"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "repeat": "×2",
-      "name": "ウィンガースカルム",
+      "name": "ウィンガー",
       "note": "突進乱舞",
       "tension": 50
     },
     {
-      "icon": "hcb-f",
+      "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "クロスチェンジ",
-      "note": "空中専用",
-      "tension": 50
+      "name": "セプテム・ヴォイセズ",
+      "note": "飛び道具乱舞",
+      "tension": 50,
+      "repeat": "×2"
     }
   ],
   "combos": [
@@ -185,5 +205,6 @@
       "tag": "崩し",
       "seqHtml": "214<span class=\"key-k\">K</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }

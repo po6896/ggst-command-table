@@ -129,9 +129,22 @@
   "specials": [
     {
       "icon": "qcf",
-      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "btnHtml": "<span class=\"key-s\">S</span>",
       "name": "スタンエッジ",
       "note": "飛び道具"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "スタンエッジ・チャージアタック",
+      "note": "溜め飛び道具"
+    },
+    {
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "空中スタンエッジ",
+      "note": "空中飛び道具",
+      "prefix": "空中"
     },
     {
       "icon": "qcf",
@@ -143,36 +156,48 @@
       "icon": "dp",
       "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
       "name": "ヴェイパースラスト",
-      "note": "対空昇龍"
+      "note": "対空昇龍 ／ 空中可"
     },
     {
       "icon": "qcb",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "フードゥエルアロー",
-      "note": "空中飛び道具設置"
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "フードゥルアルク",
+      "note": "雷球設置"
     },
     {
-      "icon": "qcf",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
-      "prefix": "空中",
-      "name": "グリードセヴァー",
-      "note": "空中飛び道具"
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-p\">P</span>",
+      "name": "ライトニングストライク",
+      "note": "飛び道具消費攻撃"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "ダイアエクラ",
+      "note": "中距離牽制"
     }
   ],
   "overdrives": [
     {
-      "icon": "qcf2",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "repeat": "×2",
-      "name": "リドエクスマキナ",
-      "note": "飛び道具乱舞",
+      "icon": "hcb-f",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ライド・ザ・ライトニング",
+      "note": "対空乱舞 ／ 空中可",
       "tension": 50
     },
     {
-      "icon": "hcb-f",
-      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "icon": "qcf",
+      "btnHtml": "<span class=\"key-p\">P</span>",
       "name": "セイクリッドエッジ",
-      "note": "対空乱舞",
+      "note": "飛び道具乱舞",
+      "tension": 50,
+      "repeat": "×2"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ドラゴンインストール",
+      "note": "パワーアップ ／ 体力30%以下",
       "tension": 50
     }
   ],
@@ -189,5 +214,6 @@
       "tag": "対空",
       "seqHtml": "6<span class=\"key-p\">P</span> &gt; 623<span class=\"key-s\">S</span>"
     }
-  ]
+  ],
+  "dataSource": "wikiwiki.jp/ggst-memo (verified)"
 }
