@@ -175,19 +175,34 @@ function renderNote(note) {
   return note;
 }
 
+// Variant icons get an extra textual label so 4溜め6 / 1回転 etc. are
+// readable without learning the SVG glyph. Standard QCF/QCB/DP/HCF
+// stay icon-only since their numeric notation (236/214/623/41236) is
+// already familiar to fighting-game players.
+const ICON_LABEL = {
+  'charge46': '4溜め6',
+  'charge28': '2溜め8',
+  'down2':    '22',
+  '360':      '1回転',
+  '8way':     '任意方向',
+  'hcb-f':    '63214→6',
+};
+
 function renderMove(m) {
   const prefix = m.prefix ? `<span class="prefix">${m.prefix}</span>` : '';
   const repeat = m.repeat ? `<span class="repeat">${m.repeat}</span>` : '';
-  return `        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-${m.icon}"/></svg>${prefix}${repeat}<span class="btn">${m.btnHtml}</span></span><span class="name">${m.name}</span><span class="note">${renderNote(m.note)}</span></div>`;
+  const cmdLabel = ICON_LABEL[m.icon] ? `<span class="cmd-label">${ICON_LABEL[m.icon]}</span>` : '';
+  return `        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-${m.icon}"/></svg>${cmdLabel}${prefix}${repeat}<span class="btn">${m.btnHtml}</span></span><span class="name">${m.name}</span><span class="note">${renderNote(m.note)}</span></div>`;
 }
 
 function renderOd(m) {
   const prefix = m.prefix ? `<span class="prefix">${m.prefix}</span>` : '';
   const repeat = m.repeat ? `<span class="repeat">${m.repeat}</span>` : '';
+  const cmdLabel = ICON_LABEL[m.icon] ? `<span class="cmd-label">${ICON_LABEL[m.icon]}</span>` : '';
   const fill = m.tension ?? 50;
   return `        <div class="move od">
           <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar" data-tension="${fill}"><span class="fill" style="width:${fill}%"></span></span>${fill}%</span></span>
-          <span class="input"><svg class="motion-icon"><use href="#m-${m.icon}"/></svg>${prefix}${repeat}<span class="btn">${m.btnHtml}</span></span>
+          <span class="input"><svg class="motion-icon"><use href="#m-${m.icon}"/></svg>${cmdLabel}${prefix}${repeat}<span class="btn">${m.btnHtml}</span></span>
           <span class="name">${m.name}</span>
           <span class="note">${renderNote(m.note)}</span>
         </div>`;

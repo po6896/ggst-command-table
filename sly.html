@@ -790,6 +790,20 @@
     background: var(--surface-3);
     border-radius: 3px;
   }
+  /* Numeric-notation label for variant motions (4溜め6 / 1回転 etc.).
+     Keep it tighter than the SVG icon so the row reads icon → text → button. */
+  .move .input .cmd-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 590;
+    letter-spacing: 0;
+    color: var(--char-2);
+    padding: 0 4px;
+    border: 1px solid var(--char-line);
+    border-radius: 2px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
 
   /* Stick-motion icon — arcade-stick base with motion path.
      Symbols inherit Sol orange via currentColor. */
@@ -1189,8 +1203,8 @@
       <summary><h2>必殺技</h2><span class="count">4</span><span class="accent-bar"></span></summary>
       <div class="specials cols-4">
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="btn"><span class="key-p">P</span></span></span><span class="name">マッパハンチ</span><span class="note">前方突進パンチ</span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn"><span class="key-p">P</span></span></span><span class="name">ダンディーステップ</span><span class="note"><span class="note-pill">高速移動</span><span class="note-pill">4種派生</span></span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-360"/></svg><span class="btn"><span class="key-h">HS</span></span></span><span class="name">ブラッドサッキング・ユニバース</span><span class="note"><span class="note-pill">吸血コマ投げ</span><span class="note-pill">UNIVERSE</span></span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="cmd-label">63214→6</span><span class="btn"><span class="key-p">P</span></span></span><span class="name">ダンディーステップ</span><span class="note"><span class="note-pill">高速移動</span><span class="note-pill">4種派生</span></span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-360"/></svg><span class="cmd-label">1回転</span><span class="btn"><span class="key-h">HS</span></span></span><span class="name">ブラッドサッキング・ユニバース</span><span class="note"><span class="note-pill">吸血コマ投げ</span><span class="note-pill">UNIVERSE</span></span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-s">S</span></span></span><span class="name">ハンドオブドゥーム</span><span class="note"><span class="note-pill">バックステップ中</span><span class="note-pill">反撃</span></span></div>
       </div>
     </details>

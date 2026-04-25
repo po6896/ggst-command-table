@@ -790,6 +790,20 @@
     background: var(--surface-3);
     border-radius: 3px;
   }
+  /* Numeric-notation label for variant motions (4溜め6 / 1回転 etc.).
+     Keep it tighter than the SVG icon so the row reads icon → text → button. */
+  .move .input .cmd-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 590;
+    letter-spacing: 0;
+    color: var(--char-2);
+    padding: 0 4px;
+    border: 1px solid var(--char-line);
+    border-radius: 2px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
 
   /* Stick-motion icon — arcade-stick base with motion path.
      Symbols inherit Sol orange via currentColor. */
@@ -1199,7 +1213,7 @@
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcb"/></svg><span class="btn"><span class="key-s">S</span></span></span><span class="name">フーフスタンプ</span><span class="note">中段ジャンプ蹴り</span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcf"/></svg><span class="btn"><span class="key-k">K</span></span></span><span class="name">エルクハント</span><span class="note">低姿勢突進</span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-qcb"/></svg><span class="btn"><span class="key-k">K</span></span></span><span class="name">ガゼルステップ</span><span class="note"><span class="note-pill">高速移動</span><span class="note-pill">スタミナ消費</span></span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn"><span class="key-p">P</span></span></span><span class="name">育ち盛りだからな</span><span class="note"><span class="note-pill">食事</span><span class="note-pill">スタミナ回復</span></span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="cmd-label">63214→6</span><span class="btn"><span class="key-p">P</span></span></span><span class="name">育ち盛りだからな</span><span class="note"><span class="note-pill">食事</span><span class="note-pill">スタミナ回復</span></span></div>
       </div>
     </details>
 
@@ -1208,7 +1222,7 @@
       <div class="specials cols-2">
         <div class="move od">
           <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar" data-tension="50"><span class="fill" style="width:50%"></span></span>50%</span></span>
-          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn"><span class="key-h">HS</span></span></span>
+          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="cmd-label">63214→6</span><span class="btn"><span class="key-h">HS</span></span></span>
           <span class="name">R.T.L</span>
           <span class="note"><span class="note-pill">雷撃突き</span><span class="note-pill">派生</span></span>
         </div>

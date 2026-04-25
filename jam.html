@@ -790,6 +790,20 @@
     background: var(--surface-3);
     border-radius: 3px;
   }
+  /* Numeric-notation label for variant motions (4溜め6 / 1回転 etc.).
+     Keep it tighter than the SVG icon so the row reads icon → text → button. */
+  .move .input .cmd-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 590;
+    letter-spacing: 0;
+    color: var(--char-2);
+    padding: 0 4px;
+    border: 1px solid var(--char-line);
+    border-radius: 2px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
 
   /* Stick-motion icon — arcade-stick base with motion path.
      Symbols inherit Sol orange via currentColor. */
@@ -1194,7 +1208,7 @@
     <details class="sect" open>
       <summary><h2>必殺技</h2><span class="count">7</span><span class="accent-bar"></span></summary>
       <div class="specials cols-7">
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-down2"/></svg><span class="btn"><span class="key-k">K</span> / <span class="key-s">S</span> / <span class="key-h">HS</span></span></span><span class="name">朝凪の呼吸</span><span class="note"><span class="note-pill">溜め可</span><span class="note-pill">必殺技強化</span></span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-down2"/></svg><span class="cmd-label">22</span><span class="btn"><span class="key-k">K</span> / <span class="key-s">S</span> / <span class="key-h">HS</span></span></span><span class="name">朝凪の呼吸</span><span class="note"><span class="note-pill">溜め可</span><span class="note-pill">必殺技強化</span></span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dp"/></svg><span class="btn"><span class="key-k">K</span></span></span><span class="name">龍刃 (りゅうじん)</span><span class="note"><span class="note-pill">対空蹴り</span><span class="note-pill">空中可</span></span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dp"/></svg><span class="btn"><span class="key-s">S</span></span></span><span class="name">逆鱗 (げきりん)</span><span class="note"><span class="note-pill">突進斬</span><span class="note-pill">空中可</span></span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dp"/></svg><span class="btn"><span class="key-h">HS</span></span></span><span class="name">龍鎚 (りゅうつい)</span><span class="note"><span class="note-pill">上方飛び込み</span><span class="note-pill">空中可</span></span></div>
@@ -1209,13 +1223,13 @@
       <div class="specials cols-2">
         <div class="move od">
           <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar" data-tension="50"><span class="fill" style="width:50%"></span></span>50%</span></span>
-          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn"><span class="key-h">HS</span></span></span>
+          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="cmd-label">63214→6</span><span class="btn"><span class="key-h">HS</span></span></span>
           <span class="name">兆脚黄龍門</span>
           <span class="note">無敵対空乱舞</span>
         </div>
         <div class="move od">
           <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar" data-tension="50"><span class="fill" style="width:50%"></span></span>50%</span></span>
-          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn"><span class="key-p">P</span></span></span>
+          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="cmd-label">63214→6</span><span class="btn"><span class="key-p">P</span></span></span>
           <span class="name">朝凪の呼吸・震気開天</span>
           <span class="note">全強化覚醒</span>
         </div>

@@ -790,6 +790,20 @@
     background: var(--surface-3);
     border-radius: 3px;
   }
+  /* Numeric-notation label for variant motions (4溜め6 / 1回転 etc.).
+     Keep it tighter than the SVG icon so the row reads icon → text → button. */
+  .move .input .cmd-label {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 590;
+    letter-spacing: 0;
+    color: var(--char-2);
+    padding: 0 4px;
+    border: 1px solid var(--char-line);
+    border-radius: 2px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
 
   /* Stick-motion icon — arcade-stick base with motion path.
      Symbols inherit Sol orange via currentColor. */
@@ -1205,7 +1219,7 @@
       <div class="specials cols-2">
         <div class="move od">
           <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar" data-tension="50"><span class="fill" style="width:50%"></span></span>50%</span></span>
-          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="btn"><span class="key-h">HS</span></span></span>
+          <span class="input"><svg class="motion-icon"><use href="#m-hcb-f"/></svg><span class="cmd-label">63214→6</span><span class="btn"><span class="key-h">HS</span></span></span>
           <span class="name">ウィンガー</span>
           <span class="note">突進乱舞</span>
         </div>
