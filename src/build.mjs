@@ -245,7 +245,7 @@ function renderMechanicDetail(detail) {
           return `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`;
         }
         const cat = row.cat ? ` class="cat-${row.cat}"` : '';
-        const cells = (row.cells || []).map((c, i) => i === 0 && row.cat ? `<td><span class="cat-pill cat-${row.cat}">${c}</span></td>` : `<td>${c}</td>`).join('');
+        const cells = (row.cells || []).map(c => `<td>${c}</td>`).join('');
         return `<tr${cat}>${cells}</tr>`;
       }).join('\n          ');
       body = `        <table class="mech-table">
