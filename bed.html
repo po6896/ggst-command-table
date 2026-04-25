@@ -1399,6 +1399,60 @@
     </details>
 
     <details class="sect" open>
+      <summary><h2>固有システム詳細</h2><span class="count">4</span><span class="accent-bar"></span></summary>
+      <p class="mech-intro">236+P/S/HS でタスクをストック → 一定時間後に自動追撃 (error 6E)。本体の攻撃と重ねた多重攻めが核。同時保持は 1 つのみ。</p>
+      <div class="mech-detail">
+      <article class="mech-block">
+        <h3>タスクシステム</h3>
+        <p class="mech-summary">ストックしたタスクが時間経過で自動発動。</p>
+        <table class="mech-table">
+          <thead><tr><th>項目</th><th>値</th></tr></thead>
+          <tbody>
+          <tr><td>最大ストック</td><td>1 つ (新技で上書き)</td></tr>
+          <tr><td>消失条件</td><td>発動 ／ ガード時 ／ 本体被弾</td></tr>
+          <tr><td>発動方式</td><td>自動 (タイマー) または 214P で手動</td></tr>
+          <tr><td>タイマー操作</td><td>214K でリセット + 次タスク強化</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>タスク 3 種 — call 4XX</h3>
+        <p class="mech-summary">P/S/HS で別系統のタスクを設置。</p>
+        <table class="mech-table">
+          <thead><tr><th>タスク</th><th>コマンド</th><th>効果</th><th>発動まで</th></tr></thead>
+          <tbody>
+          <tr><td>call 4BA</td><td>236P</td><td>直進飛び道具 ／ 覚醒中はサーチ 360°</td><td>約 2.5 秒</td></tr>
+          <tr><td>call 4B3</td><td>236S</td><td>前方 5 段爆発 ／ 覚醒中は 10 段に増加</td><td>約 3 秒</td></tr>
+          <tr><td>call 4B9</td><td>236HS</td><td>頭部爆発飛び道具 ／ 溜め版で性能強化</td><td>約 3 秒</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>タスク制御技</h3>
+        <p class="mech-summary">発動時期を意図的に操作する技。</p>
+        <table class="mech-table">
+          <thead><tr><th>技</th><th>コマンド</th><th>効果</th></tr></thead>
+          <tbody>
+          <tr><td>手動発動</td><td>214P (call 0x$0.20)</td><td>即発動 ／ 硬直あり</td></tr>
+          <tr><td>タイマーリセット</td><td>214K (call 0x$1.00)</td><td>タイマー再設定 + 次タスク強化</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>覚醒の細部</h3>
+        <p class="mech-summary">覚醒中はタスク全種が発生保障 + 端でウォールブレイク。</p>
+        <table class="mech-table">
+          <thead><tr><th>技</th><th>特性</th></tr></thead>
+          <tbody>
+          <tr><td>call 13C (覚醒)</td><td>全タスクの追加攻撃が発生保障付き ／ 画面端ヒットでウォールブレイク</td></tr>
+          <tr><td>call 4CC (覚醒)</td><td>本体強化 ／ 多段判定</td></tr>
+          </tbody>
+        </table>
+      </article>
+      </div>
+    </details>
+
+    <details class="sect" open>
       <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
       <div class="specials cols-5">
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="btn">＋<span class="key-h">HS</span></span></span><span class="name">投げ</span><span class="note"><span class="note-pill">前/後ろ投げ</span><span class="note-pill">近距離</span></span></div>

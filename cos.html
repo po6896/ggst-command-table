@@ -1401,6 +1401,62 @@
     </details>
 
     <details class="sect" open>
+      <summary><h2>固有システム詳細</h2><span class="count">4</span><span class="accent-bar"></span></summary>
+      <p class="mech-intro">弾数 (最大 6) と集中ゲージの 2 リソースを管理する射撃キャラ。ガン構え中の射撃で両方消費、フォーカス系で集中を回復、リロードで弾を補充。</p>
+      <div class="mech-detail">
+      <article class="mech-block">
+        <h3>弾数</h3>
+        <p class="mech-summary">射撃で 1 発消費。0 で空撃ち音のみ。</p>
+        <table class="mech-table">
+          <thead><tr><th>項目</th><th>値</th></tr></thead>
+          <tbody>
+          <tr><td>最大</td><td>6 発</td></tr>
+          <tr><td>射撃時消費</td><td>1 発 / 1 射</td></tr>
+          <tr><td>0 時の挙動</td><td>発砲不可 ／ 空撃ち音</td></tr>
+          <tr><td>補充</td><td>リロード (22P) で 6 発リセット</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>集中ゲージ</h3>
+        <p class="mech-summary">射撃可能時間。0 で銃が強制解除。</p>
+        <table class="mech-table">
+          <thead><tr><th>項目</th><th>値</th></tr></thead>
+          <tbody>
+          <tr><td>消費</td><td>距離に応じて変動 (遠距離ほど大)</td></tr>
+          <tr><td>自然回復</td><td>エイム解除中に緩やか回復</td></tr>
+          <tr><td>0 時の挙動</td><td>強制解除 + 隙発生 ／ 満タンまで構え不可</td></tr>
+          <tr><td>回復</td><td>フォーカス +30% ／ 超フォーカス 完全回復</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>リロード・フォーカス系</h3>
+        <p class="mech-summary">全て発動後に自動エイム解除。連続使用は不可。</p>
+        <table class="mech-table">
+          <thead><tr><th>技</th><th>コマンド</th><th>効果</th><th>硬直</th></tr></thead>
+          <tbody>
+          <tr><td>リロード</td><td>22P</td><td>弾を 6 発に補充</td><td>41F</td></tr>
+          <tr><td>フォーカス</td><td>214P</td><td>集中 +30% / 5 秒間 消費半減</td><td>41F</td></tr>
+          <tr><td>超フォーカス</td><td>236236P (覚醒)</td><td>集中満タン + 5 秒間 消費半減</td><td>11F (高速)</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>射撃モード</h3>
+        <p class="mech-summary">片手・両手で射程と性能が変化。</p>
+        <table class="mech-table">
+          <thead><tr><th>モード</th><th>コマンド</th><th>性能</th></tr></thead>
+          <tbody>
+          <tr><td>片手射撃</td><td>片手構え中 HS</td><td>ノーモーション発砲 ／ 弾 1 + 集中消費</td></tr>
+          <tr><td>両手射撃</td><td>両手構え中 5/2/8 + HS</td><td>ポータル狙撃 ／ ガード硬直時発生 21F</td></tr>
+          </tbody>
+        </table>
+      </article>
+      </div>
+    </details>
+
+    <details class="sect" open>
       <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
       <div class="specials cols-5">
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="btn">＋<span class="key-h">HS</span></span></span><span class="name">投げ</span><span class="note"><span class="note-pill">前/後ろ投げ</span><span class="note-pill">近距離</span></span></div>

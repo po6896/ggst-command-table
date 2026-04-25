@@ -1401,6 +1401,67 @@
     </details>
 
     <details class="sect" open>
+      <summary><h2>固有システム詳細</h2><span class="count">4</span><span class="accent-bar"></span></summary>
+      <p class="mech-intro">嫉妬ゲージを溜めて憤嫉 (ふんしつ) モードへ移行。モード中は機動力・火力が大幅強化されるが、ゲージ秒間 10% 自然消費。</p>
+      <div class="mech-detail">
+      <article class="mech-block">
+        <h3>嫉妬ゲージ</h3>
+        <p class="mech-summary">攻撃で上昇、憤嫉モード中に消費。</p>
+        <table class="mech-table">
+          <thead><tr><th>項目</th><th>値</th></tr></thead>
+          <tbody>
+          <tr><td>最大値</td><td>100%</td></tr>
+          <tr><td>ラウンド開始時</td><td>25%</td></tr>
+          <tr><td>上昇</td><td>通常技ヒット +5〜10% / 必殺技 +25% / 逆上で受け止め +25%</td></tr>
+          <tr><td>憤嫉中の消費</td><td>10% / 秒</td></tr>
+          <tr><td>閾値</td><td>25% 以上で変転使用可、未満は灰色表示</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>モード切替技</h3>
+        <p class="mech-summary">通常 ⇆ 憤嫉の遷移コマンド。</p>
+        <table class="mech-table">
+          <thead><tr><th>技</th><th>コマンド</th><th>効果</th></tr></thead>
+          <tbody>
+          <tr><td>変転と感化</td><td>63214P</td><td>ゲージ 25%↑で通常→憤嫉移行 ／ 解除時は 25% 回復</td></tr>
+          <tr><td>結合と変性</td><td>214HS</td><td>ヒット時にモード反転 + ゲージ +25% ／ ガード時は反転せず</td></tr>
+          <tr><td>鍵の支配</td><td>63214→6HS</td><td>通常モードのみ憤嫉移行 ／ 覚醒</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>憤嫉モードの強化</h3>
+        <p class="mech-summary">ほぼ全技強化、機動力アップ、ゲージ消費が代償。</p>
+        <table class="mech-table">
+          <thead><tr><th>項目</th><th>効果</th></tr></thead>
+          <tbody>
+          <tr><td>機動</td><td>ダッシュ高速化 ／ 落下速度 +0.1 秒</td></tr>
+          <tr><td>火力</td><td>ほぼ全技の基礎ダメージ増加</td></tr>
+          <tr><td>持続</td><td>ゲージ 50% で約 5 秒、100% で約 10 秒</td></tr>
+          <tr><td>強制解除</td><td>ゲージ枯渇で時間停止演出 → 10F 硬直</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>必殺技モード差</h3>
+        <p class="mech-summary">通常と憤嫉で性能・使用可否が変わる主要技。</p>
+        <table class="mech-table">
+          <thead><tr><th>技</th><th>通常</th><th>憤嫉</th></tr></thead>
+          <tbody>
+          <tr><td>牽引と随順</td><td>ダッシュ相当の移動</td><td>ダッシュ 2 回分以上 ／ 前進量増</td></tr>
+          <tr><td>戮力と傾動</td><td>下段技</td><td>中段技 ／ 前進量減</td></tr>
+          <tr><td>威喝と嗚咽</td><td>ダッシュ 1 回分</td><td>ダッシュ 2 回分</td></tr>
+          <tr><td>抑圧と束縛</td><td>受け身不能スライド</td><td>受け身不能斜め上バウンド</td></tr>
+          <tr><td>逆上と驚愕</td><td>使用可</td><td>使用不可</td></tr>
+          <tr><td>断罪と情動</td><td>使用不可</td><td>ガードポイント付き 2 段技</td></tr>
+          </tbody>
+        </table>
+      </article>
+      </div>
+    </details>
+
+    <details class="sect" open>
       <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
       <div class="specials cols-5">
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="btn">＋<span class="key-h">HS</span></span></span><span class="name">投げ</span><span class="note"><span class="note-pill">前/後ろ投げ</span><span class="note-pill">近距離</span></span></div>

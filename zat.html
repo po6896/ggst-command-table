@@ -1403,6 +1403,66 @@
     </details>
 
     <details class="sect" open>
+      <summary><h2>固有システム詳細</h2><span class="count">4</span><span class="accent-bar"></span></summary>
+      <p class="mech-intro">本体とエディ (シャドウ) を 2 体管理するキャラ。エディの行動は 236+P/K/S/HS の溜め離しで使い分け、HP に相当するエディゲージを消費する。0 で強制送還 → クールダウン。</p>
+      <div class="mech-detail">
+      <article class="mech-block">
+        <h3>エディゲージ</h3>
+        <p class="mech-summary">エディの HP に相当。召喚中も自然消費、技で大消費、空で強制送還。</p>
+        <table class="mech-table">
+          <thead><tr><th>項目</th><th>値</th></tr></thead>
+          <tbody>
+          <tr><td>最大値</td><td>3000</td></tr>
+          <tr><td>召喚中の自然消費</td><td>5/F (前半) → 3/F (後半) ／ ボタン押しっぱで召喚維持</td></tr>
+          <tr><td>全損後の回復</td><td>+11/F → +8/F (約 4.5〜6.5 秒で満タン)</td></tr>
+          <tr><td>強制送還</td><td>ゲージ 0 でエディ消失 → 満タンまで再召喚不可</td></tr>
+          <tr><td>回収</td><td>本体投げ・覚醒サンヴォイド命中で回復</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>エディの行動 — 236+P/K/S/HS 溜め離し</h3>
+        <p class="mech-summary">ボタンを押して溜め、離した瞬間にエディが攻撃。本体は同時に動ける。</p>
+        <table class="mech-table">
+          <thead><tr><th>技</th><th>消費</th><th>効果</th></tr></thead>
+          <tbody>
+          <tr><td>突く (P)</td><td>1000</td><td>2 段突き ／ 発生早 ／ 牽制</td></tr>
+          <tr><td>多い！ (K)</td><td>1500</td><td>4 段ドリル ／ 長拘束 ／ 固め</td></tr>
+          <tr><td>跳ねる (S)</td><td>1500</td><td>ジャンプ攻撃 ／ 対空</td></tr>
+          <tr><td>張り合う (HS)</td><td>3000</td><td>防御姿勢 + 多段 ／ 全消費</td></tr>
+          <tr><td>漂う (214P)</td><td>0</td><td>エディ引き寄せ ／ 位置調整</td></tr>
+          </tbody>
+        </table>
+        <p class="mech-foot">Ver 2.00 で漂うのゲージ消費撤廃。エディ位置の自由度が向上。</p>
+      </article>
+      <article class="mech-block">
+        <h3>本体の特殊機動</h3>
+        <p class="mech-summary">エディが居なくても使える本体側の択。</p>
+        <table class="mech-table">
+          <thead><tr><th>技</th><th>コマンド</th><th>効果</th></tr></thead>
+          <tbody>
+          <tr><td>飛行</td><td>空中 214S</td><td>空中ダッシュ持続 ／ 軌道自由</td></tr>
+          <tr><td>ブレイク・ザ・ロウ</td><td>214K</td><td>潜行 ／ 飛び道具回避 ／ 無敵</td></tr>
+          <tr><td>ドランカーシェイド</td><td>623S</td><td>飛び道具反射 ／ エディ位置調整</td></tr>
+          <tr><td>ダムドファング</td><td>623HS</td><td>投げ ／ ヒットでエディゲージ回復</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="mech-block">
+        <h3>覚醒の細部</h3>
+        <p class="mech-summary">両方ともテンション 50%。本体エディ問わず使える。</p>
+        <table class="mech-table">
+          <thead><tr><th>技</th><th>特性</th></tr></thead>
+          <tbody>
+          <tr><td>アモルファス</td><td>影乱舞 ／ 画面端ヒットで強制ウォールブレイク</td></tr>
+          <tr><td>サンヴォイド</td><td>エディ強化飛び道具 ／ ヒットでエディゲージ回復</td></tr>
+          </tbody>
+        </table>
+      </article>
+      </div>
+    </details>
+
+    <details class="sect" open>
       <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
       <div class="specials cols-5">
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="btn">＋<span class="key-h">HS</span></span></span><span class="name">投げ</span><span class="note"><span class="note-pill">前/後ろ投げ</span><span class="note-pill">近距離</span></span></div>
