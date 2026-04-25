@@ -90,10 +90,28 @@ ${normals.air.map(renderNormalCell).join('\n')}
       </div>`;
 }
 
+// note内 ／区切り or "ラベル (派生／派生／…)" を span ピルへ展開
+function renderNote(note) {
+  if (!note) return '';
+  const m = note.match(/^(.+?)\s*\(\s*(.+?)\s*\)\s*$/);
+  if (m) {
+    const lead = m[1].trim();
+    const items = m[2].split(/\s*[／/]\s*/).map(s => s.trim()).filter(Boolean);
+    if (items.length >= 2) {
+      return `<span class="note-lead">${lead}</span>${items.map(i => `<span class="note-pill">${i}</span>`).join('')}`;
+    }
+  }
+  const items = note.split(/\s*[／/]\s*/).map(s => s.trim()).filter(Boolean);
+  if (items.length > 1) {
+    return items.map(i => `<span class="note-pill">${i}</span>`).join('');
+  }
+  return note;
+}
+
 function renderMove(m) {
   const prefix = m.prefix ? `<span class="prefix">${m.prefix}</span>` : '';
   const repeat = m.repeat ? `<span class="repeat">${m.repeat}</span>` : '';
-  return `        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-${m.icon}"/></svg>${prefix}${repeat}<span class="btn">${m.btnHtml}</span></span><span class="name">${m.name}</span><span class="note">${m.note}</span></div>`;
+  return `        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-${m.icon}"/></svg>${prefix}${repeat}<span class="btn">${m.btnHtml}</span></span><span class="name">${m.name}</span><span class="note">${renderNote(m.note)}</span></div>`;
 }
 
 function renderOd(m) {
@@ -104,7 +122,7 @@ function renderOd(m) {
           <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar"><span class="fill" style="width:${fill}%"></span></span>${fill}%</span></span>
           <span class="input"><svg class="motion-icon"><use href="#m-${m.icon}"/></svg>${prefix}${repeat}<span class="btn">${m.btnHtml}</span></span>
           <span class="name">${m.name}</span>
-          <span class="note">${m.note}</span>
+          <span class="note">${renderNote(m.note)}</span>
         </div>`;
 }
 
@@ -126,7 +144,7 @@ const SYSTEM_COMMON = [
   { icon: 'button', btnHtml: '<span class="key-d">D</span>',                                                                                  name: 'ダスト',                     note: '中段始動 ／ 全キャラ共通' },
   { icon: 'button', btnHtml: '<span class="key-p">P</span> + <span class="key-k">K</span>',                                                   name: 'フォルトレスディフェンス',   note: 'ガード中 ／ テンション消費' },
   { icon: 'button', btnHtml: '<span class="key-p">P</span> + <span class="key-k">K</span> + <span class="key-s">S</span>',                    name: 'ロマンキャンセル',           note: '攻撃中 ／ テンション 50%' },
-  { icon: 'button', btnHtml: '<span class="key-d">D</span> 系入力', prefix: '被弾中',                                                          name: 'サイクバースト',             note: '1ラウンド 1回' }
+  { icon: 'button', btnHtml: '<span class="key-d">D</span> 系入力',                                                                            name: 'サイクバースト',             note: '被弾中 ／ 1ラウンド 1回' }
 ];
 
 function renderCombos(combos) {

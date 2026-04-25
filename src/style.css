@@ -232,12 +232,12 @@
     font-weight: 510;
   }
   .hero-stats {
-    margin-top: 12px;
-    padding-top: 12px;
+    margin-top: 14px;
+    padding-top: 14px;
     border-top: 1px solid var(--border-subtle);
     display: grid;
     grid-template-columns: 56px 1fr;
-    gap: 6px 10px;
+    gap: 9px 10px;
     align-items: center;
   }
   .hero-stats dt {
@@ -264,8 +264,8 @@
 
   /* Hero: basic combos panel below stats */
   .hero-combos {
-    margin-top: 12px;
-    padding-top: 12px;
+    margin-top: 14px;
+    padding-top: 14px;
     border-top: 1px solid var(--border-subtle);
   }
   .hero-combos h3 {
@@ -316,8 +316,8 @@
 
   /* Hero: character-specific mechanic panel */
   .hero-mechanic {
-    margin-top: 12px;
-    padding-top: 12px;
+    margin-top: 14px;
+    padding-top: 14px;
     border-top: 1px solid var(--border-subtle);
   }
   .hero-mechanic h3 {
@@ -456,6 +456,15 @@
     align-items: center;
     justify-content: center;
     padding: 2px 0;
+  }
+  .normals .rowhead {
+    color: var(--text-2);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background: var(--char-bg);
+    border-right: 2px solid var(--char-line);
+    border-radius: 4px 0 0 4px;
   }
   .cell {
     background: var(--surface-1);
@@ -615,6 +624,31 @@
     font-size: 11px;
     letter-spacing: -0.13px;
     line-height: 1.2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px 4px;
+    align-items: center;
+    margin-top: 1px;
+  }
+  .move .note .note-lead {
+    color: var(--text-3);
+    font-size: 11px;
+    margin-right: 2px;
+    letter-spacing: -0.13px;
+  }
+  .move .note .note-pill {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-2);
+    background: var(--surface-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    padding: 0 5px;
+    font-size: 10px;
+    font-weight: 510;
+    letter-spacing: 0;
+    line-height: 1.45;
+    white-space: nowrap;
   }
   /* Overdrives: same surface as specials, differentiated by a small
      OVERDRIVE label above the input — no blue rectangle (AI-smell). */
