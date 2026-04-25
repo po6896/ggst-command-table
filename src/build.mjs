@@ -57,14 +57,16 @@ function renderRoster(chars, activeSlug) {
 }
 
 function renderTagBadge(tag) {
-  if (tag === 'low') return '<span class="tag low">下</span>';
-  if (tag === 'high') return '<span class="tag high">上</span>';
-  return '<span class="tag">中</span>';
+  // tag visual + a11y label. ::before symbol added in CSS for color-blind users.
+  if (tag === 'low')  return '<span class="tag low"  role="img" aria-label="下段">下</span>';
+  if (tag === 'high') return '<span class="tag high" role="img" aria-label="中段">上</span>';
+  return                     '<span class="tag"      role="img" aria-label="通常">中</span>';
 }
 
 function renderCmd(item) {
   // item has: btn, cmd (numpad prefix like "5"/"2"), or mod ("近"/"遠"/"空")
-  const btnHtml = `<span class="key-${item.btn}">${item.btn === 'h' ? 'H' : item.btn.toUpperCase()}</span>`;
+  const btnLetter = item.btn === 'h' ? 'HS' : item.btn.toUpperCase();
+  const btnHtml = `<span class="key-${item.btn}">${btnLetter}</span>`;
   if (item.mod) return `<span class="cmd"><span class="mod">${item.mod}</span>${btnHtml}</span>`;
   return `<span class="cmd">${item.cmd ?? ''}${btnHtml}</span>`;
 }
@@ -84,7 +86,7 @@ function renderNormals(normals) {
         <div class="colhead">P</div>
         <div class="colhead">K</div>
         <div class="colhead">S</div>
-        <div class="colhead">H</div>
+        <div class="colhead">HS</div>
         <div class="colhead">D</div>
 
         <div class="rowhead">立</div>
@@ -190,25 +192,25 @@ function renderPage(char, allChars) {
     : `      <dl class="hero-stats">
         <dt>防御<small>低=堅</small></dt>
         <dd>
-          <span class="stat-bar"><span class="fill" style="width:${stats.defensePct ?? 50}%"></span></span>
+          <span class="stat-bar" role="meter" aria-label="防御 ${stats.defense != null ? stats.defense.toFixed(2) : '?'} (低いほど堅い)" aria-valuemin="0.75" aria-valuemax="1.18" aria-valuenow="${stats.defense ?? 1.0}"><span class="fill" style="width:${stats.defensePct ?? 50}%"></span></span>
           <span class="num">${stats.defense != null ? stats.defense.toFixed(2) : '?'}</span>${stats.defenseNote ? `<span class="sub">${stats.defenseNote.replace(/基準.*$/, '基準')}</span>` : ''}
         </dd>
 
         <dt>根性</dt>
         <dd>
-          <span class="stat-pips">${pips(stats.gutsLevel ?? 0, 5)}</span>
+          <span class="stat-pips" role="meter" aria-label="根性 ${stats.guts ?? '?'} / 5" aria-valuemin="0" aria-valuemax="5" aria-valuenow="${stats.guts ?? 0}">${pips(stats.gutsLevel ?? 0, 5)}</span>
           <span class="num">${stats.guts ?? '?'}</span>
         </dd>
 
         <dt>ダッシュ</dt>
         <dd>
-          <span class="stat-icon">${stats.dashIcon ?? '&gt;&gt;'}</span>
+          <span class="stat-icon" aria-hidden="true">${stats.dashIcon ?? '&gt;&gt;'}</span>
           <span class="num">${stats.dash ?? '?'}</span>
         </dd>
 
         <dt>レンジ</dt>
         <dd>
-          <span class="stat-pips">${pips(stats.rangeLevel ?? 2, 3)}</span>
+          <span class="stat-pips" role="meter" aria-label="間合い ${stats.range ?? '?'}" aria-valuemin="1" aria-valuemax="3" aria-valuenow="${stats.rangeLevel ?? 2}">${pips(stats.rangeLevel ?? 2, 3)}</span>
           <span class="num">${stats.range ?? '?'}</span>
         </dd>
       </dl>
@@ -353,7 +355,6 @@ ${content}
   </div>
   <div class="row">
     <span>アイコンはレバー軌跡 — 矢印が最終入力方向</span>
-    <span>通常技は H, 必殺技は HS 表記（同ボタン）</span>
     <span>RC = ロマンキャンセル</span>
   </div>
   <div class="row meta">

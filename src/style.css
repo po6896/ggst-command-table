@@ -556,6 +556,17 @@
     background: rgba(147,197,253,0.10);
     border: 1px solid rgba(147,197,253,0.30);
   }
+  /* Shape-encode hit level so the cell is identifiable without color
+     (color-blind safety): ● mid / ▼ low / ▲ high */
+  .cell .tag::before {
+    content: "●";
+    margin-right: 3px;
+    font-size: 9px;
+    vertical-align: 1px;
+    opacity: 0.7;
+  }
+  .cell .tag.low::before  { content: "▼"; }
+  .cell .tag.high::before { content: "▲"; }
   .cell .tag.low {
     color: var(--hit-low);
     background: rgba(134,239,172,0.10);
@@ -787,6 +798,17 @@
   footer .key.mid  { color: var(--hit-mid);  background: rgba(147,197,253,0.10); border-color: rgba(147,197,253,0.30); }
   footer .key.low  { color: var(--hit-low);  background: rgba(134,239,172,0.10); border-color: rgba(134,239,172,0.30); }
   footer .key.high { color: var(--hit-high); background: rgba(252,211,77,0.10); border-color: rgba(252,211,77,0.30); }
+  /* Mirror the shape glyphs from the cells so the legend itself is
+     also readable without color. */
+  footer .key::before {
+    content: "●";
+    margin-right: 3px;
+    font-size: 9px;
+    vertical-align: 1px;
+    opacity: 0.7;
+  }
+  footer .key.low::before  { content: "▼"; }
+  footer .key.high::before { content: "▲"; }
   footer .legend .sep { color: var(--text-4); margin: 0 6px; }
   footer code {
     font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -798,7 +820,7 @@
   }
   footer .row.meta {
     color: var(--text-4);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.02em;
     border-top: 1px solid var(--border-subtle);
     padding-top: 6px;

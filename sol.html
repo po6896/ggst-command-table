@@ -569,6 +569,17 @@
     background: rgba(147,197,253,0.10);
     border: 1px solid rgba(147,197,253,0.30);
   }
+  /* Shape-encode hit level so the cell is identifiable without color
+     (color-blind safety): ● mid / ▼ low / ▲ high */
+  .cell .tag::before {
+    content: "●";
+    margin-right: 3px;
+    font-size: 9px;
+    vertical-align: 1px;
+    opacity: 0.7;
+  }
+  .cell .tag.low::before  { content: "▼"; }
+  .cell .tag.high::before { content: "▲"; }
   .cell .tag.low {
     color: var(--hit-low);
     background: rgba(134,239,172,0.10);
@@ -800,6 +811,17 @@
   footer .key.mid  { color: var(--hit-mid);  background: rgba(147,197,253,0.10); border-color: rgba(147,197,253,0.30); }
   footer .key.low  { color: var(--hit-low);  background: rgba(134,239,172,0.10); border-color: rgba(134,239,172,0.30); }
   footer .key.high { color: var(--hit-high); background: rgba(252,211,77,0.10); border-color: rgba(252,211,77,0.30); }
+  /* Mirror the shape glyphs from the cells so the legend itself is
+     also readable without color. */
+  footer .key::before {
+    content: "●";
+    margin-right: 3px;
+    font-size: 9px;
+    vertical-align: 1px;
+    opacity: 0.7;
+  }
+  footer .key.low::before  { content: "▼"; }
+  footer .key.high::before { content: "▲"; }
   footer .legend .sep { color: var(--text-4); margin: 0 6px; }
   footer code {
     font-family: "Berkeley Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -811,7 +833,7 @@
   }
   footer .row.meta {
     color: var(--text-4);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.02em;
     border-top: 1px solid var(--border-subtle);
     padding-top: 6px;
@@ -1082,25 +1104,25 @@
       <dl class="hero-stats">
         <dt>防御<small>低=堅</small></dt>
         <dd>
-          <span class="stat-bar"><span class="fill" style="width:58%"></span></span>
+          <span class="stat-bar" role="meter" aria-label="防御 0.93 (低いほど堅い)" aria-valuemin="0.75" aria-valuemax="1.18" aria-valuenow="0.93"><span class="fill" style="width:58%"></span></span>
           <span class="num">0.93</span>
         </dd>
 
         <dt>根性</dt>
         <dd>
-          <span class="stat-pips"><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span><span class=""></span></span>
+          <span class="stat-pips" role="meter" aria-label="根性 2 / 5" aria-valuemin="0" aria-valuemax="5" aria-valuenow="2"><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span><span class=""></span></span>
           <span class="num">2</span>
         </dd>
 
         <dt>ダッシュ</dt>
         <dd>
-          <span class="stat-icon">>></span>
+          <span class="stat-icon" aria-hidden="true">>></span>
           <span class="num">ステップ</span>
         </dd>
 
         <dt>レンジ</dt>
         <dd>
-          <span class="stat-pips"><span class="on"></span><span class="on"></span><span class=""></span></span>
+          <span class="stat-pips" role="meter" aria-label="間合い 近〜中" aria-valuemin="1" aria-valuemax="3" aria-valuenow="2"><span class="on"></span><span class="on"></span><span class=""></span></span>
           <span class="num">近〜中</span>
         </dd>
       </dl>
@@ -1124,32 +1146,32 @@
         <div class="colhead">P</div>
         <div class="colhead">K</div>
         <div class="colhead">S</div>
-        <div class="colhead">H</div>
+        <div class="colhead">HS</div>
         <div class="colhead">D</div>
 
         <div class="rowhead">立</div>
-        <div class="cell"><div class="top"><span class="cmd">5<span class="key-p">P</span></span><span class="tag">中</span></div><div class="meta">発生 4 ／ 連打可</div></div>
-        <div class="cell"><div class="top"><span class="cmd">5<span class="key-k">K</span></span><span class="tag">中</span></div><div class="meta">発生 7</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-p">P</span></span><span class="tag"      role="img" aria-label="通常">中</span></div><div class="meta">発生 4 ／ 連打可</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-k">K</span></span><span class="tag"      role="img" aria-label="通常">中</span></div><div class="meta">発生 7</div></div>
         <div class="cell stack">
-          <div class="sub"><div class="top"><span class="cmd"><span class="mod">近</span><span class="key-s">S</span></span><span class="tag">中</span></div><div class="meta">発生 7 ／ 主力</div></div>
-          <div class="sub"><div class="top"><span class="cmd"><span class="mod">遠</span><span class="key-s">S</span></span><span class="tag">中</span></div><div class="meta">発生 9 ／ 牽制</div></div>
+          <div class="sub"><div class="top"><span class="cmd"><span class="mod">近</span><span class="key-s">S</span></span><span class="tag"      role="img" aria-label="通常">中</span></div><div class="meta">発生 7 ／ 主力</div></div>
+          <div class="sub"><div class="top"><span class="cmd"><span class="mod">遠</span><span class="key-s">S</span></span><span class="tag"      role="img" aria-label="通常">中</span></div><div class="meta">発生 9 ／ 牽制</div></div>
         </div>
-        <div class="cell"><div class="top"><span class="cmd">5<span class="key-h">H</span></span><span class="tag">中</span></div><div class="meta">発生 11</div></div>
-        <div class="cell"><div class="top"><span class="cmd">5<span class="key-d">D</span></span><span class="tag high">上</span></div><div class="meta">ダスト</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-h">HS</span></span><span class="tag"      role="img" aria-label="通常">中</span></div><div class="meta">発生 11</div></div>
+        <div class="cell"><div class="top"><span class="cmd">5<span class="key-d">D</span></span><span class="tag high" role="img" aria-label="中段">上</span></div><div class="meta">ダスト</div></div>
 
         <div class="rowhead">屈</div>
-        <div class="cell"><div class="top"><span class="cmd">2<span class="key-p">P</span></span><span class="tag">中</span></div><div class="meta">発生 5</div></div>
-        <div class="cell"><div class="top"><span class="cmd">2<span class="key-k">K</span></span><span class="tag low">下</span></div><div class="meta">発生 6</div></div>
-        <div class="cell"><div class="top"><span class="cmd">2<span class="key-s">S</span></span><span class="tag">中</span></div><div class="meta">発生 8</div></div>
-        <div class="cell"><div class="top"><span class="cmd">2<span class="key-h">H</span></span><span class="tag">中</span></div><div class="meta">対空</div></div>
-        <div class="cell"><div class="top"><span class="cmd">2<span class="key-d">D</span></span><span class="tag low">下</span></div><div class="meta">足払い</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-p">P</span></span><span class="tag"      role="img" aria-label="通常">中</span></div><div class="meta">発生 5</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-k">K</span></span><span class="tag low"  role="img" aria-label="下段">下</span></div><div class="meta">発生 6</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-s">S</span></span><span class="tag"      role="img" aria-label="通常">中</span></div><div class="meta">発生 8</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-h">HS</span></span><span class="tag"      role="img" aria-label="通常">中</span></div><div class="meta">対空</div></div>
+        <div class="cell"><div class="top"><span class="cmd">2<span class="key-d">D</span></span><span class="tag low"  role="img" aria-label="下段">下</span></div><div class="meta">足払い</div></div>
 
         <div class="rowhead">空</div>
-        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-p">P</span></span><span class="tag high">上</span></div><div class="meta">刻み</div></div>
-        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-k">K</span></span><span class="tag high">上</span></div><div class="meta">空対空</div></div>
-        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-s">S</span></span><span class="tag high">上</span></div><div class="meta">主力</div></div>
-        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-h">H</span></span><span class="tag high">上</span></div><div class="meta">めくり</div></div>
-        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-d">D</span></span><span class="tag high">上</span></div><div class="meta">空中ダスト</div></div>
+        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-p">P</span></span><span class="tag high" role="img" aria-label="中段">上</span></div><div class="meta">刻み</div></div>
+        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-k">K</span></span><span class="tag high" role="img" aria-label="中段">上</span></div><div class="meta">空対空</div></div>
+        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-s">S</span></span><span class="tag high" role="img" aria-label="中段">上</span></div><div class="meta">主力</div></div>
+        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-h">HS</span></span><span class="tag high" role="img" aria-label="中段">上</span></div><div class="meta">めくり</div></div>
+        <div class="cell"><div class="top"><span class="cmd"><span class="mod">空</span><span class="key-d">D</span></span><span class="tag high" role="img" aria-label="中段">上</span></div><div class="meta">空中ダスト</div></div>
       </div>
     </details>
 
@@ -1218,7 +1240,6 @@
   </div>
   <div class="row">
     <span>アイコンはレバー軌跡 — 矢印が最終入力方向</span>
-    <span>通常技は H, 必殺技は HS 表記（同ボタン）</span>
     <span>RC = ロマンキャンセル</span>
   </div>
   <div class="row meta">
