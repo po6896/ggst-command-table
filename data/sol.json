@@ -193,39 +193,6 @@
       "repeat": "×2"
     }
   ],
-  "system": [
-    {
-      "icon": "dir",
-      "btnHtml": "+ <span class=\"key-h\">HS</span>",
-      "name": "投げ",
-      "note": "前/後ろ投げ ／ 近距離"
-    },
-    {
-      "icon": "button",
-      "btnHtml": "<span class=\"key-d\">D</span>",
-      "name": "ダスト",
-      "note": "中段始動 ／ 全キャラ共通"
-    },
-    {
-      "icon": "button",
-      "btnHtml": "<span class=\"key-p\">P</span> + <span class=\"key-k\">K</span>",
-      "name": "フォルトレスディフェンス",
-      "note": "ガード中 ／ テンション消費"
-    },
-    {
-      "icon": "button",
-      "btnHtml": "<span class=\"key-p\">P</span> + <span class=\"key-k\">K</span> + <span class=\"key-s\">S</span>",
-      "name": "ロマンキャンセル",
-      "note": "攻撃中 ／ テンション 50%"
-    },
-    {
-      "icon": "button",
-      "btnHtml": "<span class=\"key-d\">D</span> 系入力",
-      "prefix": "被弾中",
-      "name": "サイクバースト",
-      "note": "1ラウンド 1回"
-    }
-  ],
   "combos": [
     {
       "tag": "中段始動",

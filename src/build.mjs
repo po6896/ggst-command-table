@@ -16,6 +16,21 @@ const META = {
   updatedAt: '2026-04-25',
 };
 
+// Archetype labels — keep stored data in English for grep/sort,
+// localize at render time so the panel reads as a JP fan tool.
+const ARCHETYPE_JA = {
+  Power:     'パワー型',
+  Balance:   'バランス型',
+  Speed:     'スピード型',
+  Rushdown:  'ラッシュ',
+  Zoner:     'ゾナー',
+  Grappler:  'グラップラー',
+  Setplay:   'セットプレイ',
+  Trickster: 'トリックスター',
+  Counter:   'カウンター',
+  Resource:  'リソース管理',
+};
+
 // ---------- Load characters ----------
 
 const chars = fs.readdirSync(dataDir)
@@ -199,10 +214,10 @@ ${items.map(renderOd).join('\n')}
 }
 
 const SYSTEM_COMMON = [
-  { icon: 'dir',    btnHtml: '+ <span class="key-h">HS</span>',                                                                              name: '投げ',                       note: '前/後ろ投げ ／ 近距離' },
+  { icon: 'dir',    btnHtml: '＋<span class="key-h">HS</span>',                                                                              name: '投げ',                       note: '前/後ろ投げ ／ 近距離' },
   { icon: 'button', btnHtml: '<span class="key-d">D</span>',                                                                                  name: 'ダスト',                     note: '中段始動 ／ 全キャラ共通' },
-  { icon: 'button', btnHtml: '<span class="key-p">P</span> + <span class="key-k">K</span>',                                                   name: 'フォルトレスディフェンス',   note: 'ガード中 ／ テンション消費' },
-  { icon: 'button', btnHtml: '<span class="key-p">P</span> + <span class="key-k">K</span> + <span class="key-s">S</span>',                    name: 'ロマンキャンセル',           note: '攻撃中 ／ テンション 50%' },
+  { icon: 'button', btnHtml: '<span class="key-p">P</span>＋<span class="key-k">K</span>',                                                   name: 'フォルトレスディフェンス',   note: 'ガード中 ／ テンション消費' },
+  { icon: 'button', btnHtml: '<span class="key-p">P</span>＋<span class="key-k">K</span>＋<span class="key-s">S</span>',                    name: 'ロマンキャンセル',           note: '攻撃中 ／ テンション 50%' },
   { icon: 'button', btnHtml: '<span class="key-d">D</span> 系入力',                                                                            name: 'サイクバースト',             note: '被弾中 ／ 1ラウンド 1回' }
 ];
 
@@ -226,7 +241,7 @@ function renderPage(char, allChars) {
   const colors = deriveColors(char.color);
   const isStub = char.stub === true;
   const stats = char.stats ?? {};
-  const archetype = char.archetype ?? '—';
+  const archetype = ARCHETYPE_JA[char.archetype] ?? char.archetype ?? '—';
 
   const heroBody = isStub
     ? ''
@@ -349,7 +364,7 @@ ${SVG_DEFS}
   <div class="brand">
     <img class="brand-logo" src="assets/logo/logo_ggst_pos.png" alt="GUILTY GEAR -STRIVE-">
     <span class="pipe"></span>
-    <span class="title">Command List</span>
+    <span class="title">コマンド表</span>
   </div>
 </header>
 
@@ -364,7 +379,7 @@ ${rosterHtml}
       <img src="assets/full/${char.fullArt}" alt="${char.name}" style="object-position: center ${char.artPos ?? '12%'};">
     </div>
     <div class="hero-body">
-      <div class="role">No. ${String(char.no).padStart(2, '0')} / ${archetype}</div>
+      <div class="role">#${String(char.no).padStart(2, '0')}・${archetype}</div>
       <h1>${char.name}</h1>
       <span class="jp">${char.nameJp}</span>
 ${heroBody}

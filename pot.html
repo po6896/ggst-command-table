@@ -35,11 +35,11 @@
     --hit-low:  #86efac;    /* green  — low  / sweep */
     --hit-high: #fcd34d;    /* amber  — high / overhead */
 
-    /* GGST official button-color convention */
-    --btn-p: #f472b6;       /* Punch        — pink   */
+    /* GGST in-game button-color convention (Training mode / frame display) */
+    --btn-p: #f87171;       /* Punch        — red    */
     --btn-k: #60a5fa;       /* Kick         — blue   */
     --btn-s: #4ade80;       /* Slash        — green  */
-    --btn-h: #f87171;       /* Heavy Slash  — red    */
+    --btn-h: #c084fc;       /* Heavy Slash  — purple */
     --btn-d: #fbbf24;       /* Dust         — amber  */
   }
   * { box-sizing: border-box; }
@@ -84,15 +84,13 @@
   .topbar .title {
     font-size: 12px;
     font-weight: 590;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
+    letter-spacing: 0.12em;
     color: var(--text-3);
   }
   .topbar .right {
     font-size: 11px;
     color: var(--text-4);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   /* === Roster === */
@@ -217,8 +215,7 @@
   .hero-body .role {
     font-size: 10px;
     font-weight: 590;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--char);
     margin-bottom: 6px;
   }
@@ -252,8 +249,7 @@
   .hero-stats dt {
     font-size: 10px;
     color: var(--text-4);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.04em;
     font-weight: 510;
     grid-column: 1;
     line-height: 1.15;
@@ -289,8 +285,7 @@
   .hero-combos h3 {
     font-size: 10px;
     color: var(--text-4);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.04em;
     font-weight: 510;
     margin: 0 0 8px;
   }
@@ -316,8 +311,7 @@
     flex: none;
     font-size: 9px;
     font-weight: 590;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0.04em;
     color: var(--char);
     padding: 1px 4px;
     border: 1px solid var(--char-line);
@@ -339,8 +333,7 @@
   .hero-mechanic h3 {
     font-size: 10px;
     color: var(--text-4);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.04em;
     font-weight: 510;
     margin: 0 0 6px;
   }
@@ -420,25 +413,23 @@
   }
   details.sect > summary::-webkit-details-marker { display: none; }
   details.sect > summary::before {
-    content: "";
-    width: 8px;
-    height: 8px;
-    border-right: 1.5px solid var(--text-3);
-    border-bottom: 1.5px solid var(--text-3);
-    transform: rotate(-45deg);
-    transition: transform 140ms ease;
-    margin-right: 2px;
+    content: "▶";
+    font-size: 9px;
+    color: var(--text-3);
+    line-height: 1;
+    transition: transform 140ms ease, color 140ms ease;
+    margin-right: 4px;
+    display: inline-block;
   }
-  details.sect[open] > summary::before { transform: rotate(45deg); }
-  details.sect > summary:hover::before { border-color: var(--char); }
+  details.sect[open] > summary::before { transform: rotate(90deg); }
+  details.sect > summary:hover::before { color: var(--char); }
   details.sect > summary:focus-visible { outline: 2px solid var(--char); outline-offset: 4px; border-radius: 2px; }
   details.sect > summary h2 {
     margin: 0;
     font-size: 13px;
     color: var(--text);
     font-weight: 590;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
   details.sect > summary .count {
     color: var(--text-4);
@@ -466,8 +457,7 @@
     color: var(--text-3);
     font-size: 11px;
     font-weight: 590;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0.04em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -701,8 +691,7 @@
   .move.od .od-flag {
     font-size: 10px;
     font-weight: 590;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
+    letter-spacing: 0.10em;
     color: var(--char);
     display: flex;
     align-items: center;
@@ -905,8 +894,7 @@
   .stub-notice h2 {
     font-size: 14px;
     color: var(--char);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.04em;
     font-weight: 590;
     margin: 0 0 10px;
   }
@@ -1056,7 +1044,7 @@
   <div class="brand">
     <img class="brand-logo" src="assets/logo/logo_ggst_pos.png" alt="GUILTY GEAR -STRIVE-">
     <span class="pipe"></span>
-    <span class="title">Command List</span>
+    <span class="title">コマンド表</span>
   </div>
 </header>
 
@@ -1103,7 +1091,7 @@
       <img src="assets/full/chara06_pot.png" alt="Potemkin" style="object-position: center 4%;">
     </div>
     <div class="hero-body">
-      <div class="role">No. 06 / Grappler</div>
+      <div class="role">#06・グラップラー</div>
       <h1>Potemkin</h1>
       <span class="jp">ポチョムキン</span>
       <dl class="hero-stats">
@@ -1222,10 +1210,10 @@
     <details class="sect" open>
       <summary><h2>システム共通</h2><span class="count">5</span><span class="accent-bar"></span></summary>
       <div class="specials cols-5">
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="btn">+ <span class="key-h">HS</span></span></span><span class="name">投げ</span><span class="note"><span class="note-pill">前/後ろ投げ</span><span class="note-pill">近距離</span></span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-dir"/></svg><span class="btn">＋<span class="key-h">HS</span></span></span><span class="name">投げ</span><span class="note"><span class="note-pill">前/後ろ投げ</span><span class="note-pill">近距離</span></span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-d">D</span></span></span><span class="name">ダスト</span><span class="note"><span class="note-pill">中段始動</span><span class="note-pill">全キャラ共通</span></span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-p">P</span> + <span class="key-k">K</span></span></span><span class="name">フォルトレスディフェンス</span><span class="note"><span class="note-pill">ガード中</span><span class="note-pill">テンション消費</span></span></div>
-        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-p">P</span> + <span class="key-k">K</span> + <span class="key-s">S</span></span></span><span class="name">ロマンキャンセル</span><span class="note"><span class="note-pill">攻撃中</span><span class="note-pill">テンション 50%</span></span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-p">P</span>＋<span class="key-k">K</span></span></span><span class="name">フォルトレスディフェンス</span><span class="note"><span class="note-pill">ガード中</span><span class="note-pill">テンション消費</span></span></div>
+        <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-p">P</span>＋<span class="key-k">K</span>＋<span class="key-s">S</span></span></span><span class="name">ロマンキャンセル</span><span class="note"><span class="note-pill">攻撃中</span><span class="note-pill">テンション 50%</span></span></div>
         <div class="move"><span class="input"><svg class="motion-icon"><use href="#m-button"/></svg><span class="btn"><span class="key-d">D</span> 系入力</span></span><span class="name">サイクバースト</span><span class="note"><span class="note-pill">被弾中</span><span class="note-pill">1ラウンド 1回</span></span></div>
       </div>
     </details>
