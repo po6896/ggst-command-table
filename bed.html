@@ -260,6 +260,17 @@
     letter-spacing: 0.15em;
     font-weight: 510;
     grid-column: 1;
+    line-height: 1.15;
+  }
+  .hero-stats dt small {
+    display: block;
+    font-size: 8px;
+    color: var(--text-4);
+    opacity: 0.65;
+    letter-spacing: 0.08em;
+    margin-top: 1px;
+    font-weight: 400;
+    text-transform: none;
   }
   .hero-stats dd {
     margin: 0;
@@ -1044,7 +1055,7 @@
       <h1>Bedman?</h1>
       <span class="jp">ベッドマン？</span>
       <dl class="hero-stats">
-        <dt>防御</dt>
+        <dt>防御<small>低=堅</small></dt>
         <dd>
           <span class="stat-bar"><span class="fill" style="width:84%"></span></span>
           <span class="num">0.82</span>
@@ -1183,6 +1194,7 @@
   </div>
   <div class="row">
     <span>アイコンはレバー軌跡 — 矢印が最終入力方向</span>
+    <span>通常技は H, 必殺技は HS 表記（同ボタン）</span>
     <span>RC = ロマンキャンセル</span>
   </div>
   <span class="credit">キャラクター素材・ロゴ: GUILTY GEAR -STRIVE- 公式ファンキット ／ © ARC SYSTEM WORKS</span>

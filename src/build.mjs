@@ -173,7 +173,7 @@ function renderPage(char, allChars) {
   const heroBody = isStub
     ? ''
     : `      <dl class="hero-stats">
-        <dt>防御</dt>
+        <dt>防御<small>低=堅</small></dt>
         <dd>
           <span class="stat-bar"><span class="fill" style="width:${stats.defensePct ?? 50}%"></span></span>
           <span class="num">${stats.defense != null ? stats.defense.toFixed(2) : '?'}</span>${stats.defenseNote ? `<span class="sub">${stats.defenseNote.replace(/基準.*$/, '基準')}</span>` : ''}
@@ -338,6 +338,7 @@ ${content}
   </div>
   <div class="row">
     <span>アイコンはレバー軌跡 — 矢印が最終入力方向</span>
+    <span>通常技は H, 必殺技は HS 表記（同ボタン）</span>
     <span>RC = ロマンキャンセル</span>
   </div>
   <span class="credit">キャラクター素材・ロゴ: GUILTY GEAR -STRIVE- 公式ファンキット ／ © ARC SYSTEM WORKS</span>
