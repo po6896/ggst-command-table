@@ -51,6 +51,19 @@ node src/build.mjs   # data/*.json から *.html を再生成
 2. `node src/build.mjs` でローカル確認
 3. push → GitHub Actions が自動ビルド & Pages デプロイ
 
+### `artPos` (立ち絵フレーミング) のルール
+
+ヒーローパネルの立ち絵は `object-position: center {artPos}` で切り抜かれる。値は体型ベースで以下のレンジ:
+
+| 体型 | artPos | 例 |
+|---|---|---|
+| 超長身 | `4%` | Pot, Fau |
+| 長身 | `6%–8%` | Sol, Nag, Gld, Leo, Tst, Sin, Sly, Bed, Jhn, Chipp |
+| 標準 | `10%–12%` | Ky, Axl, Zat, Ram, Anj, Mll, Gio, Ino, Jko, Cos, Bkn, Elp, Aba, Dzy, Ven, Uni, Jam |
+| 小柄 | `14%` | May, Bgt, Ask, Luc |
+
+新キャラ追加時は `src/seed/set-artpos.mjs` のテーブルに体型分類で値を足してから `node src/seed/set-artpos.mjs` を実行 → 該当 JSON にだけ反映される。
+
 ## データソース
 
 全キャラの movelist は [wikiwiki.jp/ggst-memo](https://wikiwiki.jp/ggst-memo/) のコマンド技ページを照合元として入力。各 JSON に `dataSource` フィールドあり。

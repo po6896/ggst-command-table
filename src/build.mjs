@@ -38,12 +38,53 @@ function rgba(hex, a) {
   const { r, g, b } = hexToRgb(hex);
   return `rgba(${r},${g},${b},${a})`;
 }
+function hexToHsl(hex) {
+  let { r, g, b } = hexToRgb(hex);
+  r /= 255; g /= 255; b /= 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  let h, s;
+  if (max === min) { h = 0; s = 0; }
+  else {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    if (max === r) h = (g - b) / d + (g < b ? 6 : 0);
+    else if (max === g) h = (b - r) / d + 2;
+    else h = (r - g) / d + 4;
+    h *= 60;
+  }
+  return { h, s, l };
+}
+function hslToHex(h, s, l) {
+  s = Math.max(0, Math.min(1, s));
+  l = Math.max(0, Math.min(1, l));
+  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+  const m = l - c / 2;
+  let r, g, b;
+  if (h < 60)       [r, g, b] = [c, x, 0];
+  else if (h < 120) [r, g, b] = [x, c, 0];
+  else if (h < 180) [r, g, b] = [0, c, x];
+  else if (h < 240) [r, g, b] = [0, x, c];
+  else if (h < 300) [r, g, b] = [x, 0, c];
+  else              [r, g, b] = [c, 0, x];
+  const to = v => Math.round((v + m) * 255).toString(16).padStart(2, '0');
+  return `#${to(r)}${to(g)}${to(b)}`;
+}
+// Tone the per-character accent: drop saturation so 33 chars side by side
+// don't read as a rainbow noise board, while keeping enough chroma to
+// distinguish characters at a glance.
+function tone(hex, satFactor = 0.78) {
+  const { h, s, l } = hexToHsl(hex);
+  return hslToHex(h, s * satFactor, l);
+}
 function deriveColors(hex) {
+  const base = tone(hex);
   return {
-    char: hex,
-    char2: lighten(hex, 56),
-    bg: rgba(hex, 0.10),
-    line: rgba(hex, 0.45)
+    char: base,
+    char2: lighten(base, 56),
+    bg: rgba(base, 0.10),
+    line: rgba(base, 0.45)
   };
 }
 
@@ -130,7 +171,7 @@ function renderOd(m) {
   const repeat = m.repeat ? `<span class="repeat">${m.repeat}</span>` : '';
   const fill = m.tension ?? 50;
   return `        <div class="move od">
-          <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar"><span class="fill" style="width:${fill}%"></span></span>${fill}%</span></span>
+          <span class="od-flag">Overdrive <span class="od-cost"><span class="tension-bar" data-tension="${fill}"><span class="fill" style="width:${fill}%"></span></span>${fill}%</span></span>
           <span class="input"><svg class="motion-icon"><use href="#m-${m.icon}"/></svg>${prefix}${repeat}<span class="btn">${m.btnHtml}</span></span>
           <span class="name">${m.name}</span>
           <span class="note">${renderNote(m.note)}</span>
