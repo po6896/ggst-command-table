@@ -91,17 +91,18 @@ ${normals.air.map(renderNormalCell).join('\n')}
 }
 
 // note内 ／区切り or "ラベル (派生／派生／…)" を span ピルへ展開
+// 半角 / は分割しない (「前/後ろ投げ」「S無敵 / HS回復」など 2要素1組の書式を保つため)
 function renderNote(note) {
   if (!note) return '';
   const m = note.match(/^(.+?)\s*\(\s*(.+?)\s*\)\s*$/);
   if (m) {
     const lead = m[1].trim();
-    const items = m[2].split(/\s*[／/]\s*/).map(s => s.trim()).filter(Boolean);
+    const items = m[2].split(/\s*／\s*/).map(s => s.trim()).filter(Boolean);
     if (items.length >= 2) {
       return `<span class="note-lead">${lead}</span>${items.map(i => `<span class="note-pill">${i}</span>`).join('')}`;
     }
   }
-  const items = note.split(/\s*[／/]\s*/).map(s => s.trim()).filter(Boolean);
+  const items = note.split(/\s*／\s*/).map(s => s.trim()).filter(Boolean);
   if (items.length > 1) {
     return items.map(i => `<span class="note-pill">${i}</span>`).join('');
   }
