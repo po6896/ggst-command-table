@@ -175,7 +175,7 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "タイラントバレル",
+      "name": "タイランバレル",
       "note": "爆発打撃 ／ 派生",
       "tension": 50,
       "repeat": "×2"

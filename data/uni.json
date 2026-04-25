@@ -169,14 +169,14 @@
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "メガデスバスター",
+      "name": "メガデス・バスター",
       "note": "通常覚醒",
       "tension": 50
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "ウェポンズ・フリー",
+      "name": "ウェポンズフリー",
       "note": "体力30%以下 ／ 強化モード",
       "tension": 50,
       "repeat": "×2"

@@ -160,20 +160,18 @@
   ],
   "overdrives": [
     {
-      "icon": "qcf",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-s\">S</span>",
       "name": "call 13C",
       "note": "ダメージブースト ／ 6E強化",
-      "tension": 50,
-      "repeat": "×2"
+      "tension": 50
     },
     {
-      "icon": "qcf",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "call 4CC",
       "note": "広範囲衝撃波",
-      "tension": 50,
-      "repeat": "×2"
+      "tension": 50
     }
   ],
   "combos": [

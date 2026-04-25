@@ -154,12 +154,11 @@
   ],
   "overdrives": [
     {
-      "icon": "qcf",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-s\">S</span>",
       "name": "スーパーマッパハンチ",
       "note": "無敵突進",
-      "tension": 50,
-      "repeat": "×2"
+      "tension": 50
     },
     {
       "icon": "qcf",

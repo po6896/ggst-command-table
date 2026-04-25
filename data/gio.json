@@ -162,7 +162,7 @@
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "ヴェンタニア",
+      "name": "ヴェンターニア",
       "note": "突進乱舞 ／ 始動無敵",
       "tension": 50
     },
@@ -171,7 +171,9 @@
       "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "テンペスターヂ",
       "note": "空中急降下 ／ 空中可",
-      "tension": 50
+      "tension": 50,
+      "prefix": "空中",
+      "repeat": "×2"
     }
   ],
   "combos": [

@@ -169,14 +169,14 @@
     {
       "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "カルバドス",
+      "name": "カルヴァドス",
       "note": "ビーム ／ 剣2本必要",
       "tension": 50
     },
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "モルトバルデ",
+      "name": "モルトバート",
       "note": "無敵地割れ",
       "tension": 50,
       "repeat": "×2"

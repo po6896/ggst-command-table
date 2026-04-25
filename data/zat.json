@@ -178,12 +178,11 @@
   ],
   "overdrives": [
     {
-      "icon": "qcf",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "アモルファス",
       "note": "影乱舞",
-      "tension": 50,
-      "repeat": "×2"
+      "tension": 50
     },
     {
       "icon": "hcb-f",

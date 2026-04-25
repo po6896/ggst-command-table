@@ -160,11 +160,12 @@
   ],
   "overdrives": [
     {
-      "icon": "qcf",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
-      "name": "シュティールフォルバイル",
+      "name": "シュタイルヴァービル",
       "note": "裏スタンス専用 ／ 高速飛び道具",
-      "tension": 50
+      "tension": 50,
+      "prefix": "構え中"
     },
     {
       "icon": "hcb-f",

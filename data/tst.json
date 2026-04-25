@@ -156,7 +156,7 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "ノストロマニア",
+      "name": "ノストロヴィア",
       "note": "サキュバス乱舞 ／ ステイン",
       "tension": 50,
       "repeat": "×2"
@@ -164,7 +164,7 @@
     {
       "icon": "qcf",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "カラミティワン",
+      "name": "カラミティ・ワン",
       "note": "無敵召喚 ／ 壁破壊",
       "tension": 50,
       "repeat": "×2"

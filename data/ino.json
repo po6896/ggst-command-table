@@ -161,15 +161,14 @@
   ],
   "overdrives": [
     {
-      "icon": "qcf",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-h\">HS</span>",
       "name": "メガロマニア",
       "note": "コマンド投げ ／ 失敗時飛び道具",
-      "tension": 50,
-      "repeat": "×2"
+      "tension": 50
     },
     {
-      "icon": "qcf",
+      "icon": "hcb-f",
       "btnHtml": "<span class=\"key-s\">S</span>",
       "name": "限界フォルテッシモ",
       "note": "ホバー飛び道具 ／ 空中可",
