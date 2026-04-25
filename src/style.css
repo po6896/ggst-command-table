@@ -41,6 +41,16 @@
     font-size: 15px;
     line-height: 1.5;
     letter-spacing: -0.165px;
+    /* Subtle CRT-like horizontal scanlines — replaces the SaaS-y radial
+       glow pattern. Off by default for users who set reduced-motion. */
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 2px,
+      rgba(255,255,255,0.015) 2px,
+      rgba(255,255,255,0.015) 3px
+    );
+    background-attachment: fixed;
   }
 
   /* === Top bar with official GGST logo === */
@@ -164,24 +174,35 @@
     .layout { grid-template-columns: 1fr; gap: 24px; }
   }
 
-  /* === Hero (Sol full-art panel) === */
+  /* === Hero panel — flat industrial card, no SaaS glow gradients === */
   .hero {
     position: relative;
     padding: 0;
     border: 1px solid var(--char-line);
-    border-radius: 10px;
-    background:
-      radial-gradient(120% 60% at 50% 0%, var(--char-bg) 0%, transparent 70%),
-      linear-gradient(180deg, rgba(15,16,17,0.0) 0%, var(--panel) 100%);
+    border-radius: 4px;
+    background: var(--panel);
     overflow: hidden;
+  }
+  /* Single faint top accent line in char-color — replaces the radial glow */
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      var(--char) 30%,
+      var(--char) 70%,
+      transparent 100%);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 1;
   }
   .hero-art {
     position: relative;
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    background:
-      radial-gradient(60% 50% at 50% 60%, color-mix(in srgb, var(--char) 18%, transparent) 0%, transparent 70%),
-      var(--bg);
+    background: var(--bg);
   }
   .hero-art img {
     width: 100%;
@@ -207,11 +228,14 @@
     margin-bottom: 6px;
   }
   .hero-body h1 {
-    font-family: "Big Shoulders Display", "Inter Variable", "Inter", sans-serif;
-    font-size: clamp(30px, 2.4vw, 40px);
-    font-weight: 900;
-    line-height: 0.95;
-    letter-spacing: 0.015em;
+    /* Russo One is a chunky, slightly italic SF/industrial face — closer
+       to GGST's official logo lineage (Eurostile / Microgramma) than
+       Big Shoulders Display's American-sport vibe. */
+    font-family: "Russo One", "Inter Variable", "Inter", sans-serif;
+    font-size: clamp(28px, 2.4vw, 38px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.02em;
     margin: 0;
     text-transform: uppercase;
     font-feature-settings: normal;
@@ -540,17 +564,14 @@
     background: rgba(147,197,253,0.10);
     border: 1px solid rgba(147,197,253,0.30);
   }
-  /* Shape-encode hit level so the cell is identifiable without color
-     (color-blind safety): ● mid / ▼ low / ▲ high */
-  .cell .tag::before {
-    content: "●";
-    margin-right: 3px;
-    font-size: 9px;
-    vertical-align: 1px;
-    opacity: 0.7;
+  /* Drop the Material-style ● ▼ ▲ glyphs in favor of a thicker left
+     border in the same hue — color-blind users can still distinguish
+     by border width + cell color, and the visual reads as fighting-game
+     status indicator rather than a Notion DB tag. */
+  .cell .tag {
+    border-left-width: 3px;
+    padding-left: 5px;
   }
-  .cell .tag.low::before  { content: "▼"; }
-  .cell .tag.high::before { content: "▲"; }
   .cell .tag.low {
     color: var(--hit-low);
     background: rgba(134,239,172,0.10);
@@ -792,17 +813,12 @@
   footer .key.mid  { color: var(--hit-mid);  background: rgba(147,197,253,0.10); border-color: rgba(147,197,253,0.30); }
   footer .key.low  { color: var(--hit-low);  background: rgba(134,239,172,0.10); border-color: rgba(134,239,172,0.30); }
   footer .key.high { color: var(--hit-high); background: rgba(252,211,77,0.10); border-color: rgba(252,211,77,0.30); }
-  /* Mirror the shape glyphs from the cells so the legend itself is
-     also readable without color. */
-  footer .key::before {
-    content: "●";
-    margin-right: 3px;
-    font-size: 9px;
-    vertical-align: 1px;
-    opacity: 0.7;
+  /* Same status-indicator metaphor as the cells: thicker colored
+     left border instead of Material-style glyphs. */
+  footer .key {
+    border-left-width: 3px;
+    padding-left: 5px;
   }
-  footer .key.low::before  { content: "▼"; }
-  footer .key.high::before { content: "▲"; }
   footer .legend .sep { color: var(--text-4); margin: 0 6px; }
   footer code {
     font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
