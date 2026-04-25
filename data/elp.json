@@ -129,30 +129,62 @@
   "specials": [
     {
       "icon": "qcf",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "チェーン・ロリポップ",
-      "note": "連係攻撃 ／ ガード困難"
+      "btnHtml": "<span class=\"key-s\">S</span> / <span class=\"key-h\">HS</span>",
+      "name": "Missシャルロット",
+      "note": "飛び道具 ／ 空中可"
     },
     {
       "icon": "qcb",
       "btnHtml": "<span class=\"key-k\">K</span>",
-      "name": "ボンボン・ショコラ",
-      "note": "機動 ／ 空中可"
+      "name": "Missシャルロット（お手入れ不足）",
+      "note": "派生飛び道具"
     },
     {
-      "icon": "qcf",
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ボンボン・ショコラ",
+      "note": "機動 ／ 突進"
+    },
+    {
+      "icon": "qcb",
+      "btnHtml": "<span class=\"key-s\">S</span>",
+      "name": "チェーン・ロリポップ",
+      "note": "始動 ／ 連係 ／ ループ可"
+    },
+    {
+      "icon": "button",
       "btnHtml": "<span class=\"key-p\">P</span>",
-      "name": "Missシャルロット",
-      "note": "飛び道具系統"
+      "name": "上から！",
+      "note": "ロリポップ中 ／ 中段派生"
+    },
+    {
+      "icon": "button",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "下から！",
+      "note": "ロリポップ中 ／ 下段派生"
+    },
+    {
+      "icon": "button",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "決めます！",
+      "note": "ロリポップ中 ／ 〆派生"
     }
   ],
   "overdrives": [
     {
       "icon": "hcb-f",
-      "btnHtml": "<span class=\"key-s\">S</span>",
-      "name": "ジュガン・ダ・パルフェオ",
-      "note": "無敵覚醒 ／ 発生13F",
+      "btnHtml": "<span class=\"key-h\">HS</span>",
+      "name": "ジュガント ダ パルフェーオ",
+      "note": "無敵突進 ／ 発生 13F",
       "tension": 50
+    },
+    {
+      "icon": "qcf2",
+      "btnHtml": "<span class=\"key-k\">K</span>",
+      "name": "ボンボニエール",
+      "note": "飛び道具乱舞",
+      "tension": 50,
+      "repeat": "×2"
     }
   ],
   "combos": [
