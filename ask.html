@@ -937,7 +937,22 @@
   /* 固有システム詳細 — character-unique mechanics drilldown.
      Sits between OD and システム共通. Block-grid layout so multiple
      subsystems (mana / deck / spells) read side-by-side on wide
-     viewports and stack cleanly below 1100px. */
+     viewports and stack cleanly below 1100px.
+
+     Category color tokens: each row in a magic / spell catalog can
+     carry data-cat, surfaced here as a left-border stripe + pill
+     badge color. Picked to track GGST in-game spell-ring colors:
+       mana = lime, bookmark = amber, attack = rose, special = violet.
+     TC1/2/3 are deck identity colors (yellow / green / blue). */
+  :root {
+    --cat-mana: #a3e635;
+    --cat-bookmark: #fbbf24;
+    --cat-attack: #f87171;
+    --cat-special: #a78bfa;
+    --cat-tc1: #fbbf24;
+    --cat-tc2: #4ade80;
+    --cat-tc3: #60a5fa;
+  }
   .mech-detail {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -945,16 +960,24 @@
   }
   @media (max-width: 1100px) { .mech-detail { grid-template-columns: 1fr; } }
   .mech-intro {
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     color: var(--text-2);
     font-size: 13px;
-    line-height: 1.45;
+    line-height: 1.5;
+    padding: 8px 12px;
+    background: var(--surface-1);
+    border-left: 2px solid var(--char);
+    border-radius: 0 3px 3px 0;
   }
   .mech-block {
     background: var(--surface-1);
     border: 1px solid var(--border);
     border-radius: 3px;
     padding: 10px 12px 12px;
+    min-width: 0;  /* allow tables to shrink inside grid cells */
+  }
+  .mech-block.full {
+    grid-column: 1 / -1;
   }
   .mech-block h3 {
     font-size: 12px;
@@ -975,6 +998,8 @@
     color: var(--text-4);
     font-size: 11px;
     line-height: 1.4;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border-subtle);
   }
   .mech-table {
     width: 100%;
@@ -1003,6 +1028,86 @@
     font-weight: 500;
     white-space: nowrap;
     width: 1%;
+  }
+  /* Category-coded rows in the magic catalog: left-stripe via the
+     first cell's box-shadow (border on td gets clipped by collapse). */
+  .mech-table tbody tr.cat-mana td:first-child,
+  .mech-table tbody tr.cat-bookmark td:first-child,
+  .mech-table tbody tr.cat-attack td:first-child,
+  .mech-table tbody tr.cat-special td:first-child {
+    padding-left: 8px;
+    box-shadow: inset 3px 0 0 0 currentColor;
+  }
+  .mech-table tbody tr.cat-mana { color: var(--cat-mana); }
+  .mech-table tbody tr.cat-bookmark { color: var(--cat-bookmark); }
+  .mech-table tbody tr.cat-attack { color: var(--cat-attack); }
+  .mech-table tbody tr.cat-special { color: var(--cat-special); }
+  .mech-table tbody tr.cat-mana td:not(:first-child),
+  .mech-table tbody tr.cat-bookmark td:not(:first-child),
+  .mech-table tbody tr.cat-attack td:not(:first-child),
+  .mech-table tbody tr.cat-special td:not(:first-child) {
+    color: var(--text-2);  /* keep body text readable */
+  }
+  .cat-pill {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    font-weight: 590;
+    padding: 1px 6px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.04);
+    color: currentColor;
+    border: 1px solid currentColor;
+  }
+  /* Parallel comparison cards — used for Test Case decks etc. */
+  .mech-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  @media (max-width: 1100px) { .mech-cards { grid-template-columns: 1fr; } }
+  .mech-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--char-line);
+    border-radius: 3px;
+    padding: 8px 10px 10px;
+    min-width: 0;
+  }
+  .mech-card.cat-tc1 { border-top-color: var(--cat-tc1); }
+  .mech-card.cat-tc2 { border-top-color: var(--cat-tc2); }
+  .mech-card.cat-tc3 { border-top-color: var(--cat-tc3); }
+  .mech-card header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 0 0 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed var(--border-subtle);
+  }
+  .mech-card .card-label {
+    font-family: "Russo One", "Inter Variable", sans-serif;
+    font-size: 16px;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .mech-card.cat-tc1 .card-label { color: var(--cat-tc1); }
+  .mech-card.cat-tc2 .card-label { color: var(--cat-tc2); }
+  .mech-card.cat-tc3 .card-label { color: var(--cat-tc3); }
+  .mech-card .card-sub {
+    font-size: 11px;
+    color: var(--text-3);
+    letter-spacing: 0.02em;
+  }
+  .mech-table.compact tbody td {
+    font-size: 11px;
+    padding: 3px 6px 3px 0;
+  }
+  .mech-table.compact tbody td:first-child {
+    color: var(--text-3);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
 </style>
@@ -1306,7 +1411,8 @@
     </details>
 
     <details class="sect" open>
-      <summary><h2>固有システム詳細</h2><span class="count">5</span><span class="accent-bar"></span></summary>
+      <summary><h2>固有システム詳細</h2><span class="count">6</span><span class="accent-bar"></span></summary>
+      <p class="mech-intro">マナ・詠唱書・デッキの 3 軸を運用するキャラ。配牌された魔法を 236 で発動、214 で保存、22HS で配牌プール (TC) を切替、22+P/K で TC 連動の杖を設置する。</p>
       <div class="mech-detail">
       <article class="mech-block">
         <h3>マナ管理</h3>
@@ -1316,15 +1422,29 @@
           <tbody>
           <tr><td>最大値</td><td>100% (試合開始時)</td></tr>
           <tr><td>減少</td><td>被弾・被ガード・魔法発動で消費</td></tr>
-          <tr><td>ペナルティ</td><td>0 で 7 秒間 (420F) チャージ → 魔法不可・防御低下</td></tr>
-          <tr><td>回復技</td><td>22S 即時 +24% / 「マナ回復(継続)」で 15 秒間 +8%/秒</td></tr>
+          <tr><td>自然回復</td><td>なし (技で回復)</td></tr>
+          <tr><td>ペナルティ</td><td>0 で 7 秒 (420F) チャージ。魔法不可 + 防御低下</td></tr>
+          <tr><td>回復技</td><td>22S 即時 +24% (溜め可)</td></tr>
           <tr><td>防御係数</td><td>バリア有 0.75 (全キャラ最高) / 無 1.50 (全キャラ最低)</td></tr>
           </tbody>
         </table>
       </article>
       <article class="mech-block">
+        <h3>シンセサイズ (杖) — 22+P/K</h3>
+        <p class="mech-summary">マナ 10% で杖を設置 (5 秒・画面内 1 種類)。TC ごとに杖効果が切替。</p>
+        <table class="mech-table">
+          <thead><tr><th>TC</th><th>杖の効果</th></tr></thead>
+          <tbody>
+          <tr><td>1 三日月</td><td>弾速操作 (P 加速 / K 減速)</td></tr>
+          <tr><td>2 半月</td><td>上下操作 (P 上昇 / K 下降)</td></tr>
+          <tr><td>3 満月</td><td>引力操作 (P 引寄せ / K 斥力)</td></tr>
+          </tbody>
+        </table>
+        <p class="mech-foot">派生: 詠唱・ブックマークへキャンセル可。シンセサイズ自体はストック消費なし。</p>
+      </article>
+      <article class="mech-block">
         <h3>詠唱書 (ブックマーク) — 4 スロット</h3>
-        <p class="mech-summary">214+P/K/S/HS で対応スロットに保存・破棄。空欄に補充する魔法あり。</p>
+        <p class="mech-summary">214+P/K/S/HS で対応スロットに保存・破棄。空きを補充する魔法あり。</p>
         <table class="mech-table">
           <thead><tr><th>魔法</th><th>消費</th><th>効果</th></tr></thead>
           <tbody>
@@ -1335,45 +1455,65 @@
         </table>
       </article>
       <article class="mech-block">
-        <h3>テストケース (デッキ切替) — 22HS</h3>
-        <p class="mech-summary">3 種のデッキを切替。配牌される魔法プールが変化。</p>
+        <h3>ブックマーク・フルオーダー — 63214→6S 覚醒</h3>
+        <p class="mech-summary">全スロットを 6 秒かけて自由に組み替えできる唯一の手段。</p>
         <table class="mech-table">
-          <thead><tr><th>TC</th><th>通称</th><th>傾向</th></tr></thead>
+          <thead><tr><th>項目</th><th>値</th></tr></thead>
           <tbody>
-          <tr><td>1</td><td>三日月 (黄)</td><td>射撃重視。ハウリングメトロン系 19 枚で基本構成</td></tr>
-          <tr><td>2</td><td>半月 (緑)</td><td>崩し重視。拘束系・中下段バリエーション豊富</td></tr>
-          <tr><td>3</td><td>満月 (青)</td><td>弾幕制圧。高火力 + 非攻撃 4 枚で事故リスク高</td></tr>
+          <tr><td>持続</td><td>最大 6 秒</td></tr>
+          <tr><td>マナ消費</td><td>最大 62% (消費軽減適用時 92%)</td></tr>
+          <tr><td>TC 跨ぎ</td><td>動作中 4/6 入力で TC 変更可</td></tr>
+          <tr><td>強制終了</td><td>マナ枯渇で即終了</td></tr>
+          <tr><td>弱点</td><td>発動まで無敵なし。暗転前に潰されるリスク</td></tr>
           </tbody>
         </table>
       </article>
-      <article class="mech-block">
-        <h3>代表的な攻撃魔法 (236+P/K/S/HS)</h3>
-        <p class="mech-summary">TC とブックマーク内容で発動可能なものが変わる。抜粋。</p>
+      <article class="mech-block full">
+        <h3>魔法カタログ — 全 20 種</h3>
+        <p class="mech-summary">236+P/K/S/HS (攻撃)・22S (マナ系)・214系 (ブックマーク)・特殊で発動。配牌に依存。</p>
         <table class="mech-table">
-          <thead><tr><th>魔法</th><th>消費</th><th>効果</th></tr></thead>
+          <thead><tr><th>カテゴリ</th><th>魔法</th><th>消費</th><th>効果</th><th>用途</th></tr></thead>
           <tbody>
-          <tr><td>ハウリングメトロン</td><td>12%</td><td>直進キューブ ／ 基本飛び道具</td></tr>
-          <tr><td>MS プロセッシング</td><td>20%</td><td>上下散弾 ／ 制圧</td></tr>
-          <tr><td>メトロンアルペジオ</td><td>28%</td><td>10 発広範囲 ／ 弾幕</td></tr>
-          <tr><td>テラメトロン</td><td>20%</td><td>地割れ下段</td></tr>
-          <tr><td>アキピテルメトロン</td><td>20%</td><td>落下中段 ／ 崩し主軸</td></tr>
-          <tr><td>アクィラメトロン</td><td>20%</td><td>凍結付与 ／ 14F 無敵</td></tr>
-          <tr><td>ゴートゥマーカー</td><td>8%</td><td>8 方向転移 ／ 無敵付き</td></tr>
-          <tr><td>サンプラー404</td><td>4%</td><td>次の魔法消費なし</td></tr>
+          <tr class="cat-mana"><td><span class="cat-pill cat-mana">マナ</span></td><td>マナ消費軽減</td><td>6%</td><td>5 秒間 魔法消費 50% 軽減</td><td>攻勢時の維持</td></tr>
+          <tr class="cat-mana"><td><span class="cat-pill cat-mana">マナ</span></td><td>マナ回復 (継続)</td><td>8%</td><td>15 秒間 +8%/秒</td><td>防勢時の回復</td></tr>
+          <tr class="cat-mana"><td><span class="cat-pill cat-mana">マナ</span></td><td>マナ回復 (即時)</td><td>4%</td><td>+24% を即時付与</td><td>緊急回復</td></tr>
+          <tr class="cat-bookmark"><td><span class="cat-pill cat-bookmark">BM</span></td><td>フルインポート</td><td>4%</td><td>空きスロット全補充</td><td>素早い補充</td></tr>
+          <tr class="cat-bookmark"><td><span class="cat-pill cat-bookmark">BM</span></td><td>ランダムインポート</td><td>6%</td><td>全破棄 + ランダム再セット</td><td>手札リセット</td></tr>
+          <tr class="cat-bookmark"><td><span class="cat-pill cat-bookmark">BM</span></td><td>オートインポート</td><td>8%</td><td>10 秒間 詠唱後に自動セット</td><td>テンポ維持</td></tr>
+          <tr class="cat-attack"><td><span class="cat-pill cat-attack">攻撃</span></td><td>ハウリングメトロン</td><td>12%</td><td>直進キューブ</td><td>基本飛び道具</td></tr>
+          <tr class="cat-attack"><td><span class="cat-pill cat-attack">攻撃</span></td><td>ハウリングメトロンディレイ</td><td>16%</td><td>3 ヒット拘束</td><td>固め用</td></tr>
+          <tr class="cat-attack"><td><span class="cat-pill cat-attack">攻撃</span></td><td>MS プロセッシング</td><td>20%</td><td>上下散弾</td><td>制圧力重視</td></tr>
+          <tr class="cat-attack"><td><span class="cat-pill cat-attack">攻撃</span></td><td>メトロンスクリーマー</td><td>20%</td><td>円形爆発</td><td>近距離</td></tr>
+          <tr class="cat-attack"><td><span class="cat-pill cat-attack">攻撃</span></td><td>メトロンアルペジオ</td><td>28%</td><td>10 発広範囲</td><td>弾幕形成</td></tr>
+          <tr class="cat-attack"><td><span class="cat-pill cat-attack">攻撃</span></td><td>タルドゥスメトロン</td><td>16%</td><td>巨大 3 ヒット</td><td>低速飛び道具</td></tr>
+          <tr class="cat-attack"><td><span class="cat-pill cat-attack">攻撃</span></td><td>テラメトロン</td><td>20%</td><td>地面割れ</td><td>下段判定</td></tr>
+          <tr class="cat-attack"><td><span class="cat-pill cat-attack">攻撃</span></td><td>アキピテルメトロン</td><td>20%</td><td>落下型中段</td><td>崩し主軸</td></tr>
+          <tr class="cat-attack"><td><span class="cat-pill cat-attack">攻撃</span></td><td>アクィラメトロン</td><td>20%</td><td>凍結付与 / 14F 無敵</td><td>無敵切返し</td></tr>
+          <tr class="cat-attack"><td><span class="cat-pill cat-attack">攻撃</span></td><td>ビットシフトメトロン</td><td>20%</td><td>経過時間で威力可変</td><td>持久戦</td></tr>
+          <tr class="cat-attack"><td><span class="cat-pill cat-attack">攻撃</span></td><td>RMS ブースト</td><td>20%</td><td>複数ページ光線</td><td>レベル依存火力</td></tr>
+          <tr class="cat-special"><td><span class="cat-pill cat-special">特殊</span></td><td>ゴートゥマーカー</td><td>8%</td><td>8 方向転移 / 無敵付き</td><td>位置調整・裏回り</td></tr>
+          <tr class="cat-special"><td><span class="cat-pill cat-special">特殊</span></td><td>サンプラー404</td><td>4%</td><td>次の魔法が消費されない</td><td>重要魔法の保護</td></tr>
+          <tr class="cat-special"><td><span class="cat-pill cat-special">特殊</span></td><td>ケイオスオプション</td><td>4%</td><td>ランダムな強力魔法出現</td><td>運任せ選択肢</td></tr>
           </tbody>
         </table>
       </article>
-      <article class="mech-block">
-        <h3>シンセサイズ (杖) — 22+P/K</h3>
-        <p class="mech-summary">マナ 10% で杖を設置 (5 秒・画面内 1 種類)。TC ごとに効果が変化。</p>
-        <table class="mech-table">
-          <thead><tr><th>TC</th><th>杖の効果</th></tr></thead>
-          <tbody>
-          <tr><td>1</td><td>弾速操作 (P 加速 / K 減速)</td></tr>
-          <tr><td>2</td><td>上下操作 (P 上昇 / K 下降)</td></tr>
-          <tr><td>3</td><td>引力操作 (P 引寄せ / K 斥力)</td></tr>
-          </tbody>
-        </table>
+      <article class="mech-block full">
+        <h3>テストケース — 3 デッキ並列比較</h3>
+        <p class="mech-summary">22HS で切替。プールされる魔法構成とシンセサイズ杖が変化。</p>
+        <div class="mech-cards">
+          <article class="mech-card cat-tc1">
+            <header><span class="card-label">TC1</span><span class="card-sub">三日月 (黄) ／ 射撃重視</span></header>
+            <table class="mech-table compact"><tbody><tr><td>マナ系</td><td>消費軽減 ×1</td></tr><tr><td>BM 系</td><td>フルインポート ×2</td></tr><tr><td>攻撃系</td><td>ハウリング系 19 / 中距離豊富</td></tr><tr><td>杖</td><td>弾速操作 (P 加速 / K 減速)</td></tr><tr><td>特徴</td><td>基本魔法が豊富で扱いやすい</td></tr></tbody></table>
+          </article>
+          <article class="mech-card cat-tc2">
+            <header><span class="card-label">TC2</span><span class="card-sub">半月 (緑) ／ 崩し重視</span></header>
+            <table class="mech-table compact"><tbody><tr><td>マナ系</td><td>回復 (即時) ×1</td></tr><tr><td>BM 系</td><td>ランダムインポート ×2</td></tr><tr><td>攻撃系</td><td>拘束系多数 / 中下段豊富</td></tr><tr><td>杖</td><td>上下操作 (P 上昇 / K 下降)</td></tr><tr><td>特徴</td><td>択攻め強いが回復量少</td></tr></tbody></table>
+          </article>
+          <article class="mech-card cat-tc3">
+            <header><span class="card-label">TC3</span><span class="card-sub">満月 (青) ／ 弾幕制圧</span></header>
+            <table class="mech-table compact"><tbody><tr><td>マナ系</td><td>回復 (継続) ×1</td></tr><tr><td>BM 系</td><td>オートインポート ×1</td></tr><tr><td>攻撃系</td><td>高火力多数 / ゴートゥマーカー ×4</td></tr><tr><td>杖</td><td>引力操作 (P 引寄せ / K 斥力)</td></tr><tr><td>特徴</td><td>非攻撃 4 枚で手札事故リスク高</td></tr></tbody></table>
+          </article>
+        </div>
       </article>
       </div>
     </details>

@@ -924,7 +924,22 @@
   /* 固有システム詳細 — character-unique mechanics drilldown.
      Sits between OD and システム共通. Block-grid layout so multiple
      subsystems (mana / deck / spells) read side-by-side on wide
-     viewports and stack cleanly below 1100px. */
+     viewports and stack cleanly below 1100px.
+
+     Category color tokens: each row in a magic / spell catalog can
+     carry data-cat, surfaced here as a left-border stripe + pill
+     badge color. Picked to track GGST in-game spell-ring colors:
+       mana = lime, bookmark = amber, attack = rose, special = violet.
+     TC1/2/3 are deck identity colors (yellow / green / blue). */
+  :root {
+    --cat-mana: #a3e635;
+    --cat-bookmark: #fbbf24;
+    --cat-attack: #f87171;
+    --cat-special: #a78bfa;
+    --cat-tc1: #fbbf24;
+    --cat-tc2: #4ade80;
+    --cat-tc3: #60a5fa;
+  }
   .mech-detail {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -932,16 +947,24 @@
   }
   @media (max-width: 1100px) { .mech-detail { grid-template-columns: 1fr; } }
   .mech-intro {
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     color: var(--text-2);
     font-size: 13px;
-    line-height: 1.45;
+    line-height: 1.5;
+    padding: 8px 12px;
+    background: var(--surface-1);
+    border-left: 2px solid var(--char);
+    border-radius: 0 3px 3px 0;
   }
   .mech-block {
     background: var(--surface-1);
     border: 1px solid var(--border);
     border-radius: 3px;
     padding: 10px 12px 12px;
+    min-width: 0;  /* allow tables to shrink inside grid cells */
+  }
+  .mech-block.full {
+    grid-column: 1 / -1;
   }
   .mech-block h3 {
     font-size: 12px;
@@ -962,6 +985,8 @@
     color: var(--text-4);
     font-size: 11px;
     line-height: 1.4;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border-subtle);
   }
   .mech-table {
     width: 100%;
@@ -990,4 +1015,84 @@
     font-weight: 500;
     white-space: nowrap;
     width: 1%;
+  }
+  /* Category-coded rows in the magic catalog: left-stripe via the
+     first cell's box-shadow (border on td gets clipped by collapse). */
+  .mech-table tbody tr.cat-mana td:first-child,
+  .mech-table tbody tr.cat-bookmark td:first-child,
+  .mech-table tbody tr.cat-attack td:first-child,
+  .mech-table tbody tr.cat-special td:first-child {
+    padding-left: 8px;
+    box-shadow: inset 3px 0 0 0 currentColor;
+  }
+  .mech-table tbody tr.cat-mana { color: var(--cat-mana); }
+  .mech-table tbody tr.cat-bookmark { color: var(--cat-bookmark); }
+  .mech-table tbody tr.cat-attack { color: var(--cat-attack); }
+  .mech-table tbody tr.cat-special { color: var(--cat-special); }
+  .mech-table tbody tr.cat-mana td:not(:first-child),
+  .mech-table tbody tr.cat-bookmark td:not(:first-child),
+  .mech-table tbody tr.cat-attack td:not(:first-child),
+  .mech-table tbody tr.cat-special td:not(:first-child) {
+    color: var(--text-2);  /* keep body text readable */
+  }
+  .cat-pill {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    font-weight: 590;
+    padding: 1px 6px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.04);
+    color: currentColor;
+    border: 1px solid currentColor;
+  }
+  /* Parallel comparison cards — used for Test Case decks etc. */
+  .mech-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  @media (max-width: 1100px) { .mech-cards { grid-template-columns: 1fr; } }
+  .mech-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--char-line);
+    border-radius: 3px;
+    padding: 8px 10px 10px;
+    min-width: 0;
+  }
+  .mech-card.cat-tc1 { border-top-color: var(--cat-tc1); }
+  .mech-card.cat-tc2 { border-top-color: var(--cat-tc2); }
+  .mech-card.cat-tc3 { border-top-color: var(--cat-tc3); }
+  .mech-card header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 0 0 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed var(--border-subtle);
+  }
+  .mech-card .card-label {
+    font-family: "Russo One", "Inter Variable", sans-serif;
+    font-size: 16px;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .mech-card.cat-tc1 .card-label { color: var(--cat-tc1); }
+  .mech-card.cat-tc2 .card-label { color: var(--cat-tc2); }
+  .mech-card.cat-tc3 .card-label { color: var(--cat-tc3); }
+  .mech-card .card-sub {
+    font-size: 11px;
+    color: var(--text-3);
+    letter-spacing: 0.02em;
+  }
+  .mech-table.compact tbody td {
+    font-size: 11px;
+    padding: 3px 6px 3px 0;
+  }
+  .mech-table.compact tbody td:first-child {
+    color: var(--text-3);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }

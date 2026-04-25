@@ -233,22 +233,44 @@ function renderMechanicDetail(detail) {
   const total = detail.sections.length;
   const blocks = detail.sections.map(s => {
     const summary = s.summary ? `        <p class="mech-summary">${s.summary}</p>` : '';
+    const foot = s.footnote ? `        <p class="mech-foot">${s.footnote}</p>` : '';
+    const blockClass = s.width === 'full' ? 'mech-block full' : 'mech-block';
+
+    let body = '';
     const t = s.table;
-    let tbl = '';
     if (t && Array.isArray(t.headers) && Array.isArray(t.rows)) {
       const head = t.headers.map(h => `<th>${h}</th>`).join('');
-      const body = t.rows.map(row => `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`).join('\n          ');
-      tbl = `        <table class="mech-table">
+      const body_rows = t.rows.map(row => {
+        if (Array.isArray(row)) {
+          return `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`;
+        }
+        const cat = row.cat ? ` class="cat-${row.cat}"` : '';
+        const cells = (row.cells || []).map((c, i) => i === 0 && row.cat ? `<td><span class="cat-pill cat-${row.cat}">${c}</span></td>` : `<td>${c}</td>`).join('');
+        return `<tr${cat}>${cells}</tr>`;
+      }).join('\n          ');
+      body = `        <table class="mech-table">
           <thead><tr>${head}</tr></thead>
           <tbody>
-          ${body}
+          ${body_rows}
           </tbody>
         </table>`;
+    } else if (Array.isArray(s.cards)) {
+      body = `        <div class="mech-cards">
+${s.cards.map(card => {
+        const cat = card.cat ? ` cat-${card.cat}` : '';
+        const sub = card.subtitle ? `<span class="card-sub">${card.subtitle}</span>` : '';
+        const rows = (card.rows || []).map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+        return `          <article class="mech-card${cat}">
+            <header><span class="card-label">${card.label}</span>${sub}</header>
+            <table class="mech-table compact"><tbody>${rows}</tbody></table>
+          </article>`;
+      }).join('\n')}
+        </div>`;
     }
-    const foot = s.footnote ? `        <p class="mech-foot">${s.footnote}</p>` : '';
-    return `      <article class="mech-block">
+
+    return `      <article class="${blockClass}">
         <h3>${s.title}</h3>
-${[summary, tbl, foot].filter(Boolean).join('\n')}
+${[summary, body, foot].filter(Boolean).join('\n')}
       </article>`;
   }).join('\n');
   const intro = detail.intro ? `      <p class="mech-intro">${detail.intro}</p>\n` : '';
