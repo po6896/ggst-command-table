@@ -158,10 +158,11 @@
       "note": "4溜め6 ／ アーマー突進"
     },
     {
-      "icon": "qcf",
+      "icon": "button",
       "btnHtml": "<span class=\"key-p\">P</span>",
       "name": "ハンマフォールブレーキ",
-      "note": "HF中Pでキャンセル"
+      "prefix": "HF中",
+      "note": "ハンマフォールキャンセル ／ 急停止"
     },
     {
       "icon": "dp",
